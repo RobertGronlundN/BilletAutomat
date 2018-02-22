@@ -39,7 +39,7 @@ public class Billetautomat {
 		balance = balance + beløb; 
                 
                 Date date = new Date();
-                automatLog.add(date.toString()+"Indsat: " + beløb + " kr., ny balance: " + balance + " kr.\n");
+                automatLog.add(date.toString()+"\t | Indsat: " + beløb + " kr., ny balance: " + balance + " kr.\n");
 	}
 
 	/**
@@ -54,12 +54,12 @@ public class Billetautomat {
                 validBalance = true;  
                 
                 Date date = new Date();
-                automatLog.add(date.toString()+"Balance i orden\n");	
+                automatLog.add(date.toString()+"\t | Balance i orden\n");	
             } else {
                 validBalance = false; 
                 
                 Date date = new Date();
-                automatLog.add(date.toString()+"Balance ikke høj nok\n");
+                automatLog.add(date.toString()+"\t | Balance ikke høj nok\n");
             }
             return validBalance;
         }
@@ -87,7 +87,7 @@ public class Billetautomat {
 		balance = balance - billetpris; // Billetter koster 10 kroner
 
                 Date date = new Date();
-                automatLog.add(date.toString()+"Billet udskrevet til "+ billetpris +"kr., ny balance"+balance+"kr.\n");
+                automatLog.add(date.toString()+"\t | Billet udskrevet til "+ billetpris +" kr., ny balance: "+balance+" kr.\n");
 	}
 
 
@@ -97,7 +97,7 @@ public class Billetautomat {
 		System.out.println("Du får "+returbeløb+" kr retur");		
                 
                 Date date = new Date();
-                automatLog.add(date.toString()+"Returneret" + returbeløb + " kr. \n");
+                automatLog.add(date.toString()+"\t | Returneret " + returbeløb + " kr. \n");
                 
                 return returbeløb;
         }
