@@ -38,6 +38,10 @@ public class Billetautomat {
 	public int getBalance() {
 		return balance;
 	}
+        
+        public int checkBalance(){
+            
+        }
 
 	/**
 	 * Udskriv en billet.
