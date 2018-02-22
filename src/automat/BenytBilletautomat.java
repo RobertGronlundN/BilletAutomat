@@ -37,7 +37,12 @@ public class BenytBilletautomat
 				automat.indsætPenge(beløb);
 			}
 			else if (valg==2) {
-				automat.udskrivBillet();
+                                if (automat.checkBalance() == true){
+                                    automat.udskrivBillet();
+                                } else {
+                                    System.out.println("Balance for lav, indbetal penge");
+                                }
+				
 			}
 			else if (valg==3) {
 				int beløb = automat.returpenge();
