@@ -11,8 +11,10 @@ public class Billetautomat {
 	private int balance; // Hvor mange penge kunden p.t. har puttet i automaten
 	private int antalBilletterSolgt; // Antal billetter automaten i alt har solgt
 	private boolean montørtilstand;
-        private boolean validBalance=false;
-
+        private boolean validBalance = false;
+        
+        ArrayList<String> automatLog = new ArrayList<String>();
+        
 	/**
 	 * Opret en billetautomat der sælger billetter til 10 kr.
 	 */
@@ -34,7 +36,10 @@ public class Billetautomat {
 	 * Modtag nogle penge (i kroner) fra en kunde.
 	 */
 	public void indsætPenge(int beløb) {
-		balance = balance + beløb;
+		balance = balance + beløb; 
+                
+                Date date = new Date();
+                automatLog.add(date.toString()+"Indsat: " + beløb + " kr., ny balance: " + balance + " kr.\n");
 	}
 
 	/**
@@ -46,9 +51,15 @@ public class Billetautomat {
         
         public boolean checkBalance(){
             if (balance >= billetpris){
-                validBalance = true;
+                validBalance = true;  
+                
+                Date date = new Date();
+                automatLog.add(date.toString()+"Balance i orden\n");	
             } else {
-                validBalance = false;
+                validBalance = false; 
+                
+                Date date = new Date();
+                automatLog.add(date.toString()+"Balance ikke høj nok\n");
             }
             return validBalance;
         }
@@ -74,15 +85,24 @@ public class Billetautomat {
 
 		antalBilletterSolgt = antalBilletterSolgt + 1;
 		balance = balance - billetpris; // Billetter koster 10 kroner
+
+                Date date = new Date();
+                automatLog.add(date.toString()+"Billet udskrevet til "+ billetpris +"kr., ny balance"+balance+"kr.\n");
 	}
 
 
 	public int returpenge() {
 		int returbeløb = balance;
 		balance = 0;
-		System.out.println("Du får "+returbeløb+" kr retur");
-		return returbeløb;
-	}
+		System.out.println("Du får "+returbeløb+" kr retur");		
+                
+                Date date = new Date();
+                automatLog.add(date.toString()+"Returneret" + returbeløb + " kr. \n");
+                
+                return returbeløb;
+        }
+        
+        
 
 	
 	void montørLogin(String adgangskode) {
@@ -138,4 +158,9 @@ public class Billetautomat {
 	public boolean erMontør() {
 		return montørtilstand;
 	}
+        
+        public void getLog(){
+            System.out.println(automatLog);
+        }
+        
 }
