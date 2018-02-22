@@ -2,6 +2,10 @@ package automat;
 /**
  * Model af en simpel billetautomat til enkeltbilletter med én fast pris.
  */
+
+import java.util.ArrayList;
+import java.util.Date;
+
 public class Billetautomat {
 	private int billetpris;    // Prisen for én billet.
 	private int balance; // Hvor mange penge kunden p.t. har puttet i automaten
