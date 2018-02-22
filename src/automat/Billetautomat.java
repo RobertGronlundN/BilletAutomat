@@ -7,6 +7,7 @@ public class Billetautomat {
 	private int balance; // Hvor mange penge kunden p.t. har puttet i automaten
 	private int antalBilletterSolgt; // Antal billetter automaten i alt har solgt
 	private boolean montørtilstand;
+        private boolean validBalance=false;
 
 	/**
 	 * Opret en billetautomat der sælger billetter til 10 kr.
@@ -39,8 +40,13 @@ public class Billetautomat {
 		return balance;
 	}
         
-        public int checkBalance(){
-            
+        public boolean checkBalance(){
+            if (balance >= billetpris){
+                validBalance = true;
+            } else {
+                validBalance = false;
+            }
+            return validBalance;
         }
 
 	/**
