@@ -1,7 +1,5 @@
 package automat;
 
-    // Robert.Test.4
-    // Benjamin.test.100
 
 public class BenytBilletautomatRedigering
 {
@@ -24,19 +22,23 @@ public class BenytBilletautomatRedigering
             if (automat.erMontør()) {
                 System.out.println("Tast 11 | Se status (montør)");
                 System.out.println("Tast 12 | Nulstil (montør)");
-                System.out.println("Tast 13 | Sæt billetpris (montør)");
-                System.out.println("Tast 14 | Sæt zone (montør)");
-                System.out.println("Tast 15 | Udskriv log (montør)");
-                System.out.println("Tast 16 | Log ud af montørtilstand");
+                System.out.println("Tast 13 | Sæt zone (montør)");
+                System.out.println("Tast 14 | Udskriv log (montør)");
+                System.out.println("Tast 15 | Log ud af montørtilstand");
             }
             int start = tastatur.nextInt();
             tastatur.nextLine();
+            
+            double billetType = 0;
+            int billetZone = 0;
+            int billetAntal = 0;
+            int billetPris = 0;
             
             switch (start){
                 case 1:
                     
                     int personType;
-                    
+                                        
                     do
                     {
                     System.out.println("Tast 1 | Voksen (16+)");
@@ -49,32 +51,32 @@ public class BenytBilletautomatRedigering
                     switch(personType){
                         case 1:                        
                         System.out.println("Voksenbillet (16+) valgt");
-                        // Indsæt funktion for tilføjelse af voksenbillet
+                        billetType = 1;
                         break;
                         
                         case 2:                        
                         System.out.println("Børnebillet valgt");
-                        // Indsæt funktion for tilføjelse af børnebillet
+                        billetType = 0.5;
                         break;
                         
                         case 3:
                         System.out.println("Billet til studerende valgt (husk gyldig studiekort)");
-                        // Indsæt funktion for tilføjelse af studerende
+                        billetType = 0.8;
                         break;
                         
                         case 4:
                         System.out.println("Pensionistbillet valgt");
-                        // Indsæt funktion for tilføjelse af penseionist
+                        billetType = 0.8;
                         break;
                         
                         case 5:
                         System.out.println("Hundebillet valgt");
-                        // Indsæt funktion for tilføjelse af penseionist
+                        billetType = 0.5;
                         break;
                         
                         case 6:
                         System.out.println("Cykelbillet valgt");
-                        // Indsæt funktion for tilføjelse af penseionist
+                        billetType = 0.5;
                         break;
                     
                         default:
@@ -108,32 +110,32 @@ public class BenytBilletautomatRedigering
                             switch(zoneValg){
                                 case 1:                        
                                 System.out.println("1 zone valgt");
-                                // Indsæt funktion for tilføjelse af 1 zone 
+                                billetZone = 1;
                                 break;
 
                                 case 2:                        
                                 System.out.println("2 zoner valgt");
-                                // Indsæt funktion for tilføjelse af 2 zoner
+                                billetZone = 2;
                                 break;
 
                                 case 3:
                                 System.out.println("3 zoner valgt");
-                                // Indsæt funktion for tilføjelse af 3 zoner
+                                billetZone = 3;
                                 break;
 
                                 case 4:
                                 System.out.println("4 zoner valgt");
-                                // Indsæt funktion for tilføjelse af 4 zoner
+                                billetZone = 4;
                                 break;
 
                                 case 5:
                                 System.out.println("5 zoner valgt");
-                                // Indsæt funktion for tilføjelse af 5 zoner
+                                billetZone = 5;
                                 break;
 
                                 case 6:
                                 System.out.println("6 zoner valgt");
-                                // Indsæt funktion for tilføjelse af 6 zoner
+                                billetZone = 6;
                                 break;
 
                                 default:
@@ -146,7 +148,7 @@ public class BenytBilletautomatRedigering
                         case 2:                        
                         System.out.println("Hvilken zone ender rejsen i?");
                         int slutZone = tastatur.nextInt();
-                        // automat.zoneBeregner(slutZone);
+                        billetZone = automat.zoneBeregner(slutZone);
                         break;                                           
                     
                         default:
@@ -156,7 +158,7 @@ public class BenytBilletautomatRedigering
                     } while (zoneType == 0);
                     
                     System.out.println("Vælg antal billetter:");
-                    int antalBilletter = tastatur.nextInt();
+                    billetAntal = tastatur.nextInt();
                     
                     // INDKØBSKURV
                     System.out.println("Indkøbskurv er nu: bla bla bla");
@@ -209,6 +211,8 @@ public class BenytBilletautomatRedigering
                         int beløb = tastatur.nextInt();
                         automat.indsætPenge(beløb);
                         
+                        automat.setBilletpris(billetType, billetZone, billetAntal);       
+                        
                         if (automat.checkBalance() == true){
                         godkendtBetaling = true;
                         automat.udskrivBillet();
@@ -248,22 +252,15 @@ public class BenytBilletautomatRedigering
                     break;
                 case 13:
                     {
-                    System.out.print("Sæt ny billetpris: ");
-                    int beløb = tastatur.nextInt();
-                    automat.setBilletpris(beløb);
-                    break;
-                    }
-                case 14:
-                    {
                     System.out.print("Sæt ny zone: ");
                     int zone = tastatur.nextInt();
                     //automat.setZone(zone);
                     break;
                     }    
-                case 15:
+                case 14:
                     automat.getLog();
                     break;
-                case 16:
+                case 15:
                     automat.montørLogin("");                    
                     break;
                 default:
