@@ -1,6 +1,7 @@
 package automat;
 
     // Robert.Test.4
+    // Benjamin.test.100
 
 public class BenytBilletautomat
 {
