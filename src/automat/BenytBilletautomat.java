@@ -32,10 +32,10 @@ public class BenytBilletautomat
                 System.out.println("Tast 15 for udskrivning af log (montør)");
                 System.out.println("Tast 16 for at logge ud af montørtilstand");
             }
-            int valg = tastatur.nextInt();
+            int start = tastatur.nextInt();
             tastatur.nextLine();
 
-            switch (valg) {
+            switch (start) {
                 case 1:
                 {                    
                     int betalingsMetode;
