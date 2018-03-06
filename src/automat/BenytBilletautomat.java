@@ -27,8 +27,9 @@ public class BenytBilletautomat
                 System.out.println("Tast 11 for at se status (montør)");
                 System.out.println("Tast 12 for at nulstille (montør)");
                 System.out.println("Tast 13 for at sætte billetpris (montør)");
-                System.out.println("Tast 14 for udskrivning af log (montør)");
-                System.out.println("Tast 15 for at logge ud af montørtilstand");
+                System.out.println("Tast 14 for at sætte zone (montør)");
+                System.out.println("Tast 15 for udskrivning af log (montør)");
+                System.out.println("Tast 16 for at logge ud af montørtilstand");
             }
             int valg = tastatur.nextInt();
             tastatur.nextLine();
@@ -98,15 +99,22 @@ public class BenytBilletautomat
                     break;
                 case 13:
                     {
-                    System.out.print("Skriv beløb: ");
+                    System.out.print("Sæt ny billetpris: ");
                     int beløb = tastatur.nextInt();
                     automat.setBilletpris(beløb);
                     break;
                     }
                 case 14:
+                    {
+                    System.out.print("Sæt ny zone: ");
+                    int zone = tastatur.nextInt();
+                    //automat.setZone(zone);
+                    break;
+                    }    
+                case 15:
                     automat.getLog();
                     break;
-                case 15:
+                case 16:
                     automat.montørLogin("");
                     
                     break;
