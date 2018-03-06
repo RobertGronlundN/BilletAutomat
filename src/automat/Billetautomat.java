@@ -61,17 +61,18 @@ public class Billetautomat
     {
         rejseZoner = 0;
         
-        if (slutZone > 6){
-            slutZone = 6;
-        }
         if (slutZone < automatZone) {
             rejseZoner = (automatZone - slutZone);
         }
-        if (slutZone > automatZone) {
+        else if (slutZone > automatZone) {
             rejseZoner = (slutZone - automatZone);
         }
-        if (slutZone == automatZone) {
+        else if (slutZone == automatZone) {
             rejseZoner = 1;
+        }
+        
+        if (slutZone > 6){
+            rejseZoner = 6;
         }
         
         return rejseZoner;
@@ -166,8 +167,8 @@ public class Billetautomat
         }
     }
 
-    public void setBilletpris(int billetpris) {
-        this.billetpris = billetpris;                                           // Opdatering af den forudbestemte pris (montør)
+    public void setBilletpris(double type, int zone, int antal) {
+        this.billetpris = (int) (type * zone * 12 * antal);                                           // Opdatering af den forudbestemte pris (montør)
     }
     
     public void setZone(int montoerZone)  {
