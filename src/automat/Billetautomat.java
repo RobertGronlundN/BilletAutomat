@@ -3,6 +3,8 @@ package automat;
  * Model af en simpel billetautomat til enkeltbilletter med én fast pris.
  */
 
+    // Test comment
+
 import java.util.ArrayList;
 import java.util.Date;
 
