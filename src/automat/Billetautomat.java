@@ -6,6 +6,7 @@ package automat;
     // Test comment 2
     // Ey Benjamin
     // Test commiting
+		// Benjamin.test.2
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -16,9 +17,9 @@ public class Billetautomat {
 	private int antalBilletterSolgt; // Antal billetter automaten i alt har solgt
 	private boolean montørtilstand;
         private boolean validBalance = false;
-        
+
         ArrayList<String> automatLog = new ArrayList<String>();
-        
+
 	/**
 	 * Opret en billetautomat der sælger billetter til 10 kr.
 	 */
@@ -29,7 +30,7 @@ public class Billetautomat {
 	}
 
 	/**
-	 * Giver prisen for en billet. 
+	 * Giver prisen for en billet.
 	 */
 	public int getBilletpris() {
 		int resultat = billetpris;
@@ -40,8 +41,8 @@ public class Billetautomat {
 	 * Modtag nogle penge (i kroner) fra en kunde.
 	 */
 	public void indsætPenge(int beløb) {
-		balance = balance + beløb; 
-                
+		balance = balance + beløb;
+
                 Date date = new Date();
                 automatLog.add(date.toString()+"\t | Indsat: " + beløb + " kr., ny balance: " + balance + " kr.\n");
 	}
@@ -52,16 +53,16 @@ public class Billetautomat {
 	public int getBalance() {
 		return balance;
 	}
-        
+
         public boolean checkBalance(){
             if (balance >= billetpris){
-                validBalance = true;  
-                
+                validBalance = true;
+
                 Date date = new Date();
-                automatLog.add(date.toString()+"\t | Balance i orden\n");	
+                automatLog.add(date.toString()+"\t | Balance i orden\n");
             } else {
-                validBalance = false; 
-                
+                validBalance = false;
+
                 Date date = new Date();
                 automatLog.add(date.toString()+"\t | Balance ikke høj nok\n");
             }
@@ -98,17 +99,17 @@ public class Billetautomat {
 	public int returpenge() {
 		int returbeløb = balance;
 		balance = 0;
-		System.out.println("Du får "+returbeløb+" kr retur");		
-                
+		System.out.println("Du får "+returbeløb+" kr retur");
+
                 Date date = new Date();
                 automatLog.add(date.toString()+"\t | Returneret " + returbeløb + " kr. \n");
-                
+
                 return returbeløb;
         }
-        
-        
 
-	
+
+
+
 	void montørLogin(String adgangskode) {
 		if ("1234".equals(adgangskode)) {
 			montørtilstand = true;
@@ -162,9 +163,9 @@ public class Billetautomat {
 	public boolean erMontør() {
 		return montørtilstand;
 	}
-        
+
         public void getLog(){
             System.out.println(automatLog);
         }
-        
+
 }
