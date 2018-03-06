@@ -24,3 +24,4 @@ public class Billetinformation
         Billetinformation nytkøb = new Billetinformation(billettype, antalZoner, antalBilletter, summeretPris);
         indkøbskurv.add(nytkøb);
     }
+}
