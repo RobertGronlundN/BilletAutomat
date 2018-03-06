@@ -6,6 +6,7 @@ public class BenytBilletautomatRedigering
     public static void main(String[] arg)
     {
         Billetautomat automat = new Billetautomat();
+        Billetinformation info = new Billetinformation();
         java.util.Scanner tastatur = new java.util.Scanner(System.in);  // forbered
 
         System.out.println("BenytBilletautomat version mindst 4");
@@ -30,6 +31,7 @@ public class BenytBilletautomatRedigering
             tastatur.nextLine();
             
             double billetType = 0;
+            String billetNavn = null;
             int billetZone = 0;
             int billetAntal = 0;
             int billetPris = 0;
@@ -52,30 +54,36 @@ public class BenytBilletautomatRedigering
                         case 1:                        
                         System.out.println("Voksenbillet (16+) valgt");
                         billetType = 1;
+                        billetNavn = "Voksenbillet";
                         break;
                         
                         case 2:                        
                         System.out.println("Børnebillet valgt");
                         billetType = 0.5;
+                        billetNavn = "Børnebillet";
                         break;
                         
                         case 3:
                         System.out.println("Billet til studerende valgt (husk gyldig studiekort)");
+                        billetNavn = "Studerende";
                         billetType = 0.8;
                         break;
                         
                         case 4:
                         System.out.println("Pensionistbillet valgt");
+                        billetNavn = "Pensionist";
                         billetType = 0.8;
                         break;
                         
                         case 5:
                         System.out.println("Hundebillet valgt");
+                        billetNavn = "Hundebillet";
                         billetType = 0.5;
                         break;
                         
                         case 6:
                         System.out.println("Cykelbillet valgt");
+                        billetNavn = "Cykelbillet";
                         billetType = 0.5;
                         break;
                     
@@ -159,6 +167,8 @@ public class BenytBilletautomatRedigering
                     
                     System.out.println("Vælg antal billetter:");
                     billetAntal = tastatur.nextInt();
+                    
+                    info.tilføjKøb(billetNavn, billetZone, billetAntal, billetPris);
                     
                     // INDKØBSKURV
                     System.out.println("Indkøbskurv er nu: bla bla bla");
