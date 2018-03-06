@@ -35,33 +35,33 @@ public class BenytBilletautomat
 
             switch (valg) {
                 case 1:
-                    {
-                        System.out.println("Tast 1 for Dankort");
-                        System.out.println("Tast 2 for Kontant");
-                        System.out.println("Tast 3 for Kupon");
-                        int betalingsMetode = tastatur.nextInt();
+                {
+                    System.out.println("Tast 1 for Dankort");
+                    System.out.println("Tast 2 for Kontant");
+                    System.out.println("Tast 3 for Kupon");
+                    int betalingsMetode = tastatur.nextInt();
 
-                        switch(betalingsMetode){
-                            case 1:
-                            {
-                                System.out.println("Indsæt kort og tast kode:");
-                                System.out.println("...");
-                                System.out.println("Godkendt");
-                            }
-                            case 2:
-                            {
-                                System.out.println("Klar til modtagelse af kontanter");
-                            }
-                            case 3:
-                            {
-                                System.out.print("Indtast kuponkode: ");
-                                //int kuponKode = tastatur.
-                            }
+                    switch(betalingsMetode){
+                        case 1:
+                        {
+                        System.out.println("Indsæt kort og tast kode:");
+                        System.out.println("...");
+                        System.out.println("Godkendt");
                         }
-                        System.out.print("Tast 1 for indsættelse med DankortSkriv beløb: ");
-                        int beløb = tastatur.nextInt();
-                        automat.indsætPenge(beløb);
-                        break;
+                        case 2:
+                        {
+                        System.out.println("Klar til modtagelse af kontanter");
+                        }
+                        case 3:
+                        {
+                        System.out.print("Indtast kuponkode: ");
+                        //int kuponKode = tastatur.
+                        }
+                    }
+                    System.out.print("Tast 1 for indsættelse med DankortSkriv beløb: ");
+                    int beløb = tastatur.nextInt();
+                    automat.indsætPenge(beløb);
+                    break;
                     }
                 case 2:
                     if (automat.checkBalance() == true){
@@ -72,9 +72,9 @@ public class BenytBilletautomat
                     break;
                 case 3:
                     {
-                        int beløb = automat.returpenge();
-                        System.out.println("Du fik "+beløb+" retur retur");
-                        break;
+                    int beløb = automat.returpenge();
+                    System.out.println("Du fik "+beløb+" retur retur");
+                    break;
                     }
                 case 10:
                     System.out.print("Skriv kode: ");
@@ -90,10 +90,10 @@ public class BenytBilletautomat
                     break;
                 case 13:
                     {
-                        System.out.print("Skriv beløb: ");
-                        int beløb = tastatur.nextInt();
-                        automat.setBilletpris(beløb);
-                        break;
+                    System.out.print("Skriv beløb: ");
+                    int beløb = tastatur.nextInt();
+                    automat.setBilletpris(beløb);
+                    break;
                     }
                 case 14:
                     automat.getLog();
