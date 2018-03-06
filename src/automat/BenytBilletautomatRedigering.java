@@ -6,13 +6,14 @@ public class BenytBilletautomatRedigering
     public static void main(String[] arg)
     {
         Billetautomat automat = new Billetautomat();
-        Billetinformation info = new Billetinformation();
-        java.util.Scanner tastatur = new java.util.Scanner(System.in);  // forbered
+        Billetinformation2 info = new Billetinformation2();
+        java.util.Scanner tastatur = new java.util.Scanner(System.in);          // forbereder keyboard scanner
 
         System.out.println("BenytBilletautomat version mindst 4");
         System.out.println();
 
-        while (true) {
+        while (true) 
+        {
             System.out.println("-----------------------------------------------");
             System.out.println("VELKOMMEN TIL BT BILLETAUTOMAT");
             System.out.println();
@@ -20,7 +21,8 @@ public class BenytBilletautomatRedigering
             System.out.println("Tast 1 | Køb billet");
             System.out.println();
             
-            if (automat.erMontør()) {
+            if (automat.erMontør()) 
+            {
                 System.out.println("Tast 11 | Se status (montør)");
                 System.out.println("Tast 12 | Nulstil (montør)");
                 System.out.println("Tast 13 | Sæt zone (montør)");
@@ -33,14 +35,13 @@ public class BenytBilletautomatRedigering
             double billetType = 0;
             String billetNavn = null;
             int billetZone = 0;
-            int billetAntal = 0;
+            //int billetAntal = 0;
             int billetPris = 0;
             
-            switch (start){
-                case 1:
-                    
+            switch (start)
+            {
+                case 1:     
                     int personType;
-                                        
                     do
                     {
                     System.out.println("Tast 1 | Voksen (16+)");
@@ -50,62 +51,76 @@ public class BenytBilletautomatRedigering
                     System.out.println("Tast 5 | Hund");
                     System.out.println("Tast 6 | Cykel");
                     personType = tastatur.nextInt();
-                    switch(personType){
+                    switch(personType)
+                    {
                         case 1:                        
                         System.out.println("Voksenbillet (16+) valgt");
                         billetType = 1;
-                        billetNavn = "Voksenbillet";
+                        info.setBillettype("Voksenbillet");
+                        //billetNavn = "Voksenbillet";
                         break;
                         
                         case 2:                        
                         System.out.println("Børnebillet valgt");
                         billetType = 0.5;
-                        billetNavn = "Børnebillet";
+                        info.setBillettype("Børnebillet");
+                        //billetNavn = "Børnebillet";
                         break;
                         
                         case 3:
                         System.out.println("Billet til studerende valgt (husk gyldig studiekort)");
-                        billetNavn = "Studerende";
+                        //billetNavn = "Studerende";
+                        info.setBillettype("Studerende");
                         billetType = 0.8;
                         break;
                         
                         case 4:
                         System.out.println("Pensionistbillet valgt");
-                        billetNavn = "Pensionist";
+                        info.setBillettype("Pensionist");
                         billetType = 0.8;
+                        //billetNavn = "Pensionist";
                         break;
                         
                         case 5:
                         System.out.println("Hundebillet valgt");
-                        billetNavn = "Hundebillet";
+                        //billetNavn = "Hundebillet";
+                        info.setBillettype("Hundebillet");
                         billetType = 0.5;
                         break;
                         
                         case 6:
                         System.out.println("Cykelbillet valgt");
-                        billetNavn = "Cykelbillet";
+                        // billetNavn = "Cykelbillet";
+                        info.setBillettype("Cykelbillet");
                         billetType = 0.5;
                         break;
                     
                         default:
-                            personType = 0;
-                            break;
+                        personType = 0;
+                        break;
                     }
-                    } while (personType == 0);
-                    
-                    
-                            
-                    int zoneType;
+                } while (personType == 0);
+                       
+                int zoneType;
 
-                    do
-                    {
+                do
+                {
                     System.out.println("Tast 1 | Vælg antal zoner");
                     System.out.println("Tast 2 | Udregn antal zoner");
                     zoneType = tastatur.nextInt();
-                    switch(zoneType){
-                        case 1:                     
-                        int zoneValg;
-                    
+                    switch(zoneType)
+                    {
+                        case 1:     
+                            System.out.print("Indtast antal zoner: ");
+                            int zoneValg = tastatur.nextInt();
+                            if (zoneValg >= 1 && zoneValg <= 6) {
+                                info.setAntalZoner(zoneValg);
+                            }
+                            else {
+                                info.setAntalZoner(6);
+                            }
+
+                    /*
                             do
                             {
                             System.out.println("Tast 1 | 1 zone");
@@ -115,7 +130,9 @@ public class BenytBilletautomatRedigering
                             System.out.println("Tast 5 | 5 zoner");
                             System.out.println("Tast 6 | 6 zoner");
                             zoneValg = tastatur.nextInt();
-                            switch(zoneValg){
+
+                            switch(zoneValg)
+                            {
                                 case 1:                        
                                 System.out.println("1 zone valgt");
                                 billetZone = 1;
@@ -147,137 +164,155 @@ public class BenytBilletautomatRedigering
                                 break;
 
                                 default:
-                                    zoneValg = 0;
-                                    break;
+                                zoneValg = 0;
+                                break;
                             }
-                            } while (zoneValg == 0);  
+                        } while (zoneValg == 0); 
+                    */
                         break;
-                        
-                        case 2:                        
+
+                    case 2:                        
                         System.out.println("Hvilken zone ender rejsen i?");
                         int slutZone = tastatur.nextInt();
-                        billetZone = automat.zoneBeregner(slutZone);
-                        break;                                           
-                    
-                        default:
-                            zoneType = 0;
-                            break;
+                        automat.setSlutZone(slutZone);
+                        int zoneVal = automat.zoneBeregner();
+                        info.setAntalZoner(zoneVal);
+                    break;                                           
+
+                    default:
+                        zoneType = 0;
+                        break;
                     }
-                    } while (zoneType == 0);
+                } while (zoneType == 0);
                     
-                    System.out.println("Vælg antal billetter:");
-                    billetAntal = tastatur.nextInt();
-                    
-                    info.tilføjKøb(billetNavn, billetZone, billetAntal, billetPris);
-                    
-                    // INDKØBSKURV
-                    System.out.println("Indkøbskurv er nu: bla bla bla");
-                    
-                    int godkendBillet;
-                    
-                    do
+                System.out.println("Vælg antal billetter:");
+                int billetAntal = tastatur.nextInt();
+                info.setAntalBilletter(billetAntal);
+
+                //info.tilføjKøb(billetNavn, billetZone, billetAntal, billetPris);
+                             
+                int godkendBillet;
+
+                do
+                {
+                System.out.println("Tast 1 | Godkend og gå til betaling");
+                System.out.println("Tast 2 | Køb flere billetter");                   
+                godkendBillet = tastatur.nextInt();
+                switch(godkendBillet)
+                {
+                    case 1:                        
                     {
-                    System.out.println("Tast 1 | Godkend og gå til betaling");
-                    System.out.println("Tast 2 | Køb flere billetter");                   
-                    godkendBillet = tastatur.nextInt();
-                    switch(godkendBillet){
-                        case 1:                        
-                        {                    
+                        info.tilføjBillet();
                         int betalingsMetode;
                         boolean godkendtBetaling=false;
-                        
+
                         while (godkendtBetaling == false)
                         {
-                        do
-                        {
-                        System.out.println("Betal med:");
-                        System.out.println("Tast 1 | Dankort");
-                        System.out.println("Tast 2 | Kontant");
-                        System.out.println("Tast 3 | Kupon");
-                        betalingsMetode = tastatur.nextInt();
-                        switch(betalingsMetode){
-                            case 1:                        
-                            System.out.println("Indsæt dankort og tast kode:");
-                            System.out.println("...");
-                            System.out.println("Godkendt");  
-                            break;
+                            do
+                            {
+                                System.out.println("Betal med:");
+                                System.out.println("Tast 1 | Dankort");
+                                System.out.println("Tast 2 | Kontant");
+                                System.out.println("Tast 3 | Kupon");
+                                betalingsMetode = tastatur.nextInt();
 
-                            case 2:                        
-                            System.out.println("Klar til modtagelse af kontanter");
-                            break;
+                                switch(betalingsMetode)
+                                {
+                                    case 1:                        
+                                    System.out.println("Indsæt dankort og tast kode:");
+                                    System.out.println("...");
+                                    System.out.println("Godkendt");  
+                                    break;
 
-                            case 3:
-                            System.out.print("Indtast kuponkode: ");
-                            //int kuponKode = tastatur.next();
-                            //automat.checkKuponKode
-                            break;
+                                    case 2:                        
+                                    System.out.println("Klar til modtagelse af kontanter");
+                                    break;
 
-                            default:
-                                betalingsMetode = 0;
-                                break;
-                        }
-                        } while (betalingsMetode == 0);
-                        System.out.print("Skriv beløb: ");
-                        int beløb = tastatur.nextInt();
-                        automat.indsætPenge(beløb);
-                        
-                        automat.setBilletpris(billetType, billetZone, billetAntal);       
-                        
-                        if (automat.checkBalance() == true){
-                        godkendtBetaling = true;
-                        automat.udskrivBillet();
-                        } else {
-                        System.out.println("Balance på " + automat.getBalance() + " kr. for lav, indbetal flere penge");
-                        }
-                        }
-                        
-                        break;
-                        }
-                        
-                        case 2:                        
+                                    case 3:
+                                    System.out.print("Indtast kuponkode: ");
+                                    //int kuponKode = tastatur.next();
+                                    //automat.checkKuponKode
+                                    break;
+
+                                    default:
+                                    betalingsMetode = 0;
+                                    break;
+                                }
+                            } while (betalingsMetode == 0);
+
+                            System.out.print("Skriv beløb: ");
+                            int beløb = tastatur.nextInt();
+                            automat.indsætPenge(beløb);
+
+                            automat.setBilletpris(billetType, billetZone, billetAntal);       
+
+                            if (automat.checkBalance() == true)  {
+                                godkendtBetaling = true;
+                                info.udskrivKurv();
+                                //automat.udskrivBillet();
+                                
+                                /*
+                                // INDKØBSKURV
+                                for (int i = 0; i < info.indkøbskurv.size(); i++) 
+                                {
+                                    System.out.println("------------- INDKØBSKURV ------------");
+                                    System.out.println("Billet nummer "+(i+1)+"!");
+                                    System.out.println("Billettype:     " +info.indkøbskurv.get(i).billettype.toString());
+                                    System.out.println("Antal Zoner:    " +info.indkøbskurv.get(i).antalZoner);
+                                    System.out.println("Antal Billeter: " +info.indkøbskurv.get(i).antalBilletter);
+                                    System.out.println("Subtotal:       " +info.indkøbskurv.get(i).summeretPris);
+                                    System.out.println(" ");
+                                } */
+                            } 
+                            else {
+                            System.out.println("Balance på " + automat.getBalance() + " kr. for lav, indbetal flere penge");
+                            }
+                        }                        
+                    break;
+                    }
+
+                    case 2:                        
                         System.out.println("Returner til hovedmenu");
                         // Indsæt funktion for tilføjelse af børnebillet
                         break;                 
+
+                    default:
+                        godkendBillet = 0;
+                        break;
+                } 
+            } while (godkendBillet == 0);
+            break;
                     
-                        default:
-                            godkendBillet = 0;
-                            break;
-                    }
-                    } while (godkendBillet == 0);
-                    
-                    break;
-                    
-                // MONTØR INDSTILLINGER
-                case 10:
-                    System.out.print("Skriv kode: ");
-                    String kode = tastatur.next();
-                    automat.montørLogin(kode);
-                    break;
-                case 11:
-                    System.out.println("Antal billetter solgt: " + automat.getAntalBilletterSolgt());
-                    System.out.println("Total indkomst: " + automat.getTotal()+" kr");
-                    break;
-                case 12:
-                    automat.nulstil();
-                    break;
-                case 13:
-                    {
+            // MONTØR INDSTILLINGER --------------------------------------------
+            case 10:
+                System.out.print("Skriv kode: ");
+                String kode = tastatur.next();
+                automat.montørLogin(kode);
+                break;
+            case 11:
+                System.out.println("Antal billetter solgt: " + automat.getAntalBilletterSolgt());
+                System.out.println("Total indkomst: " + automat.getTotal()+" kr");
+                break;
+            case 12:
+                automat.nulstil();
+                break;
+            case 13:
+                {
                     System.out.print("Sæt ny zone: ");
                     int zone = tastatur.nextInt();
                     //automat.setZone(zone);
                     break;
-                    }    
-                case 14:
-                    automat.getLog();
-                    break;
-                case 15:
-                    automat.montørLogin("");                    
-                    break;
-                default:
-                    System.out.println("Ugyldigt valg, prøv igen");
-                    break;
-            }
-            
+                }    
+            case 14:
+                automat.getLog();
+                break;
+            case 15:
+                automat.montørLogin("");                    
+                break;
+            default:
+                System.out.println("Ugyldigt valg, prøv igen");
+                break;
+            }       
         }   
     }
 }
