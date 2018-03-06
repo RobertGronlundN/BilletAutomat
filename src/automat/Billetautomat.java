@@ -4,6 +4,7 @@ package automat;
  */
 
     // Test comment 2
+    // Ey Benjamin
 
 import java.util.ArrayList;
 import java.util.Date;
