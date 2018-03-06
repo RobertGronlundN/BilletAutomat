@@ -5,6 +5,7 @@ package automat;
 
     // Test comment 2
     // Ey Benjamin
+    // Test commiting
 
 import java.util.ArrayList;
 import java.util.Date;
