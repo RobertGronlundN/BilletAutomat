@@ -171,7 +171,8 @@ public class BenytBilletautomatRedigering
                     info.tilføjKøb(billetNavn, billetZone, billetAntal, billetPris);
                     
                     // INDKØBSKURV
-                    System.out.println("Indkøbskurv er nu: bla bla bla");
+                    System.out.println("Indkøbskurv er nu:");
+                    System.out.println(info.indkøbskurv);
                     
                     int godkendBillet;
                     
