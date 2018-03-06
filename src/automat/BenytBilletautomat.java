@@ -36,7 +36,29 @@ public class BenytBilletautomat
                     switch (valg) {
                         case 1:
                             {
-                                System.out.print("Skriv beløb: ");
+                                System.out.println("Tast 1 for Dankort");
+                                System.out.println("Tast 2 for Kontant");
+                                System.out.println("Tast 3 for Kupon");
+                                int betalingsMetode = tastatur.nextInt();
+                                
+                                switch(betalingsMetode){
+                                    case 1:
+                                    {
+                                        System.out.println("Indsæt kort og tast kode:");
+                                        System.out.println("...");
+                                        System.out.println("Godkendt");
+                                    }
+                                    case 2:
+                                    {
+                                        System.out.println("Klar til modtagelse af kontanter");
+                                    }
+                                    case 3:
+                                    {
+                                        System.out.print("Indtast kuponkode: ");
+                                        //int kuponKode = tastatur.
+                                    }
+                                }
+                                System.out.print("Tast 1 for indsættelse med DankortSkriv beløb: ");
                                 int beløb = tastatur.nextInt();
                                 automat.indsætPenge(beløb);
                                 break;
