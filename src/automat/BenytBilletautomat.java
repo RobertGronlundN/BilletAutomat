@@ -21,6 +21,7 @@ public class BenytBilletautomat
             System.out.println("Tast 1 for at indbetale penge");
             System.out.println("Tast 2 for at udskrive din billet");
             System.out.println("Tast 3 for at få returpengene");
+            System.out.println("Tast 4 for at beregne zoner");
             System.out.println();
             System.out.println("Tast 10 for at logge ind som montør");
             if (automat.erMontør()) {
@@ -85,6 +86,13 @@ public class BenytBilletautomat
                     System.out.println("Du fik "+beløb+" retur retur");
                     break;
                     }
+                case 4:
+                    {
+                    System.out.println("Indtast zone på målet");
+                    int slutZone = tastatur.nextInt();
+                    // automat.zoneBeregner(slutZone);
+                    break;
+                    }
                 case 10:
                     System.out.print("Skriv kode: ");
                     String kode = tastatur.next();
@@ -115,8 +123,7 @@ public class BenytBilletautomat
                     automat.getLog();
                     break;
                 case 16:
-                    automat.montørLogin("");
-                    
+                    automat.montørLogin("");                    
                     break;
                 default:
                     System.out.println("Ugyldigt valg, prøv igen");
