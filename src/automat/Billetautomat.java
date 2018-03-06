@@ -8,6 +8,7 @@ package automat;
     // Test commiting
 		// Benjamin.test.2
                 // Robert.test.3
+                // Benjamin.test.4
 
 import java.util.ArrayList;
 import java.util.Date;
