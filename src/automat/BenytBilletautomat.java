@@ -35,30 +35,38 @@ public class BenytBilletautomat
 
             switch (valg) {
                 case 1:
-                {
+                {                    
+                    int betalingsMetode;
+
+                    do
+                    {
                     System.out.println("Tast 1 for Dankort");
                     System.out.println("Tast 2 for Kontant");
                     System.out.println("Tast 3 for Kupon");
-                    int betalingsMetode = tastatur.nextInt();
-
+                    betalingsMetode = tastatur.nextInt();
                     switch(betalingsMetode){
-                        case 1:
-                        {
+                        case 1:                        
                         System.out.println("Indsæt kort og tast kode:");
                         System.out.println("...");
-                        System.out.println("Godkendt");
-                        }
-                        case 2:
-                        {
+                        System.out.println("Godkendt");  
+                        break;
+                        
+                        case 2:                        
                         System.out.println("Klar til modtagelse af kontanter");
-                        }
+                        break;
+                        
                         case 3:
-                        {
                         System.out.print("Indtast kuponkode: ");
-                        //int kuponKode = tastatur.
-                        }
+                        //int kuponKode = tastatur.next();
+                        //automat.checkKuponKode
+                        break;
+                    
+                        default:
+                            betalingsMetode = 0;
+                            break;
                     }
-                    System.out.print("Tast 1 for indsættelse med DankortSkriv beløb: ");
+                    } while (betalingsMetode == 0);
+                    System.out.print("Skriv beløb: ");
                     int beløb = tastatur.nextInt();
                     automat.indsætPenge(beløb);
                     break;
