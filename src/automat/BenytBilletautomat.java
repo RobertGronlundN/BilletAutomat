@@ -1,6 +1,6 @@
 package automat;
 
-
+    // Robert.Test.4
 
 public class BenytBilletautomat
 {
