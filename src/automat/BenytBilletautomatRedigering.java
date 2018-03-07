@@ -190,6 +190,9 @@ public class BenytBilletautomatRedigering
 
                             if (automat.checkBalance() == true)  {
                                 godkendtBetaling = true;
+                                
+                                automat.udskrivBillet();
+                                
                                 } 
                             else {
                             System.out.println("Balance på " + automat.getBalance() + " kr. for lav, indbetal flere penge");

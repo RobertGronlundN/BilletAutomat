@@ -108,6 +108,8 @@ public class Billetautomat
             System.out.println("Du mangler at indbetale nogle penge");
         }
         
+        Date date = new Date();
+        
         System.out.println("##########B##T#########");
         System.out.println("# BlueJ Trafikselskab #");
         System.out.println("#                     #");
@@ -117,12 +119,15 @@ public class Billetautomat
         System.out.println("##########B##T#########");
         System.out.println("# Du har " + (balance-billetpris) + " kr til gode       #");
         System.out.println("##########B##T#########");
-        System.out.println();
+        System.out.println("#    Billet Gyldig    #");
+        System.out.println("#  2 timer efter køb  #");
+        System.out.println("# " + date.toString() + " #");
+        System.out.println("##########B##T#########");
 
         antalBilletterSolgt = antalBilletterSolgt + 1;
         balance = balance - billetpris; // Billetter koster 10 kroner
 
-        Date date = new Date();
+        
         automatLog.add(date.toString()+"\t | Billet udskrevet til "+ billetpris +" kr., ny balance: "+balance+" kr.\n");
     }
     
