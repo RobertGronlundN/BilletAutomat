@@ -1,78 +1,73 @@
-package automat;
+package automat;                                                                // Skal tilhøre den overordnede package, automat for at kunne arbejde sammen med de resterende filer
 
-//import java.lang.reflect.Array;
-import java.util.ArrayList;
+import java.util.ArrayList;                                                    // Import, brugt til oprettelse af ArrayList
 
-public class Billetinformation2
+public class Billetinformation2                                                 // Overordnet public class, initialisering af variable
 {
-    private String billettype;
-    private int antalZoner;
-    private int antalBilletter;
-    private int summeretPris;
-    
-    public Billetinformation2(String billettype, int antalZoner, int antalBilletter, int summeretPris){
-        this.billettype = billettype;
-        this.antalZoner = antalZoner;
-        this.antalBilletter = antalBilletter;
-        this.summeretPris = summeretPris;
-    }
-    
+    private String billettype;                                                  // Indeholder navn, billttypen
+    private int antalZoner;                                                     // Antallet af zoner, int
+    private int antalBilletter;                                                 // Antallet af billetter, int
+    private int billetPris;                                                     // Summeret pris: type*12*zone*antal
+
+    public Billetinformation2(String billettype, int antalZoner, int antalBilletter, int billetPris) {
+        this.billettype = billettype;                                           // Opdatering af variablen billettype
+        this.antalZoner = antalZoner;                                           // Opdatering af variablen antalZoner
+        this.antalBilletter = antalBilletter;                                   // Opdatering af variablen antalBilletter
+        this.billetPris = billetPris;                                           // Opdatering af variablen summeretPris
+    } // End of public Billetinformation2
+
     // BILLETTYPE --------------------------------------------------------------
-    public String getBillettype() {
-        return billettype;
-    }
-    public void setBillettype(String name) {
-        this.billettype = name;
-    }
+    public String getBillettype() {                                             // Public string-funktion, get (aflæsning)
+        return billettype;                                                      // Returnerer typen af billet, string
+    } // End of get billetType
+    public void setBillettype(String billettype) {                              // Public void-funktion, set (redigering)
+        this.billettype = billettype;                                           // Opdatering af vaiablen billettype
+    } // End of set billetType
 
     // ANTAL ZONER -------------------------------------------------------------
-    public int getAntalZoner() {
-        return antalZoner;
-    }
-    public void setAntalZoner(int zone) {
-        this.antalZoner = zone;
-    }
-    
+    public int getAntalZoner() {                                                // Public int-funktion, get (aflæsning)
+        return antalZoner;                                                      // Returnerer valgte antal af zoner
+    } // End of get antalZoner
+    public void setAntalZoner(int zone) {                                       // Public void-funktion, set (redigering)
+        this.antalZoner = zone;                                                 // Opdatering af varibalen antalZoner
+    } // End of set antalZoner
+
     // ANTAL BILLETTER ---------------------------------------------------------
-    public int getAntalBilletter() {
-        return antalBilletter;
-    }
-    public void setAntalBilletter(int antal) {
-        this.antalBilletter = antal;
-    }
-    
+    public int getAntalBilletter() {                                            // Public int-funktion, get (aflæsning)
+        return antalBilletter;                                                  // Returnerer valgte antal af billetter
+    } // End of get antalBilletter
+    public void setAntalBilletter(int antal) {                                  // Public void-funktion, set (redigering)
+        this.antalBilletter = antal;                                            // Opdatering af variablen antalBilletter
+    } // End of set antalBilletter
+
     // SUMMERET PRIS -----------------------------------------------------------
-    public int getSummeretPris(){
-        return summeretPris;
-    }
-    public void setSummeretPris(int sumpris){
-        this.summeretPris = sumpris;
-    }
-    
+    public int getBilletPris() {                                                // Public int-funktion, get (aflæsning)
+        return billetPris;                                                      // Returnerer den summerede pris
+    } // End of get summeretPris
+    public void setBilletPris(double type, int zone, int antal) {               // Public void-funktion, set (redigering)
+        this.billetpris = (int) (type * zone * 12 * antal);                     // Opdatering af integeren summeretPris
+    } // End of set summeretPris
+
+    // ARRAYLIST ---------------------------------------------------------------// Oprettelse af ArrayList kaldet indkøbskurv, Indeholder typen class: Billetinfo2
     ArrayList<Billetinformation2> indkøbskurv = new ArrayList<Billetinformation2>( );
 
-    
     // ADD BILLET MED NUVÆRENDE INFO -------------------------------------------
-    public void tilføjBillet(){
-        indkøbskurv.add(new Billetinformation2(getBillettype(), getAntalZoner(), getAntalBilletter(), getSummeretPris()));        
-    }
-    
+    public void tilføjBillet(){                                                 // Funktionen kaldes når en ny billet skal tilføjes til arraylisen indkøbskurv
+        indkøbskurv.add(new Billetinformation2(getBillettype(), getAntalZoner(), getAntalBilletter(), getSummeretPris()));
+    } // End of void tilføjBillet
+
     // TO STRING ---------------------------------------------------------------
-    
-    @Override
-    public String toString()
-    {
-        return "Billettype: \t" +getBillettype()+ "; \tZoner: \t" +getAntalZoner()+ " zoner \tAntalBil: \t"+ getAntalBilletter()+" stk. \tSummeretPris: \t"+getSummeretPris()+ "DKK";
-    }
-    
+    @Override                                                                   // Override enabled
+    public String toString() {                                                  // Opretter public string-funktion. Omskriver class fra arraylisten til en samlet string
+        return "Billettype: \t" +getBillettype()+ "; \tZoner: \t" +getAntalZoner()+ " zoner \tAntalBil: \t"+ getAntalBilletter()+" stk. \tSummeretPris: \t"+getBilletPris()+ "DKK";
+    } // End of toString
+
     // PRINT LIST
-    public void udskrivKurv()
-    {
+    public void udskrivKurv() {                                                 // Funktion til udskrivning af indkøbskurv
         System.out.println("------------- INDKØBSKURV -------------");
-        for (Billetinformation2 b : indkøbskurv)
-        {
+        for (Billetinformation2 b : indkøbskurv) {
             System.out.println(b); // Assuming a valid toString in the Book class
         }
         System.out.println("---------------------------------------");
-    }    
+    }
 } // End of public class Billetinformation
