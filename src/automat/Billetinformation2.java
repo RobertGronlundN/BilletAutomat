@@ -96,16 +96,19 @@ public class Billetinformation2                                                 
     // TO STRING ---------------------------------------------------------------
     @Override                                                                   // Override enabled
     public String toString() {                                                  // Opretter public string-funktion. Omskriver class fra arraylisten til en samlet string
-        return "Billettype: \t" +getBillettype()+ "; \tZoner: \t" +getAntalZoner()+ " zoner \tAntalBil: \t"+ getAntalBilletter()+" stk. \tSummeretPris: \t"+getBilletPris()+ "DKK";
+        return getBillettype()+ "\t" +getAntalZoner()+ "\t"+ getAntalBilletter()+"\t"+getBilletPris()+ "DKK";
     } // End of toString
 
     // PRINT LIST
-    public void udskrivKurv() {                                                 // Funktion til udskrivning af indkøbskurv
+    public void udskrivBillet() {                                               // Funktion til udskrivning af indkøbskurv
         System.out.println("------------- INDKØBSKURV -------------");
+        System.out.println("Billettype\t Zone \t Antal \t Subtotal");
         for (Billetinformation2 b : indkøbskurv) {
             System.out.println(b);                                              // Assuming a valid toString in the BilletInfo2 class
         }
         System.out.println("---------------------------------------");
+        System.out.println(" Billet gyldig i 2 timer fra udstedelse");
+        System.out.println("   "date.toString()"  ");
     }
 
     // INDSÆT PENGE ------------------------------------------------------------
