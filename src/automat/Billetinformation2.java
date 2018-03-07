@@ -100,7 +100,8 @@ public class Billetinformation2                                                 
     } // End of toString
 
     // PRINT LIST
-    public void udskrivBillet() {                                               // Funktion til udskrivning af indkøbskurv
+    public void udskrivKurv() {                                               // Funktion til udskrivning af indkøbskurv
+        Date date = new Date();
         System.out.println("------------- INDKØBSKURV -------------");
         System.out.println("Billettype\t Zone \t Antal \t Subtotal");
         for (Billetinformation2 b : indkøbskurv) {
@@ -108,7 +109,7 @@ public class Billetinformation2                                                 
         }
         System.out.println("---------------------------------------");
         System.out.println(" Billet gyldig i 2 timer fra udstedelse");
-        System.out.println("   "date.toString()"  ");
+        System.out.println("   "+date.toString()+"  ");
     }
 
     // INDSÆT PENGE ------------------------------------------------------------

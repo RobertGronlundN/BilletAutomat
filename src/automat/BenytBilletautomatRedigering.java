@@ -186,6 +186,9 @@ public class BenytBilletautomatRedigering
 
                                     case 2:
                                     System.out.println("Klar til modtagelse af kontanter");
+                                    System.out.print("Skriv beløb: ");
+                                    int beløb = tastatur.nextInt();
+                                    automat.indsætPenge(beløb);
                                     break;
 
                                     case 3:
@@ -209,16 +212,14 @@ public class BenytBilletautomatRedigering
                                 }
                             } while (betalingsMetode == 0);
 
-                            System.out.print("Skriv beløb: ");
-                            int beløb = tastatur.nextInt();
-                            automat.indsætPenge(beløb);
+                            
 
                             automat.setBilletPris(billetType);
 
                             if (automat.checkBalance() == true)  {
                                 godkendtBetaling = true;
 
-                                //automat.udskrivBillet();
+                                automat.udskrivBillet();
 
                                 }
                             else {
