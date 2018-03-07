@@ -170,6 +170,9 @@ public class BenytBilletautomatRedigering
                                 System.out.println("Tast 1 | Dankort");
                                 System.out.println("Tast 2 | Kontant");
                                 System.out.println("Tast 3 | Kupon");
+                                if (automat.erMontør()) 
+                                {
+                                    System.out.println("Tast 10 | Sæt balance (montør)");
                                 betalingsMetode = tastatur.nextInt();
 
                                 switch(betalingsMetode)
@@ -189,6 +192,14 @@ public class BenytBilletautomatRedigering
                                     //int kuponKode = tastatur.next();
                                     //automat.checkKuponKode
                                     break;
+                                    
+                                    case 10:
+                                    {
+                                    System.out.println("Indsæt ny balance: ");
+                                    
+                                    int nyBalance = tastatur.nextInt();
+                                    automat.setBalance(nyBalance);
+                                    }
 
                                     default:
                                     betalingsMetode = 0;
