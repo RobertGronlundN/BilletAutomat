@@ -8,6 +8,7 @@ public class Billetinformation2                                                 
     private String billettype;                                                  // Indeholder navn, billttypen
     private int antalZoner;                                                     // Antallet af zoner, int
     private int automatZone;
+    private int destinationZone;
     private int antalBilletter;                                                 // Antallet af billetter, int
     private int billetPris;                                                     // Summeret pris: type*12*zone*antal
     private int balance;
@@ -124,7 +125,7 @@ public class Billetinformation2                                                 
 
     // CHECK BALANCE -----------------------------------------------------------
     public boolean checkBalance() {                                              // Tjekker om balancen er høj nok til køb af billet
-        if (balance >= billetpris) {                                             // Hvis dette er tilfældet, ændres den boolske værdi
+        if (balance >= billetPris) {                                             // Hvis dette er tilfældet, ændres den boolske værdi
             validBalance = true;                                                // Boolean = true (1)
 
             Date date = new Date();                                             // Godkendelse af balancen overføres til automatlog
@@ -154,7 +155,7 @@ public class Billetinformation2                                                 
     public int getTotal()
     {
         if (montørtilstand) {
-            return billetpris * antalBilletterSolgt;
+            return billetPris * antalBilletterSolgt;
         } else {
             System.out.println("Afvist - log ind først");                       // Udskrivning af fejlmeddelelse
             return 0;                                                           // Restart
@@ -222,6 +223,4 @@ public class Billetinformation2                                                 
     public void getLog() {
         System.out.println(automatLog);
     }
-}
-
 } // End of public class Billetinformation
