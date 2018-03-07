@@ -12,7 +12,7 @@ public class BenytBilletautomatRedigering
         System.out.println("BenytBilletautomat version mindst 4");
         System.out.println();
 
-        while (true) 
+        mainMenu: while (true) 
         {
             System.out.println("-----------------------------------------------");
             System.out.println("VELKOMMEN TIL BT BILLETAUTOMAT");
@@ -48,6 +48,8 @@ public class BenytBilletautomatRedigering
                     System.out.println("Tast 4 | Pensionist");
                     System.out.println("Tast 5 | Hund");
                     System.out.println("Tast 6 | Cykel");
+                    System.out.println();
+                    System.out.println("Tast 9 | Afbryd billet");
                     personType = tastatur.nextInt();
                     switch(personType)
                     {
@@ -86,6 +88,9 @@ public class BenytBilletautomatRedigering
                         info.setBillettype("Cykelbillet");
                         billetType = 0.5;
                         break;
+                        
+                        case 9:
+                        continue mainMenu;
                     
                         default:
                         personType = 0;
@@ -99,6 +104,8 @@ public class BenytBilletautomatRedigering
                 {
                     System.out.println("Tast 1 | Vælg antal zoner");
                     System.out.println("Tast 2 | Udregn antal zoner");
+                    System.out.println();
+                    System.out.println("Tast 9 | Afbryd billet");
                     zoneType = tastatur.nextInt();
                     switch(zoneType)
                     {
@@ -119,7 +126,10 @@ public class BenytBilletautomatRedigering
                         automat.setSlutZone(slutZone);
                         int zoneVal = automat.zoneBeregner();
                         info.setAntalZoner(zoneVal);
-                    break;                                           
+                    break; 
+                    
+                    case 9:
+                    continue mainMenu;
 
                     default:
                         zoneType = 0;
@@ -139,7 +149,9 @@ public class BenytBilletautomatRedigering
                 do
                 {
                 System.out.println("Tast 1 | Godkend og gå til betaling");
-                System.out.println("Tast 2 | Køb flere billetter");                   
+                System.out.println("Tast 2 | Køb flere billetter");
+                System.out.println();
+                System.out.println("Tast 9 | Afbryd billet");
                 godkendBillet = tastatur.nextInt();
                 switch(godkendBillet)
                 {
@@ -204,7 +216,10 @@ public class BenytBilletautomatRedigering
                     case 2:  
                         System.out.println("Returner til hovedmenu");
                         // Indsæt funktion for tilføjelse af børnebillet
-                        break;                 
+                        break;    
+                        
+                    case 9:
+                    continue mainMenu;
 
                     default:
                         godkendBillet = 0;
