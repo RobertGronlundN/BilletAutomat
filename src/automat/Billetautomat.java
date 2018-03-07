@@ -3,7 +3,7 @@ package automat;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Billetautomat 
+public class Billetautomat
 {
     private int billetpris;                                                     // Prisen for én billet.
     private int balance;                                                        // Hvor mange penge kunden p.t. har puttet i automaten
@@ -14,28 +14,18 @@ public class Billetautomat
     private boolean montørtilstand;
     private boolean validBalance = false;
 
-    ArrayList<String> automatLog = new ArrayList<String>();
+    ArrayList<String> automatLog = new ArrayList<String>();                     // Oprettelse af ArrayList itl automatlog
 
-    // Opret en billetautomat der sælger billetter til 10 kr.
     public Billetautomat() {
-        billetpris = 10;
-        balance = 0;
-        antalBilletterSolgt = 0;
-        automatZone = 1;                                                        // Hvis ikke andet er angivet, står automat i zone 1
-        destinationZone = 1;
-    }
-
-    // BILLETPRIS ----------------------------------------------------------
-    public void setBilletpris(double type, int zone, int antal) {
-        this.billetpris = (int) (type * zone * 12 * antal);                                           // Opdatering af den forudbestemte pris (montør)
-    }
-    public int getBilletpris() {
-        int resultat = billetpris;
-        return resultat;
+        billetpris = 10;                                                        // Som standard er billetprisen 10
+        balance = 0;                                                            // Som standard er balancen 0
+        antalBilletterSolgt = 0;                                                // Som standard har automaten ingen billetter udstedt
+        automatZone = 1;                                                        // Som standard står automat i zone 1
+        destinationZone = 1;                                                    // Som standard er endestationen i samme zone som automaten
     }
 
     // INDSÆT PENGE ------------------------------------------------------------
-    public void indsætPenge(int beløb) {
+    public void indsætPenge(int beløb) {                                        // Public void-function, set (redigering)
         balance = balance + beløb;                                              // Indsatte beløb lægges oveni nuværende balance
 
         Date date = new Date();                                                 // Forøgelse af balance overfører til automatlog
@@ -43,10 +33,13 @@ public class Billetautomat
     }
 
     // BALANCE -----------------------------------------------------------------
-    public int getBalance() {
+    public int getBalance() {                                                   // Public int-function, get (aflæsning)
         return balance;                                                         // Returnerer balancen
-    }
-    
+    } // End of get balance
+    public void setBalance(int balance) {                                       // Public void-function, set (redigering)
+        this.balance = balance;                                                 // Opdateer balance til værdi angivet af montør
+    } // End of set balance (kan kun tilgås som montør)
+
     // CHECK BALANCE -----------------------------------------------------------
     public boolean checkBalance(){                                              // Tjekker om balancen er høj nok til køb af billet
         if (balance >= billetpris){                                             // Hvis dette er tilfældet, ændres den boolske værdi
@@ -62,7 +55,7 @@ public class Billetautomat
         }
         return validBalance;
     }
-    
+
     // AUTOMATZONE -------------------------------------------------------------
     public void setAutomatZone(int autZone) {
         automatZone = autZone;                                                  // Returnerer zone for automats placering
@@ -70,7 +63,7 @@ public class Billetautomat
     public int getAutomatZone() {
         return automatZone;                                                     // Returnerer zone for automats placering
     }
-    
+
     // SLUTZONE ----------------------------------------------------------------
     public void setSlutZone(int destZone){
         this.destinationZone = destZone;
@@ -78,13 +71,13 @@ public class Billetautomat
     public int getSlutZone(){
         return destinationZone;
     }
-    
+
     // ZONEBEREGNER ------------------------------------------------------------
     public int zoneBeregner()
     {
         rejseZoner = 0;
         int slutZone = getSlutZone();
-        
+
         if (slutZone < automatZone) {
             rejseZoner = (automatZone - slutZone);
         }
@@ -94,22 +87,22 @@ public class Billetautomat
         else if (slutZone == automatZone) {
             rejseZoner = 1;
         }
-        
+
         if (slutZone > 6){
             rejseZoner = 6;
         }
-        
+
         return rejseZoner;
     }
 
-    // UDSKRIV BILLET ----------------------------------------------------------    
+    // UDSKRIV BILLET ----------------------------------------------------------
     public void udskrivBillet() {
         if (balance < billetpris) {
             System.out.println("Du mangler at indbetale nogle penge");
         }
-        
+
         Date date = new Date();
-        
+
         System.out.println("##########B##T#########");
         System.out.println("# BlueJ Trafikselskab #");
         System.out.println("#                     #");
@@ -121,18 +114,18 @@ public class Billetautomat
         System.out.println("##########B##T#########");
         System.out.println("#    Billet Gyldig    #");
         System.out.println("#  2 timer efter køb  #");
-        System.out.println("# " + date.toString() + " #");
+        System.out.println("# " + date.toString() + " #");                      // Udskrivning af data og tid.
         System.out.println("##########B##T#########");
 
         antalBilletterSolgt = antalBilletterSolgt + 1;
-        balance = balance - billetpris; // Billetter koster 10 kroner
+        balance = balance - billetpris;
 
-        
+
         automatLog.add(date.toString()+"\t | Billet udskrevet til "+ billetpris +" kr., ny balance: "+balance+" kr.\n");
     }
-    
+
     public void udskrivBillet2(){
-        
+
     }
 
     // RETURPENGE --------------------------------------------------------------
@@ -146,9 +139,9 @@ public class Billetautomat
 
         return returbeløb;                                                      // Returnerer det returnerede beløb
     }
-    
+
     // TOTAL -------------------------------------------------------------------
-    public int getTotal() 
+    public int getTotal()
     {
         if (montørtilstand) {
             return billetpris * antalBilletterSolgt;
@@ -159,7 +152,7 @@ public class Billetautomat
     }
 
     // MONTØR ------------------------------------------------------------------
-    void montørLogin(String adgangskode) 
+    void montørLogin(String adgangskode)
     {
         if ("1234".equals(adgangskode)) {
             montørtilstand = true;                                              // Ændrer den boolske værdi til true (1)
@@ -175,7 +168,7 @@ public class Billetautomat
     }
 
      // ANTAL BILLETTER SOLGT --------------------------------------------------
-    public void setAntalBilletterSolgt(int antalBilletterSolgt) 
+    public void setAntalBilletterSolgt(int antalBilletterSolgt)
     {
         if (montørtilstand) {
             this.antalBilletterSolgt = antalBilletterSolgt;
@@ -183,7 +176,7 @@ public class Billetautomat
             System.out.println("Afvist - log ind først");
         }
     }
-     public int getAntalBilletterSolgt() 
+     public int getAntalBilletterSolgt()
     {
         if (montørtilstand) {
             return antalBilletterSolgt;                                         // Returner kun antal billetter solgt, hvis montør er logget ind
@@ -192,9 +185,9 @@ public class Billetautomat
             return 0;                                                           // Restart
         }
     }
-     
+
      // NULSTIL ----------------------------------------------------------------
-    public void nulstil() 
+    public void nulstil()
     {
         if (montørtilstand) {
             antalBilletterSolgt = 0;
@@ -202,7 +195,7 @@ public class Billetautomat
             System.out.println("Afvist - log ind først");
         }
     }
-    
+
     // AUTOMAT LOGBOG ----------------------------------------------------------
     public void getLog() {
         System.out.println(automatLog);
