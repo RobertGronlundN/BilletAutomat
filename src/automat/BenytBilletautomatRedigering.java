@@ -1,6 +1,6 @@
 package automat;
 
-
+// Test
 public class BenytBilletautomatRedigering
 {
     public static void main(String[] arg)
