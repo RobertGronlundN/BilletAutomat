@@ -44,8 +44,8 @@ public class Billetinformation2                                                 
     public int getBilletPris() {                                                // Public int-funktion, get (aflæsning)
         return billetPris;                                                      // Returnerer den summerede pris
     } // End of get summeretPris
-    public void setBilletPris(double type, int zone, int antal) {               // Public void-funktion, set (redigering)
-        this.billetpris = (int) (type * zone * 12 * antal);                     // Opdatering af integeren summeretPris
+    public void setBilletPris(double type) {               // Public void-funktion, set (redigering)
+        this.billetPris = (int) (type * getAntalZoner() * 12 * getAntalBilletter());                     // Opdatering af integeren summeretPris
     } // End of set summeretPris
 
     // ARRAYLIST ---------------------------------------------------------------// Oprettelse af ArrayList kaldet indkøbskurv, Indeholder typen class: Billetinfo2
@@ -53,7 +53,7 @@ public class Billetinformation2                                                 
 
     // ADD BILLET MED NUVÆRENDE INFO -------------------------------------------
     public void tilføjBillet(){                                                 // Funktionen kaldes når en ny billet skal tilføjes til arraylisen indkøbskurv
-        indkøbskurv.add(new Billetinformation2(getBillettype(), getAntalZoner(), getAntalBilletter(), getSummeretPris()));
+        indkøbskurv.add(new Billetinformation2(getBillettype(), getAntalZoner(), getAntalBilletter(), getBilletPris()));
     } // End of void tilføjBillet
 
     // TO STRING ---------------------------------------------------------------

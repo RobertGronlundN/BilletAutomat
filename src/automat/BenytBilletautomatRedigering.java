@@ -141,6 +141,8 @@ public class BenytBilletautomatRedigering
                 System.out.print("Vælg antal billetter:");
                 int billetAntal = tastatur.nextInt();
                 info.setAntalBilletter(billetAntal);
+                
+                info.setBilletPris(billetType);
 
                 info.tilføjBillet();
                 info.udskrivKurv();
