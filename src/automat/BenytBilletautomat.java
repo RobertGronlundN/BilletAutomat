@@ -109,7 +109,7 @@ public class BenytBilletautomat
                     {
                     System.out.print("Sæt ny billetpris: ");
                     int beløb = tastatur.nextInt();
-                    //automat.setBilletpris(beløb);
+                    automat.setBilletpris(beløb);
                     break;
                     }
                 case 14:
