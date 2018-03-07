@@ -12,6 +12,7 @@ public class Billetinformation2                                                 
     private int antalBilletter;                                                 // Antallet af billetter, int
     private int billetPris;                                                     // Summeret pris: type*12*zone*antal
     private int balance;
+    private double total;
     private int antalBilletterSolgt;
     private boolean montørtilstand = false;
     private boolean validBalance = false;
@@ -81,8 +82,8 @@ public class Billetinformation2                                                 
     public int getBilletPris() {                                                // Public int-funktion, get (aflæsning)
         return billetPris;                                                      // Returnerer den summerede pris
     } // End of get summeretPris
-    public void setBilletPris(double type) {               // Public void-funktion, set (redigering)
-        this.billetPris = (int) (type * getAntalZoner() * 12 * getAntalBilletter());                     // Opdatering af integeren summeretPris
+    public void setBilletPris(double type) {                                    // Public void-funktion, set (redigering)
+        this.billetPris = (int) (type * getAntalZoner() * 12 * getAntalBilletter());  // Opdatering af integeren summeretPris
     } // End of set summeretPris
 
     // ARRAYLIST ---------------------------------------------------------------// Oprettelse af ArrayList kaldet indkøbskurv, Indeholder typen class: Billetinfo2
@@ -96,11 +97,11 @@ public class Billetinformation2                                                 
     // TO STRING ---------------------------------------------------------------
     @Override                                                                   // Override enabled
     public String toString() {                                                  // Opretter public string-funktion. Omskriver class fra arraylisten til en samlet string
-        return getBillettype()+ "\t" +getAntalZoner()+ "\t"+ getAntalBilletter()+"\t"+getBilletPris()+ "DKK";
+        return getBillettype()+ " \t" +getAntalZoner()+ "  \t"+ getAntalBilletter()+"  \t"+getBilletPris()+ " DKK";
     } // End of toString
 
     // PRINT LIST
-    public void udskrivKurv() {                                               // Funktion til udskrivning af indkøbskurv
+    public void udskrivKurv() {                                                 // Funktion til udskrivning af indkøbskurv
         Date date = new Date();
         System.out.println("------------- INDKØBSKURV -------------");
         System.out.println("Billettype\t Zone \t Antal \t Subtotal");
@@ -108,9 +109,14 @@ public class Billetinformation2                                                 
             System.out.println(b);                                              // Assuming a valid toString in the BilletInfo2 class
         }
         System.out.println("---------------------------------------");
+        for (int i; i < indkøbskurv.size(); i++) {
+          total = total + indkøbskurv.get(i).billetPris;
+        }
+        System.out.println("             Total: "+total+"          ");
+        System.out.println("---------------------------------------");
         System.out.println(" Billet gyldig i 2 timer fra udstedelse");
         System.out.println("   "+date.toString()+"  ");
-    }
+    } // End of void udskrivKurv
 
     // INDSÆT PENGE ------------------------------------------------------------
     public void indsætPenge(int beløb) {                                        // Public void-function, set (redigering)
