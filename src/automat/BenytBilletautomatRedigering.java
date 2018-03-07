@@ -173,6 +173,7 @@ public class BenytBilletautomatRedigering
                                 if (automat.erMontør()) 
                                 {
                                     System.out.println("Tast 10 | Sæt balance (montør)");
+                                }
                                 betalingsMetode = tastatur.nextInt();
 
                                 switch(betalingsMetode)
@@ -211,7 +212,7 @@ public class BenytBilletautomatRedigering
                             int beløb = tastatur.nextInt();
                             automat.indsætPenge(beløb);
 
-                            automat.setBilletpris(billetType, billetZone, billetAntal);       
+                            info.setBilletPris(billetType);       
 
                             if (automat.checkBalance() == true)  {
                                 godkendtBetaling = true;
