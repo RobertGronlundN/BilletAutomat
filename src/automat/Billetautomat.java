@@ -5,14 +5,14 @@ import java.util.Date;
 
 public class Billetautomat
 {
-    private int billetpris;                                                     // Prisen for én billet.
-    private int balance;                                                        // Hvor mange penge kunden p.t. har puttet i automaten
-    private int antalBilletterSolgt;                                            // Antal billetter automaten i alt har solgt
-    private int automatZone;                                                    // Angiver i hvilken zone automaten er installeret
-    private int rejseZoner;
-    private int destinationZone;
-    private boolean montørtilstand;
-    private boolean validBalance = false;
+    // private int billetpris;                                                     // Prisen for én billet.
+    // private int balance;                                                        // Hvor mange penge kunden p.t. har puttet i automaten
+    // private int antalBilletterSolgt;                                            // Antal billetter automaten i alt har solgt
+    // private int automatZone;                                                    // Angiver i hvilken zone automaten er installeret
+    // private int rejseZoner;
+    // private int destinationZone;
+    // private boolean montørtilstand;
+    // private boolean validBalance = false;
 
     ArrayList<String> automatLog = new ArrayList<String>();                     // Oprettelse af ArrayList itl automatlog
 
@@ -23,7 +23,7 @@ public class Billetautomat
         automatZone = 1;                                                        // Som standard står automat i zone 1
         destinationZone = 1;                                                    // Som standard er endestationen i samme zone som automaten
     }
-
+    /*
     // INDSÆT PENGE ------------------------------------------------------------
     public void indsætPenge(int beløb) {                                        // Public void-function, set (redigering)
         balance = balance + beløb;                                              // Indsatte beløb lægges oveni nuværende balance
@@ -41,8 +41,8 @@ public class Billetautomat
     } // End of set balance (kan kun tilgås som montør)
 
     // CHECK BALANCE -----------------------------------------------------------
-    public boolean checkBalance(){                                              // Tjekker om balancen er høj nok til køb af billet
-        if (balance >= billetpris){                                             // Hvis dette er tilfældet, ændres den boolske værdi
+    public boolean checkBalance() {                                              // Tjekker om balancen er høj nok til køb af billet
+        if (balance >= billetpris) {                                             // Hvis dette er tilfældet, ændres den boolske værdi
             validBalance = true;                                                // Boolean = true (1)
 
             Date date = new Date();                                             // Godkendelse af balancen overføres til automatlog
@@ -56,6 +56,7 @@ public class Billetautomat
         return validBalance;
     }
 
+
     // AUTOMATZONE -------------------------------------------------------------
     public void setAutomatZone(int autZone) {
         automatZone = autZone;                                                  // Returnerer zone for automats placering
@@ -65,16 +66,15 @@ public class Billetautomat
     }
 
     // SLUTZONE ----------------------------------------------------------------
-    public void setSlutZone(int destZone){
+    public void setSlutZone(int destZone) {
         this.destinationZone = destZone;
     }
-    public int getSlutZone(){
+    public int getSlutZone() {
         return destinationZone;
     }
 
     // ZONEBEREGNER ------------------------------------------------------------
-    public int zoneBeregner()
-    {
+    public int zoneBeregner() {
         rejseZoner = 0;
         int slutZone = getSlutZone();
 
@@ -87,13 +87,11 @@ public class Billetautomat
         else if (slutZone == automatZone) {
             rejseZoner = 1;
         }
-
         if (slutZone > 6){
             rejseZoner = 6;
         }
-
         return rejseZoner;
-    }
+    } */
 
     // UDSKRIV BILLET ----------------------------------------------------------
     public void udskrivBillet() {
@@ -128,6 +126,7 @@ public class Billetautomat
 
     }
 
+    /*
     // RETURPENGE --------------------------------------------------------------
     public int returpenge() {
         int returbeløb = balance;                                               // Tjekker automatens balance, overfører til returbeløb
@@ -199,5 +198,5 @@ public class Billetautomat
     // AUTOMAT LOGBOG ----------------------------------------------------------
     public void getLog() {
         System.out.println(automatLog);
-    }
+    } */
 }
