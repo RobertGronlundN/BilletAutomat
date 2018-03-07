@@ -1,6 +1,6 @@
 package automat;
 
-import java.lang.reflect.Array;
+//import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Billetinformation2
@@ -9,14 +9,12 @@ public class Billetinformation2
     private int antalZoner;
     private int antalBilletter;
     private int summeretPris;
-
-    ArrayList<Billetinformation2> indkøbskurv = new ArrayList<Billetinformation2>( );
     
-    public Billetinformation2(){
-        billettype = null;
-        antalZoner = 0;
-        antalBilletter = 0;
-        summeretPris = 0;
+    public Billetinformation2(String billettype, int antalZoner, int antalBilletter, int summeretPris){
+        this.billettype = billettype;
+        this.antalZoner = antalZoner;
+        this.antalBilletter = antalBilletter;
+        this.summeretPris = summeretPris;
     }
     
     // BILLETTYPE --------------------------------------------------------------
@@ -51,35 +49,30 @@ public class Billetinformation2
         this.summeretPris = sumpris;
     }
     
+    ArrayList<Billetinformation2> indkøbskurv = new ArrayList<Billetinformation2>( );
+
+    
     // ADD BILLET MED NUVÆRENDE INFO -------------------------------------------
     public void tilføjBillet(){
-        for (int i = 0; i < 100; i++) 
-        {
-            Billetinformation2 nyBillet = new Billetinformation2();
-            nyBillet.billettype = getBillettype();
-            nyBillet.antalZoner = getAntalZoner();
-            nyBillet.antalBilletter = getAntalBilletter();
-            nyBillet.summeretPris = getSummeretPris();
-            indkøbskurv.add(nyBillet);
-        }
+        indkøbskurv.add(new Billetinformation2(getBillettype(), getAntalZoner(), getAntalBilletter(), getSummeretPris()));        
     }
     
     // TO STRING ---------------------------------------------------------------
     
+    @Override
+    public String toString()
+    {
+        return "Billettype: \t" +getBillettype()+ "; \tZoner: \t" +getAntalZoner()+ " zoner \tAntalBil: \t"+ getAntalBilletter()+" stk. \tSummeretPris: \t"+getSummeretPris()+ "DKK";
+    }
     
     // PRINT LIST
-    public void udskrivKurv(){
-        System.out.println(indkøbskurv);
-        
-        for (int i = 0; i < indkøbskurv.size(); i++) 
+    public void udskrivKurv()
+    {
+        System.out.println("------------- INDKØBSKURV -------------");
+        for (Billetinformation2 b : indkøbskurv)
         {
-            System.out.println("------------- INDKØBSKURV ------------");
-            System.out.println("Billet nummer "+(i+1)+"!");
-            System.out.println("Billettype:     " +indkøbskurv.get(i).billettype);
-            System.out.println("Antal Zoner:    " +indkøbskurv.get(i).antalZoner);
-            System.out.println("Antal Billeter: " +indkøbskurv.get(i).antalBilletter);
-            System.out.println("Subtotal:       " +indkøbskurv.get(i).summeretPris);
-            System.out.println(" ");
+            System.out.println(b); // Assuming a valid toString in the Book class
         }
+        System.out.println("---------------------------------------");
     }    
 } // End of public class Billetinformation
