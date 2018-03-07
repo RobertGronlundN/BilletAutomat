@@ -103,19 +103,24 @@ public class Billetinformation2                                                 
     // PRINT LIST
     public void udskrivKurv() {                                                 // Funktion til udskrivning af indkøbskurv
         Date date = new Date();
+        toString();
         System.out.println("------------- INDKØBSKURV -------------");
         System.out.println("Billettype\t Zone \t Antal \t Subtotal");
         for (Billetinformation2 b : indkøbskurv) {
             System.out.println(b);                                              // Assuming a valid toString in the BilletInfo2 class
         }
         System.out.println("---------------------------------------");
-        for (int i; i < indkøbskurv.size(); i++) {
+        total=0;
+        for (int i=0; i < indkøbskurv.size(); i++) {
           total = total + indkøbskurv.get(i).billetPris;
         }
-        System.out.println("             Total: "+total+"          ");
+        System.out.println("          Total: "+total+"  DKK");
         System.out.println("---------------------------------------");
         System.out.println(" Billet gyldig i 2 timer fra udstedelse");
         System.out.println("   "+date.toString()+"  ");
+        System.out.println("---------------------------------------");
+        System.out.println();
+
     } // End of void udskrivKurv
 
     // INDSÆT PENGE ------------------------------------------------------------

@@ -103,7 +103,7 @@ public class BenytBilletautomatRedigering
                 do
                 {
                     System.out.println("Tast 1 | Vælg antal zoner");
-                    System.out.println("Tast 2 | Udregn antal zoner");
+                    System.out.println("Tast 2 | Udregn antal zoner");                    
                     System.out.println();
                     System.out.println("Tast 9 | Afbryd billet");
                     zoneType = tastatur.nextInt();
@@ -127,7 +127,7 @@ public class BenytBilletautomatRedigering
                         int zoneVal = automat.zoneBeregner();
                         automat.setAntalZoner(zoneVal);
                     break;
-
+                                        
                     case 9:
                     continue mainMenu;
 
@@ -143,15 +143,16 @@ public class BenytBilletautomatRedigering
                 automat.setAntalBilletter(billetAntal);
 
                 automat.setBilletPris(billetType);
-
-                automat.tilføjBillet();
-                automat.udskrivKurv();
+                
                 int godkendBillet;
 
                 do
                 {
+                automat.tilføjBillet();
+                automat.udskrivKurv();
                 System.out.println("Tast 1 | Godkend og gå til betaling");
                 System.out.println("Tast 2 | Køb flere billetter");
+                System.out.println("Tast 3 | Slet billet");
                 System.out.println();
                 System.out.println("Tast 9 | Afbryd billet");
                 godkendBillet = tastatur.nextInt();
@@ -219,7 +220,7 @@ public class BenytBilletautomatRedigering
                             if (automat.checkBalance() == true)  {
                                 godkendtBetaling = true;
 
-                                automat.udskrivBillet();
+                                //automat.udskrivBillet();
 
                                 }
                             else {
@@ -230,11 +231,22 @@ public class BenytBilletautomatRedigering
                     }
 
                     case 2:
-                        System.out.println("Returner til hovedmenu");
-                        // Indsæt funktion for tilføjelse af børnebillet
+                        System.out.println("Returner til hovedmenu");                        
+                        continue mainMenu;
+                       
+                    
+                    case 3:
+                        System.out.println("Indtast nr på billet der skal slettes:");
+                        int sletBilletNr = tastatur.nextInt()-1;
+                        if (sletBilletNr >= 0 && sletBilletNr < automat.indkøbskurv.size() )
+                        automat.indkøbskurv.remove(sletBilletNr);
+                        automat.indkøbskurv.trimToSize();
+                        godkendBillet = 0;
                         break;
 
+
                     case 9:
+                    automat.indkøbskurv.clear();
                     continue mainMenu;
 
                     default:
