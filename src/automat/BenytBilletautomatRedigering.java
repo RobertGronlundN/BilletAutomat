@@ -170,7 +170,6 @@ public class BenytBilletautomatRedigering
                                 System.out.println("Betal med:");
                                 System.out.println("Tast 1 | Dankort");
                                 System.out.println("Tast 2 | Kontant");
-                                System.out.println("Tast 3 | Kupon");
                                 if (automat.erMontør())
                                 {
                                     System.out.println("Tast 10 | Sæt balance (montør)");
@@ -192,12 +191,6 @@ public class BenytBilletautomatRedigering
                                     System.out.print("Skriv beløb: ");
                                     int beløb = tastatur.nextInt();
                                     automat.indsætPenge(beløb);
-                                    break;
-
-                                    case 3:
-                                    System.out.print("Indtast kuponkode: ");
-                                    //int kuponKode = tastatur.next();
-                                    //automat.checkKuponKode
                                     break;
 
                                     case 10:
