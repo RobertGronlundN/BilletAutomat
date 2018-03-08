@@ -110,7 +110,7 @@ public class BenytBilletautomatRedigering
                     switch(zoneType)
                     {
                         case 1:
-                            System.out.print("Indtast antal zoner: ");
+                            System.out.print("Indtast antal zoner:  ");
                             int zoneValg = tastatur.nextInt();
                             if (zoneValg >= 1 && zoneValg <= 6) {
                                 automat.setAntalZoner(zoneValg);
@@ -138,7 +138,7 @@ public class BenytBilletautomatRedigering
                 } while (zoneType == 0);
 
 
-                System.out.print("Vælg antal billetter:");
+                System.out.print("Vælg antal billetter: ");
                 int billetAntal = tastatur.nextInt();
                 automat.setAntalBilletter(billetAntal);
 

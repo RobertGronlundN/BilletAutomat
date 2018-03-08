@@ -97,7 +97,7 @@ public class Billetinformation2                                                 
     // REMOVE
     public void fjernBillet(int fjern){
         indkøbskurv.remove(fjern);
-        indkøbskurv.trimToSize();
+        indkøbskurv.remove(indkøbskurv.size()-1);
     }
     
     
@@ -110,10 +110,9 @@ public class Billetinformation2                                                 
     // PRINT LIST
     public void udskrivKurv() {                                                 // Funktion til udskrivning af indkøbskurv
         Date date = new Date();
-        toString();
         System.out.println("------------- INDKØBSKURV -------------");
         System.out.println(indkøbskurv.size());
-        System.out.println("Billettype\t Zone \t Antal \t Subtotal");        
+        System.out.println("Billettype\tZone \tAntal \tSubtotal");        
         for (int i = 0 ; i < indkøbskurv.size(); i++) {
             System.out.println(indkøbskurv.get(i).billettype+"\t"+indkøbskurv.get(i).antalZoner+"\t"+indkøbskurv.get(i).antalBilletter+"\t"+indkøbskurv.get(i).billetPris);
         }
