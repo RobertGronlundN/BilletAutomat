@@ -12,7 +12,7 @@ public class Billetinformation2                                                 
     private int antalBilletter;                                                 // Antallet af billetter, int
     private int billetPris;                                                     // Summeret pris: type*12*zone*antal
     private int balance;
-    private double total;
+    private int total;
     private int antalBilletterSolgt;
     private boolean montørtilstand = false;
     private boolean validBalance = false;
@@ -93,7 +93,14 @@ public class Billetinformation2                                                 
     public void tilføjBillet(){                                                 // Funktionen kaldes når en ny billet skal tilføjes til arraylisen indkøbskurv
         indkøbskurv.add(new Billetinformation2(getBillettype(), getAntalZoner(), getAntalBilletter(), getBilletPris()));
     } // End of void tilføjBillet
-
+    
+    // REMOVE
+    public void fjernBillet(int fjern){
+        indkøbskurv.remove(fjern);
+        indkøbskurv.trimToSize();
+    }
+    
+    
     // TO STRING ---------------------------------------------------------------
     @Override                                                                   // Override enabled
     public String toString() {                                                  // Opretter public string-funktion. Omskriver class fra arraylisten til en samlet string
@@ -105,9 +112,10 @@ public class Billetinformation2                                                 
         Date date = new Date();
         toString();
         System.out.println("------------- INDKØBSKURV -------------");
-        System.out.println("Billettype\t Zone \t Antal \t Subtotal");
-        for (Billetinformation2 b : indkøbskurv) {
-            System.out.println(b);                                              // Assuming a valid toString in the BilletInfo2 class
+        System.out.println(indkøbskurv.size());
+        System.out.println("Billettype\t Zone \t Antal \t Subtotal");        
+        for (int i = 0 ; i < indkøbskurv.size(); i++) {
+            System.out.println(indkøbskurv.get(i).billettype+"\t"+indkøbskurv.get(i).antalZoner+"\t"+indkøbskurv.get(i).antalBilletter+"\t"+indkøbskurv.get(i).billetPris);
         }
         System.out.println("---------------------------------------");
         total=0;
@@ -141,6 +149,7 @@ public class Billetinformation2                                                 
                 System.out.println();            
             }
         }
+        
         
               
         automatLog.add(date.toString()+"\t | Købt:\n"
@@ -182,7 +191,7 @@ public class Billetinformation2                                                 
 
     // RETURPENGE --------------------------------------------------------------
     public int returpenge() {
-        int returbeløb = balance;                                               // Tjekker automatens balance, overfører til returbeløb
+        int returbeløb = balance-total;                                               // Tjekker automatens balance, overfører til returbeløb
         balance = 0;                                                            // Nulstiller balancen, pengene er udbetalt
         System.out.println("Du får "+returbeløb+" DKK retur");                   // Orienterer kunden
 

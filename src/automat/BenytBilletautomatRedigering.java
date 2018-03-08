@@ -238,11 +238,16 @@ public class BenytBilletautomatRedigering
                        
                     
                     case 3:
-                        System.out.println("Indtast nr på billet der skal slettes:");
+                        System.out.print("Indtast nummer på billet der skal slettes: ");
                         int sletBilletNr = tastatur.nextInt()-1;
-                        if (sletBilletNr >= 0 && sletBilletNr < automat.indkøbskurv.size() )
-                        automat.indkøbskurv.remove(sletBilletNr);
-                        automat.indkøbskurv.trimToSize();
+                        if (sletBilletNr >= 0 && sletBilletNr < automat.indkøbskurv.size() ){
+                            automat.fjernBillet(sletBilletNr);
+                        }
+                        
+                        
+                            
+                        /*automat.indkøbskurv.remove(sletBilletNr);
+                        automat.indkøbskurv.trimToSize();*/
                         godkendBillet = 0;
                         break;
 
