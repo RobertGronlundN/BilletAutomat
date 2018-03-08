@@ -1,5 +1,7 @@
 package automat;
 
+import java.util.stream.Collectors;
+
 
 public class BenytBilletautomatRedigering
 {
@@ -277,8 +279,13 @@ public class BenytBilletautomatRedigering
                 automat.getLog();
                 break;
             case 15:
-                automat.montørLogin("");
+                System.out.print("Indtast søgeord: ");
+                String søgning = tastatur.nextLine();
+                automat.logSøgning(søgning);
                 break;
+            case 16:
+                automat.montørLogin("");
+                break;                         
             default:
                 System.out.println("Ugyldigt valg, prøv igen");
                 break;

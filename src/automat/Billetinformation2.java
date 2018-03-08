@@ -2,6 +2,9 @@ package automat;                                                                
 
 import java.util.ArrayList;                                                    // Import, brugt til oprettelse af ArrayList
 import java.util.Date;
+import java.util.stream.Collectors;
+import java.util.*;
+import java.util.List;
 
 public class Billetinformation2                                                 // Overordnet public class, initialisering af variable
 {
@@ -213,13 +216,6 @@ public class Billetinformation2                                                 
     // -------------------- MONTØR ---------------------------------------------
     // -------------------------------------------------------------------------
     
-    // AUTOMATZONE -------------------------------------------------------------
-    public void setAutomatZone(int automatZone) {
-        this.automatZone = automatZone;                                         // Returnerer zone for automats placering
-    }
-    public int getAutomatZone() {
-        return automatZone;                                                     // Returnerer zone for automats placering
-    }
 
     // MONTØR ------------------------------------------------------------------
     void montørLogin(String adgangskode)
@@ -235,6 +231,14 @@ public class Billetinformation2                                                 
     }
      public boolean erMontør() {
         return montørtilstand;
+    }
+     
+    // AUTOMATZONE -------------------------------------------------------------
+    public void setAutomatZone(int automatZone) {
+        this.automatZone = automatZone;                                         // Returnerer zone for automats placering
+    }
+    public int getAutomatZone() {
+        return automatZone;                                                     // Returnerer zone for automats placering
     }
 
      // ANTAL BILLETTER SOLGT --------------------------------------------------
@@ -262,5 +266,16 @@ public class Billetinformation2                                                 
     // AUTOMAT LOGBOG ----------------------------------------------------------
     public void getLog() {
         System.out.println(automatLog);
+    }
+    
+    // LOGSØGNING --------------------------------------------------------------
+    public void logSøgning(String søg){
+      if (montørtilstand) {
+            String søgning = søg;
+            List<String> matches = automatLog.stream().filter(it->it.toLowerCase().contains(søgning.toLowerCase())).collect(Collectors.toList());
+            matches.forEach(System.out::println);
+        } else {
+            System.out.println("Afvist - log ind først");
+        }  
     }
 } // End of public class Billetinformation
