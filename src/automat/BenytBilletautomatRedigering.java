@@ -261,8 +261,7 @@ public class BenytBilletautomatRedigering
                 automat.montørLogin(kode);
                 break;
             case 11:
-                System.out.println("Antal billetter solgt: " + automat.getAntalBilletterSolgt());
-                System.out.println("Total indkomst: " + automat.getStatus()+" kr");
+                System.out.println("Antal billetter solgt: " + automat.getAntalBilletterSolgt());                
                 break;
             case 12:
                 automat.nulstil();

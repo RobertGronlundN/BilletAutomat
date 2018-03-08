@@ -16,7 +16,7 @@ public class Billetinformation2                                                 
     private int antalBilletterSolgt;
     private boolean montørtilstand = false;
     private boolean validBalance = false;
-
+       
     ArrayList<String> automatLog = new ArrayList<String>();                     // Oprettelse af ArrayList itl automatlog
 
     public Billetinformation2 (String billettype, int antalZoner, int antalBilletter, int billetPris) {
@@ -145,7 +145,9 @@ public class Billetinformation2                                                 
                 System.out.println("|     "+date.toString()+"    |");
                 System.out.println("__________________________________________");
                 System.out.println();
-                System.out.println();            
+                System.out.println();  
+                
+                antalBilletterSolgt++;
             }
         }
         
@@ -210,17 +212,6 @@ public class Billetinformation2                                                 
     // -------------------------------------------------------------------------
     // -------------------- MONTØR ---------------------------------------------
     // -------------------------------------------------------------------------
-
-    // TOTAL -------------------------------------------------------------------
-    public int getStatus()
-    {
-        if (montørtilstand) {
-            return billetPris * antalBilletterSolgt;
-        } else {
-            System.out.println("Afvist - log ind først");                       // Udskrivning af fejlmeddelelse
-            return 0;                                                           // Restart
-        }
-    }
     
     // AUTOMATZONE -------------------------------------------------------------
     public void setAutomatZone(int automatZone) {
@@ -247,15 +238,7 @@ public class Billetinformation2                                                 
     }
 
      // ANTAL BILLETTER SOLGT --------------------------------------------------
-    public void setAntalBilletterSolgt(int antalBilletterSolgt)
-    {
-        if (montørtilstand) {
-            this.antalBilletterSolgt = antalBilletterSolgt;
-        } else {
-            System.out.println("Afvist - log ind først");
-        }
-    }
-     public int getAntalBilletterSolgt()
+    public int getAntalBilletterSolgt()
     {
         if (montørtilstand) {
             return antalBilletterSolgt;                                         // Returner kun antal billetter solgt, hvis montør er logget ind
@@ -270,6 +253,7 @@ public class Billetinformation2                                                 
     {
         if (montørtilstand) {
             antalBilletterSolgt = 0;
+            indkøbskurv.clear();
         } else {
             System.out.println("Afvist - log ind først");
         }
