@@ -189,6 +189,11 @@ public class Billetinformation2                                                 
         return validBalance;
     }
 
+    // TOAL --------------------------------------------------------------------
+    public int getTotal(){
+        return total;
+    }
+   
     // RETURPENGE --------------------------------------------------------------
     public int returpenge() {
         int returbeløb = balance-total;                                               // Tjekker automatens balance, overfører til returbeløb
@@ -208,7 +213,7 @@ public class Billetinformation2                                                 
     // -------------------------------------------------------------------------
 
     // TOTAL -------------------------------------------------------------------
-    public int getTotal()
+    public int getStatus()
     {
         if (montørtilstand) {
             return billetPris * antalBilletterSolgt;

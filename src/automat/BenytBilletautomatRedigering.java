@@ -183,6 +183,8 @@ public class BenytBilletautomatRedigering
                                     System.out.println("Indsæt dankort og tast kode:");
                                     System.out.println("...");
                                     System.out.println("Godkendt");
+                                    System.out.println("Køb gennemført på "+automat.getTotal()+" DKK");
+                                    automat.indsætPenge(automat.getTotal());
                                     break;
 
                                     case 2:
@@ -244,10 +246,6 @@ public class BenytBilletautomatRedigering
                             automat.fjernBillet(sletBilletNr);
                         }
                         
-                        
-                            
-                        /*automat.indkøbskurv.remove(sletBilletNr);
-                        automat.indkøbskurv.trimToSize();*/
                         godkendBillet = 0;
                         break;
 
@@ -271,7 +269,7 @@ public class BenytBilletautomatRedigering
                 break;
             case 11:
                 System.out.println("Antal billetter solgt: " + automat.getAntalBilletterSolgt());
-                System.out.println("Total indkomst: " + automat.getTotal()+" kr");
+                System.out.println("Total indkomst: " + automat.getStatus()+" kr");
                 break;
             case 12:
                 automat.nulstil();
