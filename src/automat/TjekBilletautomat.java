@@ -1,10 +1,10 @@
-package automat;
+/*package automat;
 
 public class TjekBilletautomat
 {
     public static void main(String[] arg)
     {
-        Billetautomat automat = new Billetautomat();
+        Billetinformation2 automat = new Billetautomat();
 
         int antalFejl = 0;
         int retur;
@@ -80,4 +80,4 @@ public class TjekBilletautomat
             System.out.println("Automaten har fejl, ØV!!!");			
         }
     }
-}
+}*/
