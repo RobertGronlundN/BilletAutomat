@@ -220,7 +220,9 @@ public class BenytBilletautomatRedigering
                             if (automat.checkBalance() == true)  {
                                 godkendtBetaling = true;
 
-                                //automat.udskrivBillet();
+                                automat.udskrivBillet();
+                                
+                                automat.indkøbskurv.clear();
 
                                 }
                             else {

@@ -122,12 +122,38 @@ public class Billetinformation2                                                 
         System.out.println();
 
     } // End of void udskrivKurv
+    
+    public void udskrivBillet(){
+        Date date = new Date();
+        
+        // BILLET
+        for (int i = 0 ; i < indkøbskurv.size() ; i++){
+            for (int j = 0 ; j < indkøbskurv.get(i).antalBilletter ; j++){
+                System.out.println();
+                System.out.println("__________________________________________");
+                System.out.println("|    "+ indkøbskurv.get(i).billettype +"     |");
+                System.out.println("|         "+indkøbskurv.get(i).antalZoner+ " Zoner" + "       |");
+                System.out.println("__________________________________________");
+                System.out.println("| Billet gyldig i 2 timer fra udstedelse |");
+                System.out.println("|     "+date.toString()+"    |");
+                System.out.println("__________________________________________");
+                System.out.println();
+                System.out.println();            
+            }
+        }
+        
+              
+        automatLog.add(date.toString()+"\t | Købt:\n"
+                + "Billettype\t Zone \t Antal \t Subtotal\n"
+                + indkøbskurv + "\n");
+        returpenge();
+    }
 
     // INDSÆT PENGE ------------------------------------------------------------
     public void indsætPenge(int beløb) {                                        // Public void-function, set (redigering)
         balance = balance + beløb;                                              // Indsatte beløb lægges oveni nuværende balance
         Date date = new Date();                                                 // Forøgelse af balance overfører til automatlog
-        automatLog.add(date.toString()+"\t | Indsat: " + beløb + " kr., ny balance: " + balance + " kr.\n");
+        automatLog.add(date.toString()+"\t | Indsat: " + beløb + " DKK, ny balance: " + balance + "DKK\n");
     }
 
     // BALANCE -----------------------------------------------------------------
@@ -158,13 +184,19 @@ public class Billetinformation2                                                 
     public int returpenge() {
         int returbeløb = balance;                                               // Tjekker automatens balance, overfører til returbeløb
         balance = 0;                                                            // Nulstiller balancen, pengene er udbetalt
-        System.out.println("Du får "+returbeløb+" kr retur");                   // Orienterer kunden
+        System.out.println("Du får "+returbeløb+" DKK retur");                   // Orienterer kunden
 
         Date date = new Date();                                                 // Tilføjer til log at der er udbetalt returnpenge
-        automatLog.add(date.toString()+"\t | Returneret " + returbeløb + " kr. \n");
+        automatLog.add(date.toString()+"\t | Returneret " + returbeløb + " DKK \n");
 
         return returbeløb;                                                      // Returnerer det returnerede beløb
     }
+
+
+
+    // -------------------------------------------------------------------------
+    // -------------------- MONTØR ---------------------------------------------
+    // -------------------------------------------------------------------------
 
     // TOTAL -------------------------------------------------------------------
     public int getTotal()
@@ -176,11 +208,7 @@ public class Billetinformation2                                                 
             return 0;                                                           // Restart
         }
     }
-
-    // -------------------------------------------------------------------------
-    // -------------------- MONTØR ---------------------------------------------
-    // -------------------------------------------------------------------------
-
+    
     // AUTOMATZONE -------------------------------------------------------------
     public void setAutomatZone(int automatZone) {
         this.automatZone = automatZone;                                         // Returnerer zone for automats placering
