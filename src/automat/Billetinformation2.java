@@ -3,7 +3,6 @@ package automat;                                                                
 import java.util.ArrayList;                                                    // Import, brugt til oprettelse af ArrayList
 import java.util.Date;
 import java.util.stream.Collectors;
-import java.util.*;
 import java.util.List;
 
 public class Billetinformation2                                                 // Overordnet public class, initialisering af variable
@@ -20,7 +19,7 @@ public class Billetinformation2                                                 
     private boolean montoertilstand = false;
     private boolean validBalance = false;
 
-    ArrayList<String> automatLog = new ArrayList<String>();                     // Oprettelse af ArrayList itl automatlog
+    ArrayList<String> automatLog = new ArrayList<>();                     // Oprettelse af ArrayList itl automatlog
 
     public Billetinformation2 (String billettype, int antalZoner, int antalBilletter, int billetPris) {
         this.billettype = billettype;                                           // Opdatering af variablen billettype
@@ -90,9 +89,9 @@ public class Billetinformation2                                                 
     } // End of set summeretPris
 
     // ARRAYLIST ---------------------------------------------------------------// Oprettelse af ArrayList kaldet indkoebskurv, Indeholder typen class: Billetinfo2
-    ArrayList<Billetinformation2> indkoebskurv = new ArrayList<Billetinformation2>( );
+    ArrayList<Billetinformation2> indkoebskurv = new ArrayList<>( );
 
-    // ADD BILLET MED NUVaeRENDE INFO -------------------------------------------
+    // ADD BILLET MED NUVAERENDE INFO -------------------------------------------
     public void tilfoejBillet(){                                                 // Funktionen kaldes naar en ny billet skal tilfoejes til arraylisen indkoebskurv
         indkoebskurv.add(new Billetinformation2(getBillettype(), getAntalZoner(), getAntalBilletter(), getBilletPris()));
     } // End of void tilfoejBillet

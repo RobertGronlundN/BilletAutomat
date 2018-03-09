@@ -1,7 +1,5 @@
 package automat;
 
-import java.util.stream.Collectors;
-
 
 public class BenytBilletautomatRedigering
 {
