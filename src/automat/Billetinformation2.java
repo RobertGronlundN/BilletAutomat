@@ -17,7 +17,7 @@ public class Billetinformation2                                                 
     private int balance;
     private int total;
     private int antalBilletterSolgt;
-    private boolean montørtilstand = false;
+    private boolean montoertilstand = false;
     private boolean validBalance = false;
        
     ArrayList<String> automatLog = new ArrayList<String>();                     // Oprettelse af ArrayList itl automatlog
@@ -90,17 +90,17 @@ public class Billetinformation2                                                 
     } // End of set summeretPris
 
     // ARRAYLIST ---------------------------------------------------------------// Oprettelse af ArrayList kaldet indkøbskurv, Indeholder typen class: Billetinfo2
-    ArrayList<Billetinformation2> indkøbskurv = new ArrayList<Billetinformation2>( );
+    ArrayList<Billetinformation2> indkoebskurv = new ArrayList<Billetinformation2>( );
 
     // ADD BILLET MED NUVÆRENDE INFO -------------------------------------------
-    public void tilføjBillet(){                                                 // Funktionen kaldes når en ny billet skal tilføjes til arraylisen indkøbskurv
-        indkøbskurv.add(new Billetinformation2(getBillettype(), getAntalZoner(), getAntalBilletter(), getBilletPris()));
+    public void tilfoejBillet(){                                                 // Funktionen kaldes når en ny billet skal tilføjes til arraylisen indkøbskurv
+        indkoebskurv.add(new Billetinformation2(getBillettype(), getAntalZoner(), getAntalBilletter(), getBilletPris()));
     } // End of void tilføjBillet
     
     // REMOVE
     public void fjernBillet(int fjern){
-        indkøbskurv.remove(fjern);
-        indkøbskurv.remove(indkøbskurv.size()-1);
+        indkoebskurv.remove(fjern);
+        indkoebskurv.remove(indkoebskurv.size()-1);
     }
     
     
@@ -114,15 +114,15 @@ public class Billetinformation2                                                 
     public void udskrivKurv() {                                                 // Funktion til udskrivning af indkøbskurv
         Date date = new Date();
         System.out.println("------------- INDKØBSKURV -------------");
-        System.out.println(indkøbskurv.size());
+        System.out.println(indkoebskurv.size());
         System.out.println("Billettype\tZone \tAntal \tSubtotal");        
-        for (int i = 0 ; i < indkøbskurv.size(); i++) {
-            System.out.println(indkøbskurv.get(i).billettype+"\t"+indkøbskurv.get(i).antalZoner+"\t"+indkøbskurv.get(i).antalBilletter+"\t"+indkøbskurv.get(i).billetPris);
+        for (int i = 0 ; i < indkoebskurv.size(); i++) {
+            System.out.println(indkoebskurv.get(i).billettype+"\t"+indkoebskurv.get(i).antalZoner+"\t"+indkoebskurv.get(i).antalBilletter+"\t"+indkoebskurv.get(i).billetPris);
         }
         System.out.println("---------------------------------------");
         total=0;
-        for (int i=0; i < indkøbskurv.size(); i++) {
-          total = total + indkøbskurv.get(i).billetPris;
+        for (int i=0; i < indkoebskurv.size(); i++) {
+          total = total + indkoebskurv.get(i).billetPris;
         }
         System.out.println("          Total: "+total+"  DKK");
         System.out.println("---------------------------------------");
@@ -137,12 +137,12 @@ public class Billetinformation2                                                 
         Date date = new Date();
         
         // BILLET
-        for (int i = 0 ; i < indkøbskurv.size() ; i++){
-            for (int j = 0 ; j < indkøbskurv.get(i).antalBilletter ; j++){
+        for (int i = 0 ; i < indkoebskurv.size() ; i++){
+            for (int j = 0 ; j < indkoebskurv.get(i).antalBilletter ; j++){
                 System.out.println();
                 System.out.println("__________________________________________");
-                System.out.println("|    "+ indkøbskurv.get(i).billettype +"     |");
-                System.out.println("|         "+indkøbskurv.get(i).antalZoner+ " Zoner" + "       |");
+                System.out.println("|    "+ indkoebskurv.get(i).billettype +"     |");
+                System.out.println("|         "+indkoebskurv.get(i).antalZoner+ " Zoner" + "       |");
                 System.out.println("__________________________________________");
                 System.out.println("| Billet gyldig i 2 timer fra udstedelse |");
                 System.out.println("|     "+date.toString()+"    |");
@@ -158,15 +158,15 @@ public class Billetinformation2                                                 
               
         automatLog.add(date.toString()+"\t | Købt:\n"
                 + "Billettype\t Zone \t Antal \t Subtotal\n"
-                + indkøbskurv + "\n");
+                + indkoebskurv + "\n");
         returpenge();
     }
 
     // INDSÆT PENGE ------------------------------------------------------------
-    public void indsætPenge(int beløb) {                                        // Public void-function, set (redigering)
-        balance = balance + beløb;                                              // Indsatte beløb lægges oveni nuværende balance
+    public void indsaetPenge(int beloeb) {                                        // Public void-function, set (redigering)
+        balance = balance + beloeb;                                              // Indsatte beløb lægges oveni nuværende balance
         Date date = new Date();                                                 // Forøgelse af balance overfører til automatlog
-        automatLog.add(date.toString()+"\t | Indsat: " + beløb + " DKK, ny balance: " + balance + "DKK\n");
+        automatLog.add(date.toString()+"\t | Indsat: " + beloeb + " DKK, ny balance: " + balance + "DKK\n");
     }
 
     // BALANCE -----------------------------------------------------------------
@@ -200,14 +200,14 @@ public class Billetinformation2                                                 
    
     // RETURPENGE --------------------------------------------------------------
     public int returpenge() {
-        int returbeløb = balance-total;                                               // Tjekker automatens balance, overfører til returbeløb
+        int returbeloeb = balance-total;                                               // Tjekker automatens balance, overfører til returbeløb
         balance = 0;                                                            // Nulstiller balancen, pengene er udbetalt
-        System.out.println("Du får "+returbeløb+" DKK retur");                   // Orienterer kunden
+        System.out.println("Du får "+returbeloeb+" DKK retur");                   // Orienterer kunden
 
         Date date = new Date();                                                 // Tilføjer til log at der er udbetalt returnpenge
-        automatLog.add(date.toString()+"\t | Returneret " + returbeløb + " DKK \n");
+        automatLog.add(date.toString()+"\t | Returneret " + returbeloeb + " DKK \n");
 
-        return returbeløb;                                                      // Returnerer det returnerede beløb
+        return returbeloeb;                                                      // Returnerer det returnerede beløb
     }
 
 
@@ -218,19 +218,19 @@ public class Billetinformation2                                                 
     
 
     // MONTØR ------------------------------------------------------------------
-    void montørLogin(String adgangskode)
+    void montoerLogin(String adgangskode)
     {
         if ("1234".equals(adgangskode)) {
-            montørtilstand = true;                                              // Ændrer den boolske værdi til true (1)
+            montoertilstand = true;                                              // Ændrer den boolske værdi til true (1)
             System.out.println("Montørtilstand aktiveret");                     // Montøren kan nu foretage ændringer i systemet
             System.out.println("Du kan nu angive en fast billetpris, ændre zone for automatens placering mm.");
         } else {
-            montørtilstand = false;                                             // Ændrer eller bibeholder boolske værdi falsk (0)
+            montoertilstand = false;                                             // Ændrer eller bibeholder boolske værdi falsk (0)
             System.out.println("Montørtilstand deaktiveret");                   // Montør er logget ud
         }
     }
-     public boolean erMontør() {
-        return montørtilstand;
+     public boolean erMontoer() {
+        return montoertilstand;
     }
      
     // AUTOMATZONE -------------------------------------------------------------
@@ -244,7 +244,7 @@ public class Billetinformation2                                                 
      // ANTAL BILLETTER SOLGT --------------------------------------------------
     public int getAntalBilletterSolgt()
     {
-        if (montørtilstand) {
+        if (montoertilstand) {
             return antalBilletterSolgt;                                         // Returner kun antal billetter solgt, hvis montør er logget ind
         } else {
             System.out.println("Afvist - log ind først");                       // Ellers udskrives fejlmeddelelse
@@ -255,9 +255,9 @@ public class Billetinformation2                                                 
      // NULSTIL ----------------------------------------------------------------
     public void nulstil()
     {
-        if (montørtilstand) {
+        if (montoertilstand) {
             antalBilletterSolgt = 0;
-            indkøbskurv.clear();
+            indkoebskurv.clear();
         } else {
             System.out.println("Afvist - log ind først");
         }
@@ -269,10 +269,10 @@ public class Billetinformation2                                                 
     }
     
     // LOGSØGNING --------------------------------------------------------------
-    public void logSøgning(String søg){
-      if (montørtilstand) {
-            String søgning = søg;
-            List<String> matches = automatLog.stream().filter(it->it.toLowerCase().contains(søgning.toLowerCase())).collect(Collectors.toList());
+    public void logSoegning(String soeg){
+      if (montoertilstand) {
+            String soegning = soeg;
+            List<String> matches = automatLog.stream().filter(it->it.toLowerCase().contains(soegning.toLowerCase())).collect(Collectors.toList());
             matches.forEach(System.out::println);
         } else {
             System.out.println("Afvist - log ind først");

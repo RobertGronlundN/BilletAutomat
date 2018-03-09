@@ -23,7 +23,7 @@ public class BenytBilletautomatRedigering
             System.out.println("Tast 1 | Køb billet");
             System.out.println();
 
-            if (automat.erMontør())
+            if (automat.erMontoer())
             {
                 System.out.println("Tast 11 | Se status (montør)");
                 System.out.println("Tast 12 | Nulstil (montør)");
@@ -150,7 +150,7 @@ public class BenytBilletautomatRedigering
 
                 do
                 {
-                automat.tilføjBillet();
+                automat.tilfoejBillet();
                 automat.udskrivKurv();
                 System.out.println("Tast 1 | Godkend og gå til betaling");
                 System.out.println("Tast 2 | Køb flere billetter");
@@ -172,7 +172,7 @@ public class BenytBilletautomatRedigering
                                 System.out.println("Betal med:");
                                 System.out.println("Tast 1 | Dankort");
                                 System.out.println("Tast 2 | Kontant");
-                                if (automat.erMontør())
+                                if (automat.erMontoer())
                                 {
                                     System.out.println("Tast 10 | Sæt balance (montør)");
                                 }
@@ -185,14 +185,14 @@ public class BenytBilletautomatRedigering
                                     System.out.println("...");
                                     System.out.println("Godkendt");
                                     System.out.println("Køb gennemført på "+automat.getTotal()+" DKK");
-                                    automat.indsætPenge(automat.getTotal());
+                                    automat.indsaetPenge(automat.getTotal());
                                     break;
 
                                     case 2:
                                     System.out.println("Klar til modtagelse af kontanter");
                                     System.out.print("Skriv beløb: ");
-                                    int beløb = tastatur.nextInt();
-                                    automat.indsætPenge(beløb);
+                                    int beloeb = tastatur.nextInt();
+                                    automat.indsaetPenge(beloeb);
                                     break;
 
                                     case 10:
@@ -219,7 +219,7 @@ public class BenytBilletautomatRedigering
 
                                 automat.udskrivBillet();
                                 
-                                automat.indkøbskurv.clear();
+                                automat.indkoebskurv.clear();
 
                                 }
                             else {
@@ -237,7 +237,7 @@ public class BenytBilletautomatRedigering
                     case 3:
                         System.out.print("Indtast nummer på billet der skal slettes: ");
                         int sletBilletNr = tastatur.nextInt()-1;
-                        if (sletBilletNr >= 0 && sletBilletNr < automat.indkøbskurv.size() ){
+                        if (sletBilletNr >= 0 && sletBilletNr < automat.indkoebskurv.size() ){
                             automat.fjernBillet(sletBilletNr);
                         }
                         
@@ -246,7 +246,7 @@ public class BenytBilletautomatRedigering
 
 
                     case 9:
-                    automat.indkøbskurv.clear();
+                    automat.indkoebskurv.clear();
                     continue mainMenu;
 
                     default:
@@ -260,7 +260,7 @@ public class BenytBilletautomatRedigering
             case 10:
                 System.out.print("Skriv kode: ");
                 String kode = tastatur.next();
-                automat.montørLogin(kode);
+                automat.montoerLogin(kode);
                 break;
             case 11:
                 System.out.println("Antal billetter solgt: " + automat.getAntalBilletterSolgt());                
@@ -280,11 +280,11 @@ public class BenytBilletautomatRedigering
                 break;
             case 15:
                 System.out.print("Indtast søgeord: ");
-                String søgning = tastatur.nextLine();
-                automat.logSøgning(søgning);
+                String soegning = tastatur.nextLine();
+                automat.logSoegning(soegning);
                 break;
             case 16:
-                automat.montørLogin("");
+                automat.montoerLogin("");
                 break;                         
             default:
                 System.out.println("Ugyldigt valg, prøv igen");
