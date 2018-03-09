@@ -152,7 +152,7 @@ public class BenytBilletautomatRedigering
                 {
                 automat.tilfoejBillet();
                 automat.udskrivKurv();
-                System.out.println("Tast 1 | Godkend og gå til betaling");
+                System.out.println("Tast 1 | Godkend og gaa til betaling");
                 System.out.println("Tast 2 | Koeb flere billetter");
                 System.out.println("Tast 3 | Slet billet");
                 System.out.println();
@@ -184,7 +184,7 @@ public class BenytBilletautomatRedigering
                                     System.out.println("Indsaet dankort og tast kode:");
                                     System.out.println("...");
                                     System.out.println("Godkendt");
-                                    System.out.println("Koeb gennemfoert på "+automat.getTotal()+" DKK");
+                                    System.out.println("Koeb gennemfoert paa "+automat.getTotal()+" DKK");
                                     automat.indsaetPenge(automat.getTotal());
                                     break;
 
@@ -223,7 +223,7 @@ public class BenytBilletautomatRedigering
 
                                 }
                             else {
-                            System.out.println("Balance på " + automat.getBalance() + " kr. for lav, indbetal flere penge");
+                            System.out.println("Balance paa " + automat.getBalance() + " kr. for lav, indbetal flere penge");
                             }
                         }
                     break;
@@ -235,7 +235,7 @@ public class BenytBilletautomatRedigering
 
 
                     case 3:
-                        System.out.print("Indtast nummer på billet der skal slettes: ");
+                        System.out.print("Indtast nummer paa billet der skal slettes: ");
                         int sletBilletNr = tastatur.nextInt()-1;
                         if (sletBilletNr >= 0 && sletBilletNr < automat.indkoebskurv.size() ){
                             automat.fjernBillet(sletBilletNr);
