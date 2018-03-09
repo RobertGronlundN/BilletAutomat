@@ -42,12 +42,12 @@ public class BenytBilletautomatRedigering
                     int personType;
                     do
                     {
-                    System.out.println("Tast 1 | Voksen (16+)");
-                    System.out.println("Tast 2 | Boern");
-                    System.out.println("Tast 3 | Studerende");
-                    System.out.println("Tast 4 | Pensionist");
-                    System.out.println("Tast 5 | Hund");
-                    System.out.println("Tast 6 | Cykel");
+                    System.out.println("Tast 1 | Voksen (16+)\t | 12 DKK/zone");
+                    System.out.println("Tast 2 | Boern\t\t | 6 DKK/zone");
+                    System.out.println("Tast 3 | Studerende\t | 9 DKK/zone");
+                    System.out.println("Tast 4 | Pensionist\t | 9 DKK/zone");
+                    System.out.println("Tast 5 | Hund\t\t | 6 DKK/zone");
+                    System.out.println("Tast 6 | Cykel\t\t | 6 DKK/zone");
                     System.out.println();
                     System.out.println("Tast 9 | Afbryd billet");
                     personType = tastatur.nextInt();
@@ -68,13 +68,13 @@ public class BenytBilletautomatRedigering
                         case 3:
                         System.out.println("Billet til studerende valgt (husk gyldig studiekort)");
                         automat.setBillettype("Studerende");
-                        billetType = 0.8;
+                        billetType = 0.75;
                         break;
 
                         case 4:
                         System.out.println("Pensionistbillet valgt");
                         automat.setBillettype("Pensionist");
-                        billetType = 0.8;
+                        billetType = 0.75;
                         break;
 
                         case 5:

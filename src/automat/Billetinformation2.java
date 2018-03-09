@@ -139,15 +139,16 @@ public class Billetinformation2                                                 
         for (int i = 0 ; i < indkoebskurv.size() ; i++){
             for (int j = 0 ; j < indkoebskurv.get(i).antalBilletter ; j++){
                 System.out.println();
-                System.out.println("__________________________________________");
-                System.out.println("|    "+ indkoebskurv.get(i).billettype +"     |");
-                System.out.println("|         "+indkoebskurv.get(i).antalZoner+ " Zoner" + "       |");
-                System.out.println("__________________________________________");
+                System.out.println(" ________________________________________");
+                System.out.println("|_______________    BT    _______________|");
+                System.out.println("|________________________________________|");
+                System.out.println("|               "+ indkoebskurv.get(i).billettype +"             |");
+                System.out.println("|                 "+indkoebskurv.get(i).antalZoner+ " Zoner                |");
+                System.out.println("|________________________________________|");
                 System.out.println("| Billet gyldig i 2 timer fra udstedelse |");
-                System.out.println("|     "+date.toString()+"    |");
-                System.out.println("__________________________________________");
-                System.out.println();
-                System.out.println();
+                System.out.println("|        "+date.toString()+"    |");
+                System.out.println("|________________________________________|");
+                System.out.println();             
 
                 antalBilletterSolgt++;
             }
