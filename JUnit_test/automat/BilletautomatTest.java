@@ -47,7 +47,8 @@ public class BilletautomatTest
       int zoneGet = instance.getAntalZoner();
       assertEquals(zone, zoneGet);
   }
-
+  
+  /*
   // Test of setSlutZone method, of class Billetautomat.
   @Test
   public void testSetSlutZone() {
@@ -80,6 +81,7 @@ public class BilletautomatTest
       int result = instance.zoneBeregner();
       assertEquals(expResult, result);
   }
+  */
 
   // Test of getAntalBilletter method, of class Billetautomat.
   @Test

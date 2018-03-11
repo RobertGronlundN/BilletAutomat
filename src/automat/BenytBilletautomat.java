@@ -4,8 +4,8 @@ public class BenytBilletautomat
 {
     public static void main(String[] arg)
     {
-        //Billetautomat automat = new Billetautomat();
         Billetautomat automat = new Billetautomat(null, 0, 0, 0);
+        Zoneberegner zoneberegner = new Zoneberegner();
         java.util.Scanner tastatur = new java.util.Scanner(System.in);          // forbereder keyboard scanner
 
         System.out.println("BenytBilletautomat version mindst 4");
@@ -122,8 +122,8 @@ public class BenytBilletautomat
                     case 2:
                         System.out.println("Hvilken zone ender rejsen i?");
                         int slutZone = tastatur.nextInt();
-                        automat.setSlutZone(slutZone);
-                        int zoneVal = automat.zoneBeregner();
+                        zoneberegner.setSlutZone(slutZone);
+                        int zoneVal = zoneberegner.zoneBeregner();
                         automat.setAntalZoner(zoneVal);
                     break;
 

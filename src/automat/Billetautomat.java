@@ -9,8 +9,7 @@ public class Billetautomat                                                 // Ov
 {
     private String billettype;                                                  // Indeholder navn, billttypen
     private int antalZoner;                                                     // Antallet af zoner, int
-    private int automatZone;
-    private int destinationZone;
+    public int automatZone;
     private int antalBilletter;                                                 // Antallet af billetter, int
     private int billetPris;                                                     // Summeret pris: type*12*zone*antal
     private int balance;
@@ -43,34 +42,6 @@ public class Billetautomat                                                 // Ov
     public void setAntalZoner(int zone) {                                       // Public void-funktion, set (redigering)
         this.antalZoner = zone;                                                 // Opdatering af varibalen antalZoner
     } // End of set antalZoner
-
-    // SLUTZONE ----------------------------------------------------------------
-    public void setSlutZone(int destZone) {
-        this.destinationZone = destZone;
-    }
-    public int getSlutZone() {
-        return destinationZone;
-    }
-
-    // ZONEBEREGNER ------------------------------------------------------------
-    public int zoneBeregner() {
-        int rejseZoner = 0;
-        int slutZone = getSlutZone();
-
-        if (slutZone < automatZone) {
-            rejseZoner = (automatZone - slutZone);
-        }
-        else if (slutZone > automatZone) {
-            rejseZoner = (slutZone - automatZone);
-        }
-        else if (slutZone == automatZone) {
-            rejseZoner = 1;
-        }
-        if (slutZone > 6){
-            rejseZoner = 6;
-        }
-        return rejseZoner;
-    }
 
     // ANTAL BILLETTER ---------------------------------------------------------
     public int getAntalBilletter() {                                            // Public int-funktion, get (aflaesning)
@@ -112,7 +83,7 @@ public class Billetautomat                                                 // Ov
     // PRINT LIST
     public void udskrivKurv() {                                                 // Funktion til udskrivning af indkoebskurv
         Date date = new Date();
-        System.out.println("------------- INDKoeBSKURV -------------");
+        System.out.println("------------- INDKOEBSKURV -------------");
         System.out.println(indkoebskurv.size());
         System.out.println("Billettype\tZone \tAntal \tSubtotal");
         for (int i = 0 ; i < indkoebskurv.size(); i++) {
