@@ -1,14 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package automat;
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -29,8 +20,8 @@ public class Billetinformation2Test
   @Test
   public void testSetBillettype() {
       System.out.println("setBillettype");
-      String billettype = "Benjamin";
       Billetinformation2 instance = new Billetinformation2("Robert", 0, 0, 0);
+      String billettype = "Benjamin";
       instance.setBillettype(billettype);
       String navn = instance.getBillettype();
       assertEquals(billettype, navn);
@@ -50,26 +41,31 @@ public class Billetinformation2Test
   @Test
   public void testSetAntalZoner() {
       System.out.println("setAntalZoner");
-      int zone = 0;
-      Billetinformation2 instance = null;
+      Billetinformation2 instance = new Billetinformation2 ("Test", 0, 0, 0);
+      int zone = 5;
       instance.setAntalZoner(zone);
+      int zoneGet = instance.getAntalZoner();
+      assertEquals(zone, zoneGet);
   }
 
   // Test of setSlutZone method, of class Billetinformation2.
   @Test
   public void testSetSlutZone() {
       System.out.println("setSlutZone");
-      int destZone = 0;
-      Billetinformation2 instance = null;
+      int destZone = 10;
+      Billetinformation2 instance = new Billetinformation2(null,0,0,0);
       instance.setSlutZone(destZone);
+      int zoneResult = instance.getSlutZone();
+      assertEquals(destZone, zoneResult);
   }
 
   // Test of getSlutZone method, of class Billetinformation2.
   @Test
   public void testGetSlutZone() {
       System.out.println("getSlutZone");
-      Billetinformation2 instance = null;
-      int expResult = 0;
+      Billetinformation2 instance = new Billetinformation2(null,0,0,0);
+      int expResult = 150;
+      instance.setSlutZone(expResult);
       int result = instance.getSlutZone();
       assertEquals(expResult, result);
   }
@@ -89,8 +85,9 @@ public class Billetinformation2Test
   @Test
   public void testGetAntalBilletter() {
       System.out.println("getAntalBilletter");
-      Billetinformation2 instance = null;
-      int expResult = 0;
+      Billetinformation2 instance = new Billetinformation2(null,0,0,0);
+      int expResult = 1000;
+      instance.setAntalBilletter(expResult);
       int result = instance.getAntalBilletter();
       assertEquals(expResult, result);
   }
@@ -99,17 +96,19 @@ public class Billetinformation2Test
   @Test
   public void testSetAntalBilletter() {
       System.out.println("setAntalBilletter");
-      int antal = 0;
-      Billetinformation2 instance = null;
+      int antal = 5000;
+      Billetinformation2 instance = new Billetinformation2(null,0,0,0);
       instance.setAntalBilletter(antal);
+      int result = instance.getAntalBilletter();
+      assertEquals(antal, result);
   }
 
   // Test of getBilletPris method, of class Billetinformation2.
   @Test
   public void testGetBilletPris() {
       System.out.println("getBilletPris");
-      Billetinformation2 instance = null;
-      int expResult = 0;
+      Billetinformation2 instance = new Billetinformation2(null,0,0,150);
+      int expResult = 150;
       int result = instance.getBilletPris();
       assertEquals(expResult, result);
   }
@@ -118,43 +117,50 @@ public class Billetinformation2Test
   @Test
   public void testSetBilletPris() {
       System.out.println("setBilletPris");
-      double type = 0.0;
-      Billetinformation2 instance = null;
+      double type = 10;
+      Billetinformation2 instance = new Billetinformation2(null,0,0,10);
+      instance.setAntalBilletter(1);
+      instance.setAntalZoner(1);
       instance.setBilletPris(type);
+      int resultat = instance.getBilletPris();
+      assertEquals(type*12, resultat, 1.000);
   }
 
   // Test of tilfoejBillet method, of class Billetinformation2.
   @Test
   public void testTilfoejBillet() {
       System.out.println("tilf\u00f8jBillet");
-      Billetinformation2 instance = null;
+      Billetinformation2 instance = new Billetinformation2(null,0,0,0);
       instance.tilfoejBillet();
   }
-
+  
+  /*
   // Test of fjernBillet method, of class Billetinformation2.
   @Test
   public void testFjernBillet() {
       System.out.println("fjernBillet");
       int fjern = 0;
-      Billetinformation2 instance = null;
+      Billetinformation2 instance = new Billetinformation2(null,0,0,0);
       instance.fjernBillet(fjern);
-  }
+  } 
+  */
 
   // Test of toString method, of class Billetinformation2.
   @Test
   public void testToString() {
       System.out.println("toString");
-      Billetinformation2 instance = null;
-      String expResult = "";
+      Billetinformation2 instance = new Billetinformation2("Test",1,2,3);
+      String expResult = instance.getBillettype()+ " \t" +instance.getAntalZoner()+ "  \t"+ instance.getAntalBilletter()+"  \t"+instance.getBilletPris()+ " DKK";
       String result = instance.toString();
       assertEquals(expResult, result);
   }
 
+  /*
   // Test of udskrivKurv method, of class Billetinformation2.
   @Test
   public void testUdskrivKurv() {
       System.out.println("udskrivKurv");
-      Billetinformation2 instance = null;
+      Billetinformation2 instance = new Billetinformation2(null,0,0,0);
       instance.udskrivKurv();
   }
 
@@ -162,24 +168,27 @@ public class Billetinformation2Test
   @Test
   public void testUdskrivBillet() {
       System.out.println("udskrivBillet");
-      Billetinformation2 instance = null;
+      Billetinformation2 instance = new Billetinformation2(null,0,0,0);
       instance.udskrivBillet();
   }
+  */
 
   // Test of indsaetPenge method, of class Billetinformation2.
   @Test
   public void testIndsaetPenge() {
-      System.out.println("inds\u00e6tPenge");
-      int beloeb = 0;
-      Billetinformation2 instance = null;
+      System.out.println("test af indsaet penge");
+      int beloeb = 511;
+      Billetinformation2 instance = new Billetinformation2(null,0,0,0);
       instance.indsaetPenge(beloeb);
+      int result = instance.getBalance();
+      assertEquals(beloeb, result);
   }
 
   // Test of getBalance method, of class Billetinformation2.
   @Test
   public void testGetBalance() {
-      System.out.println("getBalance");
-      Billetinformation2 instance = null;
+      System.out.println("test af getBalance funktion");
+      Billetinformation2 instance = new Billetinformation2(null,0,0,0);
       int expResult = 0;
       int result = instance.getBalance();
       assertEquals(expResult, result);
@@ -189,37 +198,45 @@ public class Billetinformation2Test
   @Test
   public void testSetBalance() {
       System.out.println("setBalance");
-      int balance = 0;
-      Billetinformation2 instance = null;
+      int balance = 144;
+      Billetinformation2 instance = new Billetinformation2(null,0,0,0);
       instance.setBalance(balance);
+      int result = instance.getBalance();
+      assertEquals(balance, result);
   }
 
   // Test of checkBalance method, of class Billetinformation2.
   @Test
   public void testCheckBalance() {
       System.out.println("checkBalance");
-      Billetinformation2 instance = null;
-      boolean expResult = false;
+      Billetinformation2 instance = new Billetinformation2(null,1,1,12);
+      boolean expResult = true;
+      instance.setBalance(12);
       boolean result = instance.checkBalance();
       assertEquals(expResult, result);
   }
 
+  /*
   // Test of getTotal method, of class Billetinformation2.
   @Test
   public void testGetTotal() {
       System.out.println("getTotal");
-      Billetinformation2 instance = null;
-      int expResult = 0;
+      Billetinformation2 instance = new Billetinformation2("Test",2,3,88);
+      instance.tilfoejBillet();
+      instance.udskrivBillet();
+      int expResult = 88;
       int result = instance.getTotal();
       assertEquals(expResult, result);
   }
+  */
 
   // Test of returpenge method, of class Billetinformation2.
   @Test
   public void testReturpenge() {
       System.out.println("returpenge");
-      Billetinformation2 instance = null;
-      int expResult = 0;
+      Billetinformation2 instance = new Billetinformation2(null,0,0,0);
+      int expResult = 1234;
+      instance.setBalance(expResult);
       int result = instance.returpenge();
       assertEquals(expResult, result);
   }
@@ -229,16 +246,19 @@ public class Billetinformation2Test
   public void testSetAutomatZone() {
       System.out.println("setAutomatZone");
       int automatZone = 0;
-      Billetinformation2 instance = null;
+      Billetinformation2 instance = new Billetinformation2(null,0,0,0);
       instance.setAutomatZone(automatZone);
+      int resultat = instance.getAutomatZone();
+      assertEquals(automatZone, resultat);
   }
 
   // Test of getAutomatZone method, of class Billetinformation2.
   @Test
   public void testGetAutomatZone() {
       System.out.println("getAutomatZone");
-      Billetinformation2 instance = null;
+      Billetinformation2 instance = new Billetinformation2(null,0,0,0);
       int expResult = 0;
+      instance.setAutomatZone(expResult);
       int result = instance.getAutomatZone();
       assertEquals(expResult, result);
   }
@@ -247,16 +267,19 @@ public class Billetinformation2Test
   @Test
   public void testMontoerLogin() {
       System.out.println("mont\u00f8rLogin");
-      String adgangskode = "";
-      Billetinformation2 instance = null;
+      boolean expResult = true;
+      String adgangskode = "1234";
+      Billetinformation2 instance = new Billetinformation2(null,0,0,0);
       instance.montoerLogin(adgangskode);
+      boolean result = instance.erMontoer();
+      assertEquals(expResult, result);
   }
 
   // Test of erMontoer method, of class Billetinformation2.
   @Test
   public void testErMontoer() {
       System.out.println("erMont\u00f8r");
-      Billetinformation2 instance = null;
+      Billetinformation2 instance = new Billetinformation2(null,0,0,0);
       boolean expResult = false;
       boolean result = instance.erMontoer();
       assertEquals(expResult, result);
@@ -266,7 +289,7 @@ public class Billetinformation2Test
   @Test
   public void testGetAntalBilletterSolgt() {
       System.out.println("getAntalBilletterSolgt");
-      Billetinformation2 instance = null;
+      Billetinformation2 instance = new Billetinformation2(null,0,0,0);
       int expResult = 0;
       int result = instance.getAntalBilletterSolgt();
       assertEquals(expResult, result);
@@ -276,15 +299,11 @@ public class Billetinformation2Test
   @Test
   public void testNulstil() {
       System.out.println("nulstil");
-      Billetinformation2 instance = null;
+      Billetinformation2 instance = new Billetinformation2(null,0,0,0);
+      instance.montoerLogin("1234");
       instance.nulstil();
-  }
-
-  // Test of getLog method, of class Billetinformation2.
-  @Test
-  public void testGetLog() {
-      System.out.println("getLog");
-      Billetinformation2 instance = null;
-      instance.getLog();
+      int expResult = 0;
+      int result = instance.getAntalBilletterSolgt();
+      assertEquals(expResult, result);
   }
 }

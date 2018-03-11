@@ -162,7 +162,7 @@ public class Billetinformation2                                                 
         returpenge();
     }
 
-    // INDSaeT PENGE ------------------------------------------------------------
+    // INDSAET PENGE ------------------------------------------------------------
     public void indsaetPenge(int beloeb) {                                        // Public void-function, set (redigering)
         balance = balance + beloeb;                                              // Indsatte beloeb laegges oveni nuvaerende balance
         Date date = new Date();                                                 // Foroegelse af balance overfoerer til automatlog
@@ -193,7 +193,7 @@ public class Billetinformation2                                                 
         return validBalance;
     }
 
-    // TOAL --------------------------------------------------------------------
+    // TOTAL --------------------------------------------------------------------
     public int getTotal(){
         return total;
     }
@@ -213,11 +213,11 @@ public class Billetinformation2                                                 
 
 
     // -------------------------------------------------------------------------
-    // -------------------- MONToeR ---------------------------------------------
+    // -------------------- MONTOER ---------------------------------------------
     // -------------------------------------------------------------------------
 
 
-    // MONToeR ------------------------------------------------------------------
+    // MONTOER ------------------------------------------------------------------
     void montoerLogin(String adgangskode)
     {
         if ("1234".equals(adgangskode)) {
