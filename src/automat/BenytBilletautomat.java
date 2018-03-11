@@ -1,12 +1,11 @@
 package automat;
 
-
-public class BenytBilletautomatRedigering
+public class BenytBilletautomat
 {
     public static void main(String[] arg)
     {
         //Billetautomat automat = new Billetautomat();
-        Billetinformation2 automat = new Billetinformation2(null, 0, 0, 0);
+        Billetautomat automat = new Billetautomat(null, 0, 0, 0);
         java.util.Scanner tastatur = new java.util.Scanner(System.in);          // forbereder keyboard scanner
 
         System.out.println("BenytBilletautomat version mindst 4");

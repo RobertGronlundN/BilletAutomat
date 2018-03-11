@@ -38,13 +38,13 @@ public class BenytBilletautomatRedigeringTest {
     }
 
     /**
-     * Test of main method, of class BenytBilletautomatRedigering.
+     * Test of main method, of class BenytBilletautomat.
      */
     @Test
     public void testMain() {
         System.out.println("main");
         String[] arg = null;
-        BenytBilletautomatRedigering.main(arg);
+        BenytBilletautomat.main(arg);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }

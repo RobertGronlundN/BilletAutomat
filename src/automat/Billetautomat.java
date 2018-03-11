@@ -5,7 +5,7 @@ import java.util.Date;
 import java.util.stream.Collectors;
 import java.util.List;
 
-public class Billetinformation2                                                 // Overordnet public class, initialisering af variable
+public class Billetautomat                                                 // Overordnet public class, initialisering af variable
 {
     private String billettype;                                                  // Indeholder navn, billttypen
     private int antalZoner;                                                     // Antallet af zoner, int
@@ -21,12 +21,12 @@ public class Billetinformation2                                                 
 
     ArrayList<String> automatLog = new ArrayList<>();                     // Oprettelse af ArrayList itl automatlog
 
-    public Billetinformation2 (String billettype, int antalZoner, int antalBilletter, int billetPris) {
+    public Billetautomat (String billettype, int antalZoner, int antalBilletter, int billetPris) {
         this.billettype = billettype;                                           // Opdatering af variablen billettype
         this.antalZoner = antalZoner;                                           // Opdatering af variablen antalZoner
         this.antalBilletter = antalBilletter;                                   // Opdatering af variablen antalBilletter
         this.billetPris = billetPris;                                           // Opdatering af variablen summeretPris
-    } // End of public Billetinformation2
+    } // End of public Billetautomat
 
     // BILLETTYPE --------------------------------------------------------------
     public String getBillettype() {                                             // Public string-funktion, get (aflaesning)
@@ -89,11 +89,11 @@ public class Billetinformation2                                                 
     } // End of set summeretPris
 
     // ARRAYLIST ---------------------------------------------------------------// Oprettelse af ArrayList kaldet indkoebskurv, Indeholder typen class: Billetinfo2
-    ArrayList<Billetinformation2> indkoebskurv = new ArrayList<>( );
+    ArrayList<Billetautomat> indkoebskurv = new ArrayList<>( );
 
     // ADD BILLET MED NUVAERENDE INFO -------------------------------------------
     public void tilfoejBillet(){                                                 // Funktionen kaldes naar en ny billet skal tilfoejes til arraylisen indkoebskurv
-        indkoebskurv.add(new Billetinformation2(getBillettype(), getAntalZoner(), getAntalBilletter(), getBilletPris()));
+        indkoebskurv.add(new Billetautomat(getBillettype(), getAntalZoner(), getAntalBilletter(), getBilletPris()));
     } // End of void tilfoejBillet
 
     // REMOVE
