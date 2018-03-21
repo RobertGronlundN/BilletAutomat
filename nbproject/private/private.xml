@@ -7,10 +7,12 @@
             <file>file:/home/j/Drev/02313/02315%20TestOgVersionering/BenytBillautomatV3/src/automat/TjekBilletautomat.java</file>
         </group>
         <group>
-            <file>file:/C:/Users/Robert/Documents/NetBeansProjects/BenytBillautomatV3/src/automat/BenytBilletautomatRedigering.java</file>
-            <file>file:/C:/Users/Robert/Documents/NetBeansProjects/BenytBillautomatV3/src/automat/Billetinformation2.java</file>
-            <file>file:/C:/Users/Robert/Documents/NetBeansProjects/BenytBillautomatV3/JUnit_test/automat/BenytBilletautomatRedigeringTest.java</file>
-            <file>file:/C:/Users/Robert/Documents/NetBeansProjects/BenytBillautomatV3/src/automat/TjekBilletautomat.java</file>
+            <file>file:/C:/Users/benja/OneDrive/Dokumenter/GitHub/BilletAutomat/src/automat/BenytGUI.java</file>
+            <file>file:/C:/Users/benja/OneDrive/Dokumenter/GitHub/BilletAutomat/src/automat/Zoneberegner.java</file>
+            <file>file:/C:/Users/benja/OneDrive/Dokumenter/GitHub/BilletAutomat/src/automat/BenytBilletautomat.java</file>
+            <file>file:/C:/Users/benja/OneDrive/Dokumenter/GitHub/BilletAutomat/src/automat/Billetautomat.java</file>
+            <file>file:/C:/Users/benja/OneDrive/Dokumenter/GitHub/BilletAutomat/src/automat/Billettype.java</file>
+            <file>file:/C:/Users/benja/OneDrive/Dokumenter/GitHub/BilletAutomat/src/automat/Kurv.java</file>
         </group>
     </open-files>
 </project-private>

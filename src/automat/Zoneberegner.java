@@ -13,10 +13,10 @@ public class Zoneberegner {
     // SLUTZONE ----------------------------------------------------------------
     public void setSlutZone(int destZone) {
         this.destinationZone = destZone;
-    }
+    } // End of setSlutZone
     public int getSlutZone() {
         return destinationZone;
-    }
+    } // End of getSlutZone
     
     // ZONEBEREGNER ------------------------------------------------------------
     public int zoneBeregner() {

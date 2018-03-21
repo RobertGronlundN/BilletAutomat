@@ -1,9 +1,7 @@
 package automat;
 
-public class BenytBilletautomat
+public class BenytGammel
 {
-    Billetautomat automat = new Billetautomat();
-    
     public static void main(String[] arg)
     {
         Billetautomat automat = new Billetautomat();
@@ -41,22 +39,135 @@ public class BenytBilletautomat
             switch (start)
             {
                 case 1:
-                    automat.udskrivBilletTyper();
-                    int billetValg = tastatur.nextInt()-1;
-                                      
-                    int zoneType;
-                    System.out.print("Antal zoner: ");
-                    zoneType = tastatur.nextInt();
+                    
+                    System.out.println("Tast 1 | Voksen (16+)\t | 12 DKK/zone");
+                    System.out.println("Tast 2 | Boern\t\t | 6 DKK/zone");
+                    System.out.println("Tast 3 | Studerende\t | 9 DKK/zone");
+                    System.out.println("Tast 4 | Pensionist\t | 9 DKK/zone");
+                    System.out.println("Tast 5 | Hund\t\t | 6 DKK/zone");
+                    System.out.println("Tast 6 | Cykel\t\t | 6 DKK/zone");
+                    System.out.println();
+                    System.out.println("Tast 9 | Afbryd billet");
+                    int billetValg = tastatur.nextInt();
+                    
+                    /*
+                    int personType;
+                    do
+                    {
+                    System.out.println("Tast 1 | Voksen (16+)\t | 12 DKK/zone");
+                    System.out.println("Tast 2 | Boern\t\t | 6 DKK/zone");
+                    System.out.println("Tast 3 | Studerende\t | 9 DKK/zone");
+                    System.out.println("Tast 4 | Pensionist\t | 9 DKK/zone");
+                    System.out.println("Tast 5 | Hund\t\t | 6 DKK/zone");
+                    System.out.println("Tast 6 | Cykel\t\t | 6 DKK/zone");
+                    System.out.println();
+                    System.out.println("Tast 9 | Afbryd billet");
+                    int billetValg = tastatur.nextInt();
+                    
+                    switch(personType)
+                    {
+                        case 1:
+                        System.out.println("Voksenbillet (16+) valgt");
+                        billetType = 1;
+                        automat.tilfoejBillet(0);
+                        break;
+
+                        case 2:
+                        System.out.println("Boernebillet valgt");
+                        billetType = 0.5;
+                        //automat.setBillettype("Boernebillet");
+                        automat.tilfoejBillet(1);
+                        break;
+
+                        case 3:
+                        System.out.println("Billet til studerende valgt (husk gyldig studiekort)");
+                        //automat.setBillettype("Studerende");
+                        billetType = 0.75;
+                        break;
+
+                        case 4:
+                        System.out.println("Pensionistbillet valgt");
+                        //automat.setBillettype("Pensionist");
+                        billetType = 0.75;
+                        automat.tilfoejBillet(2);
+                        break;
+
+                        case 5:
+                        System.out.println("Hundebillet valgt");
+                        //automat.setBillettype("Hundebillet");
+                        billetType = 0.5;
+                        break;
+
+                        case 6:
+                        System.out.println("Cykelbillet valgt");
+                        //automat.setBillettype("Cykelbillet");
+                        billetType = 0.5;
+                        break;
+
+                        case 9:
+                        continue mainMenu;
+
+                        default:
+                        personType = 0;
+                        break;
+                    }
+                } while (personType == 0); */
+
+                int zoneType;
+                        System.out.print("Antal zoner: ");
+                        zoneType = tastatur.nextInt();
+                /*
+                do
+                {
+                    System.out.println("Tast 1 | Vaelg antal zoner");
+                    System.out.println("Tast 2 | Udregn antal zoner");
+                    System.out.println();
+                    System.out.println("Tast 9 | Afbryd billet");
+                    
+                    switch(zoneType)
+                    {
+                        case 1:
+                            System.out.print("Indtast antal zoner:  ");
+                            int zoneValg = tastatur.nextInt();
+                            if (zoneValg >= 1 && zoneValg <= 6) {
+                                //kurv.setAntalZoner(zoneValg);
+                            }
+                            else {
+                                //automat.setAntalZoner(6);
+                            }
+                        break;
+
+                    case 2:
+                        System.out.println("Hvilken zone ender rejsen i?");
+                        int slutZone = tastatur.nextInt();
+                        zoneberegner.setSlutZone(slutZone);
+                        int zoneVal = zoneberegner.zoneBeregner();
+                        //automat.setAntalZoner(zoneVal);
+                    break;
+                    
+                    
+                    case 9:
+                    continue mainMenu;
+
+                    default:
+                        zoneType = 0;
+                        break;
+                    }
+                } while (zoneType == 0); */
+
+
+                System.out.print("Vaelg antal billetter: ");
+                int billetAntal = tastatur.nextInt();
+                //automat.setAntalBilletter(billetAntal);
+                //automat.setBilletPris(billetType);
                 
-                    System.out.print("Vaelg antal billetter: ");
-                    int billetAntal = tastatur.nextInt();
+                automat.tilfoejBillet(billetValg, zoneType, billetAntal);
                 
-                    automat.tilfoejBillet(billetValg, zoneType, billetAntal);
-                
-                    int godkendBillet;
+                int godkendBillet;
 
                 do
                 {
+                //automat.tilfoejBillet();
                 automat.udskrivKurv();
                 System.out.println("Tast 1 | Godkend og gaa til betaling");
                 System.out.println("Tast 2 | Koeb flere billetter");
@@ -115,6 +226,10 @@ public class BenytBilletautomat
                                     break;
                                 }
                             } while (betalingsMetode == 0);
+
+
+
+                            //automat.setBilletPris(billetType);
 
                             if (automat.checkBalance() == true)  {
                                 godkendtBetaling = true;

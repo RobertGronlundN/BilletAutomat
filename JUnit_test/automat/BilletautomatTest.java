@@ -13,7 +13,6 @@ public class BilletautomatTest
       String expResult = "Robert";
       String result = instance.getBillettype();
       assertEquals(expResult, result);
-
   }
 
    // Test of setBillettype method, of class Billetautomat.

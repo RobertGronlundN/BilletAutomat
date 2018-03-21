@@ -5,9 +5,13 @@ import java.util.Date;
 import java.util.stream.Collectors;
 import java.util.List;
 
-public class Billetautomat                                                      // Overordnet public class, initialisering af variable
+public class automatGammel                                                      // Overordnet public class, initialisering af variable
 {
+    //private String billettype;                                                  // Indeholder navn, billttypen
+    //private int antalZoner;                                                     // Antallet af zoner, int
     public int automatZone;
+    //private int antalBilletter;                                                 // Antallet af billetter, int
+    //private int billetPris;                                                     // Summeret pris: type*12*zone*antal
     private double balance;
     private double total;
     private int antalBilletterSolgt;
@@ -15,21 +19,62 @@ public class Billetautomat                                                      
     private boolean validBalance = false;
 
     ArrayList<String> automatLog = new ArrayList<>();                           // Oprettelse af ArrayList til automatlog
-    ArrayList<Billettype> billetType = new ArrayList<>();                       // Oprettelse af ArrayList til Billettype
+    ArrayList<Billettype> billetliste = new ArrayList<>();                       // Oprettelse af ArrayList til Billettype
     ArrayList<Kurv> kurv = new ArrayList<>();
     
-    public Billetautomat(){
-        billetType.add(new Billettype("Voksen", 12));
-        billetType.add(new Billettype("Barn", 6));
-        billetType.add(new Billettype("Pensionist", 9));
+    public automatGammel(){
+        billetliste.add(new Billettype("Voksen", 12));
+        billetliste.add(new Billettype("Barn", 6));
+        billetliste.add(new Billettype("Pensionist", 9));
     }
-        
+    
+    /*
+    public Billetautomat (String billettype, int antalZoner, int antalBilletter, int billetPris) {
+        this.billettype = billettype;                                           // Opdatering af variablen billettype
+        this.antalZoner = antalZoner;                                           // Opdatering af variablen antalZoner
+        this.antalBilletter = antalBilletter;                                   // Opdatering af variablen antalBilletter
+        this.billetPris = billetPris;                                           // Opdatering af variablen summeretPris
+    } // End of public Billetautomat
+
+    // BILLETTYPE --------------------------------------------------------------
+    public String getBillettype() {                                             // Public string-funktion, get (aflaesning)
+        return billettype;                                                      // Returnerer typen af billet, string
+    } // End of get billetType
+    public void setBillettype(String billettype) {                              // Public void-funktion, set (redigering)
+        this.billettype = billettype;                                           // Opdatering af vaiablen billettype
+    } // End of set billetType
+
+    // ANTAL ZONER -------------------------------------------------------------
+    public int getAntalZoner() {                                                // Public int-funktion, get (aflaesning)
+        return antalZoner;                                                      // Returnerer valgte antal af zoner
+    } // End of get antalZoner
+    public void setAntalZoner(int zone) {                                       // Public void-funktion, set (redigering)
+        this.antalZoner = zone;                                                 // Opdatering af varibalen antalZoner
+    } // End of set antalZoner
+
+    // ANTAL BILLETTER ---------------------------------------------------------
+    public int getAntalBilletter() {                                            // Public int-funktion, get (aflaesning)
+        return antalBilletter;                                                  // Returnerer valgte antal af billetter
+    } // End of get antalBilletter
+    public void setAntalBilletter(int antal) {                                  // Public void-funktion, set (redigering)
+        this.antalBilletter = antal;                                            // Opdatering af variablen antalBilletter
+    } // End of set antalBilletter
+
+    // SUMMERET PRIS -----------------------------------------------------------
+    public int getBilletPris() {                                                // Public int-funktion, get (aflaesning)
+        return billetPris;                                                      // Returnerer den summerede pris
+    } // End of get summeretPris
+    public void setBilletPris(double type) {                                    // Public void-funktion, set (redigering)
+        this.billetPris = (int) (type * getAntalZoner() * 12 * getAntalBilletter());  // Opdatering af integeren summeretPris
+    } // End of set summeretPris
+    */
+    
     // ARRAYLIST ---------------------------------------------------------------// Oprettelse af ArrayList kaldet indkoebskurv, Indeholder typen class: Billetinfo2
     ArrayList<Billetautomat> indkoebskurv = new ArrayList<>( );
 
     // ADD BILLET MED NUVAERENDE INFO -------------------------------------------
     public void tilfoejBillet(int index, int zoner, int antal){                                       // Funktionen kaldes naar en ny billet skal tilfoejes til arraylisen indkoebskurv
-        kurv.add(new Kurv(billetType.get(index).getBillettype(), antal, billetType.get(index).getPris(), zoner, index));
+        kurv.add(new Kurv(billetliste.get(index).getBillettype(), antal, billetliste.get(index).getPris(), zoner, index));
         //indkoebskurv.add(new Billetautomat(getBillettype(), getAntalZoner(), getAntalBilletter(), getBilletPris()));
     } // End of void tilfoejBillet
 
@@ -40,7 +85,14 @@ public class Billetautomat                                                      
         //indkoebskurv.remove(indkoebskurv.size()-1);
     }
     
-    
+    /*
+    // TO STRING ---------------------------------------------------------------
+    @Override                                                                   // Override enabled
+    public String toString() {                                                  // Opretter public string-funktion. Omskriver class fra arraylisten til en samlet string
+        return getBillettype()+ " \t" +getAntalZoner()+ "  \t"+ getAntalBilletter()+"  \t"+getBilletPris()+ " DKK";
+    } // End of toString
+    */
+
     // PRINT LIST
     public void udskrivKurv() {                                                 // Funktion til udskrivning af indkoebskurv
         Date date = new Date();
@@ -124,7 +176,7 @@ public class Billetautomat                                                      
             validBalance = false;
 
             Date date = new Date();                                             // Fejlmeldelse overfoeres til automatlog
-            automatLog.add(date.toString()+"\t | Balance ikke hoej nok\n");     // Dato og tid overfoeres sammen med string
+            automatLog.add(date.toString()+"\t | Balance ikke hoej nok\n");      // Dato og tid overfoeres sammen med string
         }
         return validBalance;
     }
@@ -136,23 +188,16 @@ public class Billetautomat                                                      
 
     // RETURPENGE --------------------------------------------------------------
     public double returpenge() {
-        double returbeloeb = balance-total;                                     // Tjekker automatens balance, overfoerer til returbeloeb
+        double returbeloeb = balance-total;                                               // Tjekker automatens balance, overfoerer til returbeloeb
         balance = 0;                                                            // Nulstiller balancen, pengene er udbetalt
-        System.out.println("Du faar "+returbeloeb+" DKK retur");                // Orienterer kunden
+        System.out.println("Du faar "+returbeloeb+" DKK retur");                   // Orienterer kunden
 
         Date date = new Date();                                                 // Tilfoejer til log at der er udbetalt returnpenge
         automatLog.add(date.toString()+"\t | Returneret " + returbeloeb + " DKK \n");
 
-        return returbeloeb;                                                     // Returnerer det returnerede beloeb
+        return returbeloeb;                                                      // Returnerer det returnerede beloeb
     }
-        
-    // UDSKRIV BILLET-VALGMULIGHEDER -------------------------------------------
-    public void udskrivBilletTyper() {
-        for (int i = 0; i < billetType.size(); i++) {
-            System.out.println( billetType.get(i).getBillettype() +" \t\t "+ billetType.get(i).getPris()+ "  DKK");
-        }
-    }
-    
+
     // -------------------------------------------------------------------------
     // -------------------- MONTOER ---------------------------------------------
     // -------------------------------------------------------------------------
