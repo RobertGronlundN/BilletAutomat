@@ -110,7 +110,12 @@ public class AutomatGUI extends javax.swing.JFrame {
         TilfoejBillet.setBackground(new java.awt.Color(0, 0, 153));
         TilfoejBillet.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         TilfoejBillet.setForeground(new java.awt.Color(255, 255, 255));
-        TilfoejBillet.setText("Tilføj");
+        TilfoejBillet.setText("Tilfoej");
+        TilfoejBillet.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TilfoejBilletActionPerformed(evt);
+            }
+        });
 
         AfslutKnap.setText("Afslut");
 
@@ -222,6 +227,10 @@ public class AutomatGUI extends javax.swing.JFrame {
     private void KurvListeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KurvListeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_KurvListeActionPerformed
+
+    private void TilfoejBilletActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TilfoejBilletActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TilfoejBilletActionPerformed
 
     /**
      * @param args the command line arguments
