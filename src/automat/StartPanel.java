@@ -47,6 +47,8 @@ public class StartPanel extends javax.swing.JPanel {
         jButton1 = new javax.swing.JButton();
         tilfoej = new javax.swing.JButton();
         nulstil = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        indkoebskurv = new javax.swing.JTextArea();
 
         jLabel1.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
         jLabel1.setText("BILLETAUTOMAT");
@@ -118,6 +120,11 @@ public class StartPanel extends javax.swing.JPanel {
         });
 
         tilfoej.setText("Tilføj");
+        tilfoej.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tilfoejActionPerformed(evt);
+            }
+        });
 
         nulstil.setText("Nulstil");
         nulstil.addActionListener(new java.awt.event.ActionListener() {
@@ -126,6 +133,12 @@ public class StartPanel extends javax.swing.JPanel {
             }
         });
 
+        indkoebskurv.setColumns(20);
+        indkoebskurv.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        indkoebskurv.setRows(5);
+        indkoebskurv.setText("Indkøbskurv tom");
+        jScrollPane1.setViewportView(indkoebskurv);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -133,8 +146,8 @@ public class StartPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
                     .addComponent(jLabel4)
+                    .addComponent(jLabel3)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(nulstil)
@@ -160,7 +173,9 @@ public class StartPanel extends javax.swing.JPanel {
                                 .addComponent(antalPlus)
                                 .addComponent(zonePlus)))
                         .addComponent(jButton1)))
-                .addContainerGap(433, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 409, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -170,27 +185,30 @@ public class StartPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(billettype, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(zonePlus)
-                    .addComponent(zoneMinus)
-                    .addComponent(antalZoner))
-                .addGap(18, 18, 18)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(antalPlus)
-                    .addComponent(antalMinus)
-                    .addComponent(antalAntal))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tilfoej)
-                    .addComponent(nulstil))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(billettype, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(zonePlus)
+                            .addComponent(zoneMinus)
+                            .addComponent(antalZoner))
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(antalPlus)
+                            .addComponent(antalMinus)
+                            .addComponent(antalAntal))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(tilfoej)
+                            .addComponent(nulstil)))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(128, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -246,6 +264,13 @@ public class StartPanel extends javax.swing.JPanel {
         
     }//GEN-LAST:event_nulstilActionPerformed
 
+    private void tilfoejActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tilfoejActionPerformed
+        // TODO add your handling code here:
+        for (int i = 0 ; i < 2 ; i++){
+        indkoebskurv.setText(" " + i);
+        };
+    }//GEN-LAST:event_tilfoejActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel antalAntal;
@@ -254,11 +279,13 @@ public class StartPanel extends javax.swing.JPanel {
     private javax.swing.JLabel antalZoner;
     private javax.swing.JComboBox<String> billettype;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JTextArea indkoebskurv;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton nulstil;
     private javax.swing.JButton tilfoej;
     private javax.swing.JButton zoneMinus;
