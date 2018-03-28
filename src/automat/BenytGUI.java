@@ -7,15 +7,12 @@ public class BenytGUI
 {
 	public static void main(String[] arg)
 	{
-		//Grafikpanel panel = new Grafikpanel();        // opret panelet
-                AutomatGUI test1 = new AutomatGUI();
+		JFrame vindue = new JFrame( "BILLETAUTOMAT");
+                                            
+                vindue.add( new StartPanel() );
                 
-		JFrame vindue = new JFrame("Grafikpanel");    // opret et vindue på skærmen
-                                
-		vindue.add(test1);                          // vis panelet i vinduet
-
 		vindue.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // reagér på luk
-		vindue.pack();                                 // sæt vinduets størrelse
+		vindue.setSize(640, 480);// sæt vinduets størrelse
 		vindue.setVisible(true);                      // åbn vinduet
 	}
 }
