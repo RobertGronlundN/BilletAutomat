@@ -54,11 +54,8 @@ public class Billetautomat                                                      
             System.out.println(kurv.get(i).getBillettype()+"\t"+kurv.get(i).getAntalZoner()+"\t"+kurv.get(i).getAntalBilletter()+"\t"+kurv.get(i).getBilletPris());
         }
         System.out.println("---------------------------------------");
-        total=0;
-        for (int i=0; i < kurv.size(); i++) {
-          total = total + kurv.get(i).getBilletPris();
-        }
-        System.out.println("          Total: "+total+"  DKK");
+        
+        System.out.println("          Total: "+ getTotal() +"  DKK");
         System.out.println("---------------------------------------");
         System.out.println(" Billet gyldig i 2 timer fra udstedelse");
         System.out.println("   "+date.toString()+"  ");
@@ -93,7 +90,7 @@ public class Billetautomat                                                      
 
         automatLog.add(date.toString()+"\t | Koebt:\n"
                 + "Billettype\t Zone \t Antal \t Subtotal\n"
-                + indkoebskurv + "\n");
+                + kurv + "\n");
         returpenge();
     }
 
@@ -134,6 +131,10 @@ public class Billetautomat                                                      
 
     // TOTAL --------------------------------------------------------------------
     public double getTotal(){
+        total=0;
+        for (int i=0; i < kurv.size(); i++) {
+          total = total + kurv.get(i).getBilletPris();
+        }
         return total;
     }
 
