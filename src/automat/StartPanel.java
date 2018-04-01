@@ -15,6 +15,9 @@ public class StartPanel extends javax.swing.JPanel {
      * Creates new form StartPanel
      */
     
+    Billetautomat automat = new Billetautomat();
+    
+    int type = 0;
     int zoner = 1;
     int antal = 1;
     
@@ -48,7 +51,7 @@ public class StartPanel extends javax.swing.JPanel {
         tilfoej = new javax.swing.JButton();
         nulstil = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        indkoebskurv = new javax.swing.JTextArea();
+        guiKurv = new javax.swing.JTextArea();
 
         jLabel1.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
         jLabel1.setText("BILLETAUTOMAT");
@@ -57,7 +60,7 @@ public class StartPanel extends javax.swing.JPanel {
         jLabel2.setText("Vælg Billettype");
 
         billettype.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        billettype.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Voksen", "Børn", "Studerende", "Pensionist", "Cykel", "Hund" }));
+        billettype.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Voksen", "Børn", "Pensionist", "Studerende", "Cykel", "Hund" }));
         billettype.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 billettypeActionPerformed(evt);
@@ -133,11 +136,11 @@ public class StartPanel extends javax.swing.JPanel {
             }
         });
 
-        indkoebskurv.setColumns(20);
-        indkoebskurv.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        indkoebskurv.setRows(5);
-        indkoebskurv.setText("Indkøbskurv tom");
-        jScrollPane1.setViewportView(indkoebskurv);
+        guiKurv.setColumns(20);
+        guiKurv.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        guiKurv.setRows(5);
+        guiKurv.setText("Indkøbskurv tom");
+        jScrollPane1.setViewportView(guiKurv);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -146,7 +149,6 @@ public class StartPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
                     .addComponent(jLabel3)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(layout.createSequentialGroup()
@@ -172,7 +174,8 @@ public class StartPanel extends javax.swing.JPanel {
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(antalPlus)
                                 .addComponent(zonePlus)))
-                        .addComponent(jButton1)))
+                        .addComponent(jButton1))
+                    .addComponent(jLabel4))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 409, Short.MAX_VALUE)
                 .addContainerGap())
@@ -259,6 +262,7 @@ public class StartPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         zoner = 1;
         antal = 1;
+        billettype.setSelectedIndex(0);
         antalZoner.setText(" " + zoner + " ");
         antalAntal.setText(" " + antal + " ");
         
@@ -266,9 +270,22 @@ public class StartPanel extends javax.swing.JPanel {
 
     private void tilfoejActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tilfoejActionPerformed
         // TODO add your handling code here:
-        for (int i = 0 ; i < 2 ; i++){
-        indkoebskurv.setText(" " + i);
+        
+        type = billettype.getSelectedIndex();
+              
+        automat.tilfoejBillet(type,zoner,antal);
+                        
+        guiKurv.setText("I kurven:\n");
+        for (int i = 0 ; i < automat.kurv.size() ; i++){
+        guiKurv.append(automat.kurv.get(i).getBillettype()+"\t"+automat.kurv.get(i).getAntalZoner()+"\t"+automat.kurv.get(i).getAntalBilletter()+"\n");
         };
+        
+        zoner = 1;
+        antal = 1;
+        billettype.setSelectedIndex(0);
+        antalZoner.setText(" " + zoner + " ");
+        antalAntal.setText(" " + antal + " ");
+        
     }//GEN-LAST:event_tilfoejActionPerformed
 
 
@@ -279,7 +296,7 @@ public class StartPanel extends javax.swing.JPanel {
     private javax.swing.JLabel antalZoner;
     private javax.swing.JComboBox<String> billettype;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JTextArea indkoebskurv;
+    private javax.swing.JTextArea guiKurv;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
