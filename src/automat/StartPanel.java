@@ -54,6 +54,7 @@ public class StartPanel extends javax.swing.JPanel {
         betaling = new javax.swing.JButton();
         totalPris = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        afbrydKoeb = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
         jLabel1.setText("BILLETAUTOMAT");
@@ -134,7 +135,7 @@ public class StartPanel extends javax.swing.JPanel {
         guiKurv.setColumns(20);
         guiKurv.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         guiKurv.setRows(5);
-        guiKurv.setText("Indkøbskurv tom");
+        guiKurv.setText("Kurven er tom:");
         jScrollPane1.setViewportView(guiKurv);
 
         betaling.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
@@ -146,6 +147,14 @@ public class StartPanel extends javax.swing.JPanel {
 
         jLabel5.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
         jLabel5.setText("TOTAL:");
+
+        afbrydKoeb.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
+        afbrydKoeb.setText("Afbryd køb");
+        afbrydKoeb.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                afbrydKoebActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -185,15 +194,18 @@ public class StartPanel extends javax.swing.JPanel {
                                                 .addComponent(zonePlus))))))
                             .addComponent(jLabel4))
                         .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 457, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(383, 383, 383)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(betaling, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(afbrydKoeb)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel5)
-                                .addGap(18, 18, 18)
-                                .addComponent(totalPris, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE)))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(totalPris, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(betaling, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(7, 7, 7)))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -221,7 +233,7 @@ public class StartPanel extends javax.swing.JPanel {
                             .addComponent(antalPlus)
                             .addComponent(antalMinus)
                             .addComponent(antalAntal))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(tilfoej)
                             .addComponent(nulstil)))
@@ -231,7 +243,9 @@ public class StartPanel extends javax.swing.JPanel {
                     .addComponent(totalPris)
                     .addComponent(jLabel5))
                 .addGap(18, 18, 18)
-                .addComponent(betaling)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(betaling)
+                    .addComponent(afbrydKoeb))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -303,8 +317,24 @@ public class StartPanel extends javax.swing.JPanel {
         totalPris.setText(" " + automat.getTotal() + " DKK");
     }//GEN-LAST:event_tilfoejActionPerformed
 
+    private void afbrydKoebActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_afbrydKoebActionPerformed
+        // TODO add your handling code here:
+        
+        automat.kurv.clear();
+        
+        zoner = 1;
+        antal = 1;
+        billettype.setSelectedIndex(0);
+        antalZoner.setText(" " + zoner + " ");
+        antalAntal.setText(" " + antal + " ");
+        
+        guiKurv.setText("Kurven er tom:");
+        totalPris.setText(" " + automat.getTotal() + " DKK");
+    }//GEN-LAST:event_afbrydKoebActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton afbrydKoeb;
     private javax.swing.JLabel antalAntal;
     private javax.swing.JButton antalMinus;
     private javax.swing.JButton antalPlus;
@@ -326,3 +356,4 @@ public class StartPanel extends javax.swing.JPanel {
     private javax.swing.JButton zonePlus;
     // End of variables declaration//GEN-END:variables
 }
+
