@@ -140,6 +140,11 @@ public class MenuPanel extends javax.swing.JPanel {
 
         betaling.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
         betaling.setText("Gå til betaling");
+        betaling.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                betalingActionPerformed(evt);
+            }
+        });
 
         totalPris.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
         totalPris.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -331,6 +336,11 @@ public class MenuPanel extends javax.swing.JPanel {
         guiKurv.setText("Kurven er tom:");
         totalPris.setText(" " + automat.getTotal() + " DKK");
     }//GEN-LAST:event_afbrydKoebActionPerformed
+
+    private void betalingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_betalingActionPerformed
+        // TODO add your handling code here:
+        StartFrame.fane.setSelectedIndex(1);
+    }//GEN-LAST:event_betalingActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -300,6 +300,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="G&#xe5; til betaling"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="betalingActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="totalPris">
       <Properties>
