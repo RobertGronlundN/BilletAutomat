@@ -9,10 +9,10 @@ package automat;
  *
  * @author Robert
  */
-public class StartPanel extends javax.swing.JPanel {
+public class MenuPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form StartPanel
+     * Creates new form MenuPanel
      */
     
     Billetautomat automat = new Billetautomat();
@@ -21,7 +21,7 @@ public class StartPanel extends javax.swing.JPanel {
     int zoner = 1;
     int antal = 1;
     
-    public StartPanel() {
+    public MenuPanel() {
         
         initComponents();
     }

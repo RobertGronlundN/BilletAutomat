@@ -3,17 +3,16 @@ package automat;
 //import automat.AutomatGUI;
 import javax.swing.JFrame;
 
-public class BenytGUI
+public class BenytFrame
 {
 	public static void main(String[] arg)
 	{
-		JFrame vindue = new JFrame( "BILLETAUTOMAT");
+		JFrame vindue = new StartFrame();
                                             
-                vindue.add( new MenuPanel() );
-                //vindue.add( new BetalingPanel());
+                //vindue.add( new StartPanel() );
                 
 		vindue.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // reagér på luk
-		vindue.setSize(640, 480);// sæt vinduets størrelse
+		vindue.setSize(650, 540);// sæt vinduets størrelse
 		vindue.setVisible(true);                      // åbn vinduet
 	}
 }
