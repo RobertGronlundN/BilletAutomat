@@ -339,7 +339,7 @@ public class MenuPanel extends javax.swing.JPanel {
 
     private void betalingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_betalingActionPerformed
         // TODO add your handling code here:
-        StartFrame.fane.setSelectedIndex(1);
+        //StartFrame.fane.setSelectedIndex(1);
     }//GEN-LAST:event_betalingActionPerformed
 
 
