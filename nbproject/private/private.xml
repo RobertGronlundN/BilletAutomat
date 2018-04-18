@@ -8,8 +8,11 @@
         </group>
         <group>
             <file>file:/C:/Users/Robert/Documents/NetBeansProjects/BenytBillautomatV3/src/automat/BenytGUI.java</file>
-            <file>file:/C:/Users/Robert/Documents/NetBeansProjects/BenytBillautomatV3/src/automat/MenuPanel.java</file>
+            <file>file:/C:/Users/Robert/Documents/NetBeansProjects/BenytBillautomatV3/src/automat/Zoneberegner.java</file>
+            <file>file:/C:/Users/Robert/Documents/NetBeansProjects/BenytBillautomatV3/src/automat/StartFrame.java</file>
             <file>file:/C:/Users/Robert/Documents/NetBeansProjects/BenytBillautomatV3/src/automat/BenytFrame.java</file>
+            <file>file:/C:/Users/Robert/Documents/NetBeansProjects/BenytBillautomatV3/src/automat/BenytBilletautomat.java</file>
+            <file>file:/C:/Users/Robert/Documents/NetBeansProjects/BenytBillautomatV3/src/automat/Billetautomat.java</file>
         </group>
     </open-files>
 </project-private>

@@ -43,7 +43,6 @@ public class Billetautomat                                                      
         //indkoebskurv.remove(indkoebskurv.size()-1);
     }
     
-    
     // PRINT LIST
     public void udskrivKurv() {                                                 // Funktion til udskrivning af indkoebskurv
         Date date = new Date();
