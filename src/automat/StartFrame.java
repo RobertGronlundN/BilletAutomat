@@ -28,29 +28,27 @@ public class StartFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         fane = new javax.swing.JTabbedPane();
-        menuPanel1 = new automat.MenuPanel();
+        menuPanel2 = new automat.MenuPanel();
         betalingPanel1 = new automat.BetalingPanel();
+        montoerPanel1 = new automat.MontoerPanel();
+        printBillet1 = new automat.PrintBillet();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        fane.addTab("Menu", menuPanel1);
+        fane.addTab("Menu", menuPanel2);
         fane.addTab("Betaling", betalingPanel1);
+        fane.addTab("Montør", montoerPanel1);
+        fane.addTab("Udprint", printBillet1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(fane, javax.swing.GroupLayout.DEFAULT_SIZE, 825, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(fane, javax.swing.GroupLayout.DEFAULT_SIZE, 837, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(fane, javax.swing.GroupLayout.DEFAULT_SIZE, 580, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(fane, javax.swing.GroupLayout.DEFAULT_SIZE, 592, Short.MAX_VALUE)
         );
 
         pack();
@@ -94,6 +92,8 @@ public class StartFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private automat.BetalingPanel betalingPanel1;
     private javax.swing.JTabbedPane fane;
-    private automat.MenuPanel menuPanel1;
+    private automat.MenuPanel menuPanel2;
+    private automat.MontoerPanel montoerPanel1;
+    private automat.PrintBillet printBillet1;
     // End of variables declaration//GEN-END:variables
 }
