@@ -7,12 +7,13 @@
             <file>file:/home/j/Drev/02313/02315%20TestOgVersionering/BenytBillautomatV3/src/automat/TjekBilletautomat.java</file>
         </group>
         <group>
+            <file>file:/C:/Users/Robert/Documents/NetBeansProjects/BenytBillautomatV3/src/automat/MontoerPanel.java</file>
             <file>file:/C:/Users/Robert/Documents/NetBeansProjects/BenytBillautomatV3/src/automat/BenytGUI.java</file>
-            <file>file:/C:/Users/Robert/Documents/NetBeansProjects/BenytBillautomatV3/src/automat/Zoneberegner.java</file>
+            <file>file:/C:/Users/Robert/Documents/NetBeansProjects/BenytBillautomatV3/src/automat/PrintBillet.java</file>
+            <file>file:/C:/Users/Robert/Documents/NetBeansProjects/BenytBillautomatV3/src/automat/MenuPanel.java</file>
             <file>file:/C:/Users/Robert/Documents/NetBeansProjects/BenytBillautomatV3/src/automat/StartFrame.java</file>
             <file>file:/C:/Users/Robert/Documents/NetBeansProjects/BenytBillautomatV3/src/automat/BenytFrame.java</file>
-            <file>file:/C:/Users/Robert/Documents/NetBeansProjects/BenytBillautomatV3/src/automat/BenytBilletautomat.java</file>
-            <file>file:/C:/Users/Robert/Documents/NetBeansProjects/BenytBillautomatV3/src/automat/Billetautomat.java</file>
+            <file>file:/C:/Users/Robert/Documents/NetBeansProjects/BenytBillautomatV3/src/automat/BetalingPanel.java</file>
         </group>
     </open-files>
 </project-private>

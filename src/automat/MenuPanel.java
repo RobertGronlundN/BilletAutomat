@@ -55,6 +55,7 @@ public class MenuPanel extends javax.swing.JPanel {
         totalPris = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         afbrydKoeb = new javax.swing.JButton();
+        list1 = new java.awt.List();
 
         jLabel1.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
         jLabel1.setText("BILLETAUTOMAT");
@@ -199,7 +200,11 @@ public class MenuPanel extends javax.swing.JPanel {
                                                 .addComponent(zonePlus))))))
                             .addComponent(jLabel4))
                         .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 457, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 457, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(list1, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(afbrydKoeb)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -232,21 +237,26 @@ public class MenuPanel extends javax.swing.JPanel {
                             .addComponent(zoneMinus)
                             .addComponent(antalZoner))
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel4))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(list1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(antalPlus)
                             .addComponent(antalMinus)
                             .addComponent(antalAntal))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(tilfoej)
-                            .addComponent(nulstil)))
-                    .addComponent(jScrollPane1))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(totalPris)
-                    .addComponent(jLabel5))
+                            .addComponent(nulstil))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(totalPris)
+                            .addComponent(jLabel5))))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(betaling)
@@ -311,7 +321,12 @@ public class MenuPanel extends javax.swing.JPanel {
         guiKurv.setText("I kurven:\n");
         for (int i = 0 ; i < automat.kurv.size() ; i++){
         guiKurv.append(automat.kurv.get(i).getBillettype()+"\t"+automat.kurv.get(i).getAntalZoner()+"\t"+automat.kurv.get(i).getAntalBilletter()+"\n");
-        };
+        }
+        
+        list1.removeAll();
+        for (int i = 0 ; i < automat.kurv.size() ; i++){
+        list1.add(automat.kurv.get(i).getBillettype()+""+automat.kurv.get(i).getAntalZoner()+"\t"+automat.kurv.get(i).getAntalBilletter()+"\n");
+        }
         
         zoner = 1;
         antal = 1;
@@ -359,6 +374,7 @@ public class MenuPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
+    private java.awt.List list1;
     private javax.swing.JButton nulstil;
     private javax.swing.JButton tilfoej;
     private javax.swing.JLabel totalPris;
