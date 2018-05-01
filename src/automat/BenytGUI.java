@@ -13,7 +13,7 @@ public class BenytGUI
                 //vindue.add( new BetalingPanel());
                 
 		vindue.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // reagér på luk
-		vindue.setSize(640, 480);// sæt vinduets størrelse
+		vindue.setSize(800,480);// sæt vinduets størrelse
 		vindue.setVisible(true);                      // åbn vinduet
 	}
 }

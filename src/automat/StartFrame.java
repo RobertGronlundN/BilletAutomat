@@ -51,9 +51,11 @@ public class StartFrame extends javax.swing.JFrame {
             .addComponent(fane, javax.swing.GroupLayout.DEFAULT_SIZE, 592, Short.MAX_VALUE)
         );
 
+        fane.getAccessibleContext().setAccessibleDescription("");
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
     /**
      * @param args the command line arguments
      */
@@ -91,7 +93,7 @@ public class StartFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private automat.BetalingPanel betalingPanel1;
-    private javax.swing.JTabbedPane fane;
+    public static javax.swing.JTabbedPane fane;
     private automat.MenuPanel menuPanel2;
     private automat.MontoerPanel montoerPanel1;
     private automat.PrintBillet printBillet1;
