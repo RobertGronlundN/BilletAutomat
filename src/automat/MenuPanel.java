@@ -24,9 +24,39 @@ public class MenuPanel extends javax.swing.JPanel implements ActionListener {
     int zoner = 1;
     int antal = 1;
     
+    public void update(){
+        guiKurv.removeAll();
+
+        if (automat.kurv.size() <= 0){
+            guiKurv.add(" ");
+            guiKurv.add(" ");
+            guiKurv.add("                                          Kurven er tom");
+        }
+        
+        for (int i = 0 ; i < automat.kurv.size() ; i++){
+            guiKurv.add(automat.kurv.get(i).getBillettype()
+                      + "      "
+                      + automat.kurv.get(i).getAntalZoner()
+                      + " zoner     "
+                      + automat.kurv.get(i).getAntalBilletter()
+                      + " billet(ter)    "
+                      + automat.kurv.get(i).getBilletPris()
+                      + " kr.   ");
+        }
+        
+        totalPris.setText(" " + automat.getTotal() + " DKK");
+    }
+    
+    
+    
+    
+    
     public MenuPanel() {
         
         initComponents();
+        
+        update();
+        
     }
 
     /**
@@ -39,31 +69,45 @@ public class MenuPanel extends javax.swing.JPanel implements ActionListener {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jLabel6 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         billettype = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
-        zoneMinus = new javax.swing.JButton();
-        zonePlus = new javax.swing.JButton();
+        guiZoneMinus = new javax.swing.JButton();
+        guiZonePlus = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        antalMinus = new javax.swing.JButton();
-        antalPlus = new javax.swing.JButton();
+        guiAntalMinus = new javax.swing.JButton();
+        guiAntalPlus = new javax.swing.JButton();
         antalAntal = new javax.swing.JLabel();
         antalZoner = new javax.swing.JLabel();
-        tilfoej = new javax.swing.JButton();
-        nulstil = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        guiKurv = new javax.swing.JTextArea();
-        betaling = new javax.swing.JButton();
+        guiTilfoej = new javax.swing.JButton();
+        guiNulstil = new javax.swing.JButton();
+        guiBetaling = new javax.swing.JButton();
         totalPris = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        afbrydKoeb = new javax.swing.JButton();
-        listType = new java.awt.List();
-        listZone = new java.awt.List();
-        listAntal = new java.awt.List();
-        listPris = new java.awt.List();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        guiAfbrydKoeb = new javax.swing.JButton();
+        guiKurv = new java.awt.List();
+        jLabel7 = new javax.swing.JLabel();
+        guiSletBillet = new javax.swing.JButton();
+        guiMontoer = new javax.swing.JButton();
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane3.setViewportView(jTable1);
+
+        jLabel6.setText("jLabel6");
 
         jLabel1.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
         jLabel1.setText("BILLETAUTOMAT");
@@ -82,38 +126,38 @@ public class MenuPanel extends javax.swing.JPanel implements ActionListener {
         jLabel3.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jLabel3.setText("Zone");
 
-        zoneMinus.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        zoneMinus.setText("-");
-        zoneMinus.addActionListener(new java.awt.event.ActionListener() {
+        guiZoneMinus.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        guiZoneMinus.setText("-");
+        guiZoneMinus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                zoneMinusActionPerformed(evt);
+                guiZoneMinusActionPerformed(evt);
             }
         });
 
-        zonePlus.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        zonePlus.setText("+");
-        zonePlus.addActionListener(new java.awt.event.ActionListener() {
+        guiZonePlus.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        guiZonePlus.setText("+");
+        guiZonePlus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                zonePlusActionPerformed(evt);
+                guiZonePlusActionPerformed(evt);
             }
         });
 
         jLabel4.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jLabel4.setText("Antal");
 
-        antalMinus.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        antalMinus.setText("-");
-        antalMinus.addActionListener(new java.awt.event.ActionListener() {
+        guiAntalMinus.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        guiAntalMinus.setText("-");
+        guiAntalMinus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                antalMinusActionPerformed(evt);
+                guiAntalMinusActionPerformed(evt);
             }
         });
 
-        antalPlus.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        antalPlus.setText("+");
-        antalPlus.addActionListener(new java.awt.event.ActionListener() {
+        guiAntalPlus.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        guiAntalPlus.setText("+");
+        guiAntalPlus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                antalPlusActionPerformed(evt);
+                guiAntalPlusActionPerformed(evt);
             }
         });
 
@@ -127,31 +171,25 @@ public class MenuPanel extends javax.swing.JPanel implements ActionListener {
         antalZoner.setText("1");
         antalZoner.setToolTipText("");
 
-        tilfoej.setText("Tilføj");
-        tilfoej.addActionListener(new java.awt.event.ActionListener() {
+        guiTilfoej.setText("Tilføj");
+        guiTilfoej.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tilfoejActionPerformed(evt);
+                guiTilfoejActionPerformed(evt);
             }
         });
 
-        nulstil.setText("Nulstil");
-        nulstil.addActionListener(new java.awt.event.ActionListener() {
+        guiNulstil.setText("Nulstil");
+        guiNulstil.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nulstilActionPerformed(evt);
+                guiNulstilActionPerformed(evt);
             }
         });
 
-        guiKurv.setColumns(20);
-        guiKurv.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        guiKurv.setRows(5);
-        guiKurv.setText("Kurven er tom:");
-        jScrollPane1.setViewportView(guiKurv);
-
-        betaling.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
-        betaling.setText("Gå til betaling");
-        betaling.addActionListener(new java.awt.event.ActionListener() {
+        guiBetaling.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
+        guiBetaling.setText("Gå til betaling");
+        guiBetaling.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                betalingActionPerformed(evt);
+                guiBetalingActionPerformed(evt);
             }
         });
 
@@ -162,33 +200,33 @@ public class MenuPanel extends javax.swing.JPanel implements ActionListener {
         jLabel5.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
         jLabel5.setText("TOTAL:");
 
-        afbrydKoeb.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
-        afbrydKoeb.setText("Afbryd køb");
-        afbrydKoeb.addActionListener(new java.awt.event.ActionListener() {
+        guiAfbrydKoeb.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
+        guiAfbrydKoeb.setText("Afbryd køb");
+        guiAfbrydKoeb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                afbrydKoebActionPerformed(evt);
+                guiAfbrydKoebActionPerformed(evt);
             }
         });
 
-        listType.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        listType.addActionListener(new java.awt.event.ActionListener() {
+        guiKurv.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        guiKurv.setName(""); // NOI18N
+
+        jLabel7.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabel7.setText("Indkøbskurv");
+
+        guiSletBillet.setText("Slet billet");
+        guiSletBillet.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                listTypeActionPerformed(evt);
+                guiSletBilletActionPerformed(evt);
             }
         });
 
-        listZone.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-
-        listAntal.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-
-        listPris.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+        guiMontoer.setText("Montør");
+        guiMontoer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                guiMontoerActionPerformed(evt);
+            }
         });
-        jScrollPane2.setViewportView(jList1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -205,146 +243,136 @@ public class MenuPanel extends javax.swing.JPanel implements ActionListener {
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                             .addGap(24, 24, 24)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(nulstil)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(tilfoej))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(zoneMinus)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(antalZoner, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(0, 0, Short.MAX_VALUE))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(antalMinus)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(antalAntal, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(antalPlus)
-                                        .addComponent(zonePlus))))))
+                                .addComponent(guiAfbrydKoeb)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(guiNulstil)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(guiTilfoej))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(guiZoneMinus)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(antalZoner, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(0, 0, Short.MAX_VALUE))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(guiAntalMinus)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(antalAntal, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(guiAntalPlus)
+                                            .addComponent(guiZonePlus)))))))
                     .addComponent(jLabel4))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(afbrydKoeb)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(guiSletBillet)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 183, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel5)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(totalPris, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(betaling, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(guiBetaling, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGap(7, 7, 7))))
-                    .addComponent(jScrollPane1)
+                    .addComponent(guiKurv, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(listType, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(listZone, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(listAntal, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(listPris, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 426, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 49, Short.MAX_VALUE)))
+                        .addComponent(jLabel7)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(guiMontoer)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(guiMontoer))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel7))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(guiKurv, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(guiSletBillet)
+                        .addGap(64, 64, 64))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(billettype, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel3))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(zonePlus)
-                            .addComponent(zoneMinus)
+                            .addComponent(guiZonePlus)
+                            .addComponent(guiZoneMinus)
                             .addComponent(antalZoner))
                         .addGap(18, 18, 18)
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(antalPlus)
-                            .addComponent(antalMinus)
+                            .addComponent(guiAntalPlus)
+                            .addComponent(guiAntalMinus)
                             .addComponent(antalAntal))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(tilfoej)
-                            .addComponent(nulstil))
+                            .addComponent(guiTilfoej)
+                            .addComponent(guiNulstil))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(totalPris)
-                            .addComponent(jLabel5)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(listZone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(listType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(listAntal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(listPris, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(betaling)
-                    .addComponent(afbrydKoeb))
-                .addContainerGap())
+                            .addComponent(jLabel5))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(guiBetaling)
+                            .addComponent(guiAfbrydKoeb))
+                        .addGap(18, 18, 18))))
         );
-
-        listType.getAccessibleContext().setAccessibleName("");
     }// </editor-fold>//GEN-END:initComponents
 
-    private void zoneMinusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_zoneMinusActionPerformed
+    private void guiZoneMinusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiZoneMinusActionPerformed
         // TODO add your handling code here:
         if (zoner > 1){
             zoner--;
         }
         antalZoner.setText(" "+ zoner + " ");
-    }//GEN-LAST:event_zoneMinusActionPerformed
+    }//GEN-LAST:event_guiZoneMinusActionPerformed
 
-    private void zonePlusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_zonePlusActionPerformed
+    private void guiZonePlusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiZonePlusActionPerformed
         // TODO add your handling code here:
         if (zoner < 6){
             zoner++;
         }
         antalZoner.setText(" "+ zoner + " ");
-    }//GEN-LAST:event_zonePlusActionPerformed
+    }//GEN-LAST:event_guiZonePlusActionPerformed
 
-    private void antalMinusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_antalMinusActionPerformed
+    private void guiAntalMinusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiAntalMinusActionPerformed
         // TODO add your handling code here:
         if (antal > 1){
             antal--;
         }        
         antalAntal.setText(" "+ antal + " ");
-    }//GEN-LAST:event_antalMinusActionPerformed
+    }//GEN-LAST:event_guiAntalMinusActionPerformed
 
-    private void antalPlusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_antalPlusActionPerformed
+    private void guiAntalPlusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiAntalPlusActionPerformed
         // TODO add your handling code here:
        
         antal++;
                
         antalAntal.setText(" "+ antal + " ");
-    }//GEN-LAST:event_antalPlusActionPerformed
+    }//GEN-LAST:event_guiAntalPlusActionPerformed
 
     private void billettypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_billettypeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_billettypeActionPerformed
 
-    private void nulstilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nulstilActionPerformed
+    private void guiNulstilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiNulstilActionPerformed
         // TODO add your handling code here:
         zoner = 1;
         antal = 1;
@@ -352,51 +380,17 @@ public class MenuPanel extends javax.swing.JPanel implements ActionListener {
         antalZoner.setText(" " + zoner + " ");
         antalAntal.setText(" " + antal + " "); 
         
-    }//GEN-LAST:event_nulstilActionPerformed
+    }//GEN-LAST:event_guiNulstilActionPerformed
 
-    private void tilfoejActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tilfoejActionPerformed
+    private void guiTilfoejActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiTilfoejActionPerformed
         // TODO add your handling code here:
         
         type = billettype.getSelectedIndex();
               
         automat.tilfoejBillet(type,zoner,antal);
-                        
-        guiKurv.setText("I kurven:\n");
-        for (int i = 0 ; i < automat.kurv.size() ; i++){
-        guiKurv.append(automat.kurv.get(i).getBillettype()+"\t"+automat.kurv.get(i).getAntalZoner()+"\t"+automat.kurv.get(i).getAntalBilletter()+"\n");
-        }
         
-        
-        listType.removeAll();
-        listZone.removeAll();
-        listAntal.removeAll();
-        listPris.removeAll();
-        
-        listType.add("Billettype");
-        listZone.add("Zoner");
-        listAntal.add("Antal");
-        listPris.add("Pris");
-        
-        
-        for (int i = 0 ; i < automat.kurv.size() ; i++){
-            listType.add(automat.kurv.get(i).getBillettype());
-            listZone.add(automat.kurv.get(i).getAntalZoner()+" ");
-            listAntal.add(automat.kurv.get(i).getAntalBilletter()+" ");
-            listPris.add(automat.kurv.get(i).getBilletPris()+" ");
-        }
-        
-        DefaultListModel dlm = new DefaultListModel();        
-        StringBuilder builder = new StringBuilder();
-
-        for (int i = 0 ; i < automat.kurv.size() ; i++){
-        builder.append("<html><pre>");
-        builder.append(String.format(automat.kurv.get(i).getBillettype()+"\t\t"+automat.kurv.get(i).getAntalZoner()+"\t\t"+automat.kurv.get(i).getAntalBilletter()+"\t\t"+automat.kurv.get(i).getBilletPris()));
-        builder.append("</pre></html>");
-        
-        dlm.addElement(builder.toString());
-        }
                 
-        jList1.setModel(dlm);
+        update();
         
         zoner = 1;
         antal = 1;
@@ -405,9 +399,9 @@ public class MenuPanel extends javax.swing.JPanel implements ActionListener {
         antalAntal.setText(" " + antal + " ");
         
         totalPris.setText(" " + automat.getTotal() + " DKK");
-    }//GEN-LAST:event_tilfoejActionPerformed
+    }//GEN-LAST:event_guiTilfoejActionPerformed
 
-    private void afbrydKoebActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_afbrydKoebActionPerformed
+    private void guiAfbrydKoebActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiAfbrydKoebActionPerformed
         // TODO add your handling code here:
         
         automat.kurv.clear();
@@ -418,52 +412,56 @@ public class MenuPanel extends javax.swing.JPanel implements ActionListener {
         antalZoner.setText(" " + zoner + " ");
         antalAntal.setText(" " + antal + " ");
         
-        guiKurv.setText("Kurven er tom:");
+      
         totalPris.setText(" " + automat.getTotal() + " DKK");
-    }//GEN-LAST:event_afbrydKoebActionPerformed
+    }//GEN-LAST:event_guiAfbrydKoebActionPerformed
 
-    private void betalingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_betalingActionPerformed
-        // TODO add your handling code here:
-        //StartFrame.fane.setSelectedIndex(1);
+    private void guiBetalingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiBetalingActionPerformed
+                
+        StartFrame.fane.setSelectedIndex(1);
+       
+    }//GEN-LAST:event_guiBetalingActionPerformed
+
+    private void guiSletBilletActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiSletBilletActionPerformed
         
-        ButtonHandler phandler = new ButtonHandler();
-        betaling.addActionListener(phandler);
+        automat.kurv.remove(guiKurv.getSelectedIndex());
         
-    }//GEN-LAST:event_betalingActionPerformed
+        update();
+    }//GEN-LAST:event_guiSletBilletActionPerformed
+
+    private void guiMontoerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiMontoerActionPerformed
+        
+        StartFrame.fane.setSelectedIndex(2);
+        
+    }//GEN-LAST:event_guiMontoerActionPerformed
     
-    private void listTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listTypeActionPerformed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_listTypeActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton afbrydKoeb;
     private javax.swing.JLabel antalAntal;
-    private javax.swing.JButton antalMinus;
-    private javax.swing.JButton antalPlus;
     private javax.swing.JLabel antalZoner;
-    private javax.swing.JButton betaling;
     private javax.swing.JComboBox<String> billettype;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JTextArea guiKurv;
+    private javax.swing.JButton guiAfbrydKoeb;
+    private javax.swing.JButton guiAntalMinus;
+    private javax.swing.JButton guiAntalPlus;
+    private javax.swing.JButton guiBetaling;
+    private java.awt.List guiKurv;
+    private javax.swing.JButton guiMontoer;
+    private javax.swing.JButton guiNulstil;
+    private javax.swing.JButton guiSletBillet;
+    private javax.swing.JButton guiTilfoej;
+    private javax.swing.JButton guiZoneMinus;
+    private javax.swing.JButton guiZonePlus;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JList<String> jList1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private java.awt.List listAntal;
-    private java.awt.List listPris;
-    private java.awt.List listType;
-    private java.awt.List listZone;
-    private javax.swing.JButton nulstil;
-    private javax.swing.JButton tilfoej;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JTable jTable1;
     private javax.swing.JLabel totalPris;
-    private javax.swing.JButton zoneMinus;
-    private javax.swing.JButton zonePlus;
     // End of variables declaration//GEN-END:variables
 
     @Override
@@ -472,10 +470,4 @@ public class MenuPanel extends javax.swing.JPanel implements ActionListener {
     }
 }
 
-class ButtonHandler implements ActionListener{
-       @Override
-       public void actionPerformed(ActionEvent e){
-              StartFrame.fane.setSelectedIndex(1);
-       }
-}
 
