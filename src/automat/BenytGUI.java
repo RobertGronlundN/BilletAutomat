@@ -10,8 +10,7 @@ public class BenytGUI
 		JFrame vindue = new JFrame( "BILLETAUTOMAT");
                                             
                 vindue.add( new MenuPanel() );
-                //vindue.add( new BetalingPanel());
-                
+                                
 		vindue.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // reagér på luk
 		vindue.setSize(800,480);// sæt vinduets størrelse
 		vindue.setVisible(true);                      // åbn vinduet

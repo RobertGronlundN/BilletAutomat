@@ -11,6 +11,9 @@ package automat;
  */
 public class BetalingPanel extends javax.swing.JPanel {
 
+    
+    
+    
     /**
      * Creates new form BetalingPanel
      */
@@ -29,14 +32,32 @@ public class BetalingPanel extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        guiAfbryd = new javax.swing.JButton();
+        guiMontoer = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
         jLabel1.setText("BETALING");
 
-        jButton1.setText("jButton1");
+        jButton1.setText("Tilbage");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
+            }
+        });
+
+        guiAfbryd.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        guiAfbryd.setText("Afbryd");
+        guiAfbryd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                guiAfbrydActionPerformed(evt);
+            }
+        });
+
+        guiMontoer.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        guiMontoer.setText("Montør");
+        guiMontoer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                guiMontoerActionPerformed(evt);
             }
         });
 
@@ -45,23 +66,30 @@ public class BetalingPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel1))
+                        .addComponent(jButton1)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(240, 240, 240)
-                        .addComponent(jButton1)))
-                .addContainerGap(323, Short.MAX_VALUE))
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 391, Short.MAX_VALUE)
+                        .addComponent(guiAfbryd)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(guiMontoer)
+                        .addGap(7, 7, 7))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(123, 123, 123)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(guiAfbryd, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(guiMontoer))
+                .addGap(64, 64, 64)
                 .addComponent(jButton1)
-                .addContainerGap(289, Short.MAX_VALUE))
+                .addContainerGap(344, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -72,8 +100,23 @@ public class BetalingPanel extends javax.swing.JPanel {
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void guiAfbrydActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiAfbrydActionPerformed
+        // TODO add your handling code here:
+
+        System.exit(0);
+
+    }//GEN-LAST:event_guiAfbrydActionPerformed
+
+    private void guiMontoerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiMontoerActionPerformed
+
+        StartFrame.fane.setSelectedIndex(2);
+
+    }//GEN-LAST:event_guiMontoerActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton guiAfbryd;
+    private javax.swing.JButton guiMontoer;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
