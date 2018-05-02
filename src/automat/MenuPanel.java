@@ -18,7 +18,7 @@ public class MenuPanel extends javax.swing.JPanel implements ActionListener {
      * Creates new form MenuPanel
      */
     
-    Billetautomat automat = new Billetautomat();
+    static Billetautomat automat = new Billetautomat();
     
     int type = 0;
     int zoner = 1;
@@ -31,6 +31,14 @@ public class MenuPanel extends javax.swing.JPanel implements ActionListener {
             guiKurv.add(" ");
             guiKurv.add(" ");
             guiKurv.add("                                          Kurven er tom");
+            
+            guiBetaling.setEnabled(false);
+            guiSletEnkelt.setEnabled(false);
+            guiSletAlle.setEnabled(false);
+        } else {
+            guiBetaling.setEnabled(true);
+            guiSletEnkelt.setEnabled(true);
+            guiSletAlle.setEnabled(true);
         }
         
         for (int i = 0 ; i < automat.kurv.size() ; i++){
@@ -46,7 +54,6 @@ public class MenuPanel extends javax.swing.JPanel implements ActionListener {
         
         totalPris.setText(" " + automat.getTotal() + " DKK");
     }
-    
     
     
     
@@ -88,12 +95,13 @@ public class MenuPanel extends javax.swing.JPanel implements ActionListener {
         guiBetaling = new javax.swing.JButton();
         totalPris = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        guiAfbryd = new javax.swing.JButton();
         guiKurv = new java.awt.List();
         jLabel7 = new javax.swing.JLabel();
         guiSletEnkelt = new javax.swing.JButton();
         guiMontoer = new javax.swing.JButton();
         guiSletAlle = new javax.swing.JButton();
+        guiAfslut = new javax.swing.JButton();
+        guiZoneBeregner = new javax.swing.JButton();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -194,6 +202,7 @@ public class MenuPanel extends javax.swing.JPanel implements ActionListener {
 
         guiBetaling.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
         guiBetaling.setText("Gå til betaling");
+        guiBetaling.setEnabled(false);
         guiBetaling.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 guiBetalingActionPerformed(evt);
@@ -206,17 +215,6 @@ public class MenuPanel extends javax.swing.JPanel implements ActionListener {
 
         jLabel5.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
         jLabel5.setText("TOTAL:");
-
-        guiAfbryd.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
-        guiAfbryd.setText("Afbryd");
-        guiAfbryd.setMaximumSize(new java.awt.Dimension(68, 32));
-        guiAfbryd.setMinimumSize(new java.awt.Dimension(68, 32));
-        guiAfbryd.setPreferredSize(new java.awt.Dimension(68, 32));
-        guiAfbryd.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                guiAfbrydActionPerformed(evt);
-            }
-        });
 
         guiKurv.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         guiKurv.setName(""); // NOI18N
@@ -246,6 +244,21 @@ public class MenuPanel extends javax.swing.JPanel implements ActionListener {
             }
         });
 
+        guiAfslut.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        guiAfslut.setText("Afslut");
+        guiAfslut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                guiAfslutActionPerformed(evt);
+            }
+        });
+
+        guiZoneBeregner.setText("Beregn zoner");
+        guiZoneBeregner.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                guiZoneBeregnerActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -262,24 +275,22 @@ public class MenuPanel extends javax.swing.JPanel implements ActionListener {
                             .addGap(24, 24, 24)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(layout.createSequentialGroup()
+                                    .addComponent(guiAntalMinus)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(antalAntal, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(guiAntalPlus))
+                                .addGroup(layout.createSequentialGroup()
                                     .addComponent(guiNulstil)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(guiTilfoej))
                                 .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(guiZoneMinus)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(antalZoner, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(0, 0, Short.MAX_VALUE))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(guiAntalMinus)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(antalAntal, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(guiZoneMinus)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(guiAntalPlus)
-                                        .addComponent(guiZonePlus))))))
+                                    .addComponent(antalZoner, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(guiZonePlus))
+                                .addComponent(guiZoneBeregner, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addComponent(jLabel4))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -287,7 +298,7 @@ public class MenuPanel extends javax.swing.JPanel implements ActionListener {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(guiSletAlle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(guiSletEnkelt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 144, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 228, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel5)
@@ -304,7 +315,7 @@ public class MenuPanel extends javax.swing.JPanel implements ActionListener {
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(guiAfbryd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(guiAfslut)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(guiMontoer)))
                 .addContainerGap())
@@ -316,7 +327,7 @@ public class MenuPanel extends javax.swing.JPanel implements ActionListener {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(guiMontoer)
-                    .addComponent(guiAfbryd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(guiAfslut))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
@@ -325,11 +336,12 @@ public class MenuPanel extends javax.swing.JPanel implements ActionListener {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(guiKurv, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
-                        .addComponent(guiSletEnkelt)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(guiSletAlle)
-                        .addGap(26, 26, 26))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(guiSletEnkelt)
+                            .addComponent(guiTilfoej)
+                            .addComponent(guiNulstil))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(billettype, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -339,23 +351,23 @@ public class MenuPanel extends javax.swing.JPanel implements ActionListener {
                             .addComponent(guiZonePlus)
                             .addComponent(guiZoneMinus)
                             .addComponent(antalZoner))
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(guiZoneBeregner)
+                        .addGap(9, 9, 9)
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(guiAntalPlus)
                             .addComponent(guiAntalMinus)
+                            .addComponent(guiAntalPlus)
                             .addComponent(antalAntal))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(guiTilfoej)
-                            .addComponent(guiNulstil))
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(totalPris)
                             .addComponent(jLabel5))
-                        .addComponent(guiBetaling)
-                        .addGap(18, 18, 18))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(guiBetaling)
+                            .addComponent(guiSletAlle))
+                        .addGap(10, 10, 10))))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -438,8 +450,10 @@ public class MenuPanel extends javax.swing.JPanel implements ActionListener {
         antal = 1;
         billettype.setSelectedIndex(0);
         antalZoner.setText(" " + zoner + " ");
-        antalAntal.setText(" " + antal + " "); 
+        antalAntal.setText(" " + antal + " ");
         
+        guiAntalMinus.setEnabled(false);
+        guiZoneMinus.setEnabled(false);
     }//GEN-LAST:event_guiNulstilActionPerformed
 
     private void guiTilfoejActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiTilfoejActionPerformed
@@ -452,26 +466,25 @@ public class MenuPanel extends javax.swing.JPanel implements ActionListener {
                 
         update();
         
-        zoner = 1;
-        antal = 1;
-        billettype.setSelectedIndex(0);
-        antalZoner.setText(" " + zoner + " ");
-        antalAntal.setText(" " + antal + " ");
         
-        totalPris.setText(" " + automat.getTotal() + " DKK");
     }//GEN-LAST:event_guiTilfoejActionPerformed
-
-    private void guiAfbrydActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiAfbrydActionPerformed
-        // TODO add your handling code here:
-        
-        System.exit(0);
-        
-    }//GEN-LAST:event_guiAfbrydActionPerformed
 
     private void guiBetalingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiBetalingActionPerformed
                 
         StartFrame.fane.setSelectedIndex(1);
-       
+        
+        BetalingPanel.guiTotalLabel.setText(" " + automat.getTotal() + " DKK");
+        
+        for (int i = 0 ; i < automat.kurv.size() ; i++){
+        BetalingPanel.guiTextKurv.append(automat.kurv.get(i).getBillettype()
+                      + "\t"
+                      + automat.kurv.get(i).getAntalZoner()
+                      + " zoner \t"
+                      + automat.kurv.get(i).getAntalBilletter()
+                      + " billet(ter) \t"
+                      + automat.kurv.get(i).getBilletPris()
+                      + " kr.\n");            
+        }
     }//GEN-LAST:event_guiBetalingActionPerformed
 
     private void guiSletEnkeltActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiSletEnkeltActionPerformed
@@ -499,16 +512,26 @@ public class MenuPanel extends javax.swing.JPanel implements ActionListener {
         antalZoner.setText(" " + zoner + " ");
         antalAntal.setText(" " + antal + " ");
         
-      
+        guiAntalMinus.setEnabled(false);
+        guiZoneMinus.setEnabled(false);
     }//GEN-LAST:event_guiSletAlleActionPerformed
+
+    private void guiAfslutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiAfslutActionPerformed
+        
+        System.exit(0);
+    }//GEN-LAST:event_guiAfslutActionPerformed
+
+    private void guiZoneBeregnerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiZoneBeregnerActionPerformed
+        StartFrame.fane.setSelectedIndex(4);
+    }//GEN-LAST:event_guiZoneBeregnerActionPerformed
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel antalAntal;
-    private javax.swing.JLabel antalZoner;
+    public static javax.swing.JLabel antalZoner;
     private javax.swing.JComboBox<String> billettype;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JButton guiAfbryd;
+    private javax.swing.JButton guiAfslut;
     private javax.swing.JButton guiAntalMinus;
     private javax.swing.JButton guiAntalPlus;
     private javax.swing.JButton guiBetaling;
@@ -518,6 +541,7 @@ public class MenuPanel extends javax.swing.JPanel implements ActionListener {
     private javax.swing.JButton guiSletAlle;
     private javax.swing.JButton guiSletEnkelt;
     private javax.swing.JButton guiTilfoej;
+    private javax.swing.JButton guiZoneBeregner;
     private javax.swing.JButton guiZoneMinus;
     private javax.swing.JButton guiZonePlus;
     private javax.swing.JLabel jLabel1;

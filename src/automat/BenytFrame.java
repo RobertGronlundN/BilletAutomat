@@ -12,7 +12,7 @@ public class BenytFrame
                 //vindue.add( new StartPanel() );
                 
 		vindue.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // reagér på luk
-		vindue.setSize(800, 540);// sæt vinduets størrelse
+		vindue.setSize(800, 500);// sæt vinduets størrelse
 		vindue.setVisible(true);                      // åbn vinduet
 	}
 }

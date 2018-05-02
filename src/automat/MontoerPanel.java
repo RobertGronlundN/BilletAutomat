@@ -28,12 +28,31 @@ public class MontoerPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
+        guiMontoer = new javax.swing.JButton();
+        guiAfslut = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(640, 480));
         setVerifyInputWhenFocusTarget(false);
 
         jLabel1.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
         jLabel1.setText("MONTØRINSTILLINGER");
+
+        guiMontoer.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        guiMontoer.setText("Montør");
+        guiMontoer.setEnabled(false);
+        guiMontoer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                guiMontoerActionPerformed(evt);
+            }
+        });
+
+        guiAfslut.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        guiAfslut.setText("Afslut");
+        guiAfslut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                guiAfslutActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -42,19 +61,38 @@ public class MontoerPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addContainerGap(407, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 425, Short.MAX_VALUE)
+                .addComponent(guiAfslut)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(guiMontoer)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
-                .addContainerGap(444, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(guiMontoer)
+                    .addComponent(guiAfslut))
+                .addContainerGap(410, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void guiMontoerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiMontoerActionPerformed
+
+        StartFrame.fane.setSelectedIndex(2);
+    }//GEN-LAST:event_guiMontoerActionPerformed
+
+    private void guiAfslutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiAfslutActionPerformed
+
+        System.exit(0);
+    }//GEN-LAST:event_guiAfslutActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton guiAfslut;
+    private javax.swing.JButton guiMontoer;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
