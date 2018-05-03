@@ -17,7 +17,7 @@ public class Billetautomat                                                      
     ArrayList<String> automatLog = new ArrayList<>();                           // Oprettelse af ArrayList til automatlog
     ArrayList<Billettype> billetType = new ArrayList<>();                       // Oprettelse af ArrayList til Billettype
     ArrayList<Kurv> kurv = new ArrayList<>();
-    
+
     public Billetautomat(){
         billetType.add(new Billettype("Voksen        ", 12));
         billetType.add(new Billettype("Barn            ", 6));
@@ -26,7 +26,7 @@ public class Billetautomat                                                      
         billetType.add(new Billettype("Cykel           ", 6));
         billetType.add(new Billettype("Hund           ", 6));
     }
-        
+
     // ARRAYLIST ---------------------------------------------------------------// Oprettelse af ArrayList kaldet indkoebskurv, Indeholder typen class: Billetinfo2
     ArrayList<Billetautomat> indkoebskurv = new ArrayList<>( );
 
@@ -42,68 +42,19 @@ public class Billetautomat                                                      
         //indkoebskurv.remove(fjern);
         //indkoebskurv.remove(indkoebskurv.size()-1);
     }
-    
-    // PRINT LIST
-    public void udskrivKurv() {                                                 // Funktion til udskrivning af indkoebskurv
-        Date date = new Date();
-        System.out.println("------------- INDKOEBSKURV -------------");
-        System.out.println(indkoebskurv.size());
-        System.out.println("Billettype\tZone \tAntal \tSubtotal");
-        for (int i = 0 ; i < kurv.size(); i++) {
-            System.out.println(kurv.get(i).getBillettype()+"\t"+kurv.get(i).getAntalZoner()+"\t"+kurv.get(i).getAntalBilletter()+"\t"+kurv.get(i).getBilletPris());
-        }
-        System.out.println("---------------------------------------");
-        
-        System.out.println("          Total: "+ getTotal() +"  DKK");
-        System.out.println("---------------------------------------");
-        System.out.println(" Billet gyldig i 2 timer fra udstedelse");
-        System.out.println("   "+date.toString()+"  ");
-        System.out.println("---------------------------------------");
-        System.out.println();
-
-    } // End of void udskrivKurv
-
-    public void udskrivBillet(){
-        Date date = new Date();
-
-        // BILLET
-        for (int i = 0 ; i < kurv.size() ; i++){
-            for (int j = 0 ; j < kurv.get(i).getAntalBilletter() ; j++){
-                System.out.println();
-                System.out.println(" ________________________________________");
-                System.out.println("|_______________    BT    _______________|");
-                System.out.println("|________________________________________|");
-                System.out.println("|               "+ kurv.get(i).getBillettype() +"             |");
-                System.out.println("|                 "+kurv.get(i).getAntalZoner()+ " Zoner                |");
-                System.out.println("|________________________________________|");
-                System.out.println("| Billet gyldig i 2 timer fra udstedelse |");
-                System.out.println("|        "+date.toString()+"    |");
-                System.out.println("|________________________________________|");
-                System.out.println();             
-
-                antalBilletterSolgt++;
-            }
-        }
-
-
-
-        automatLog.add(date.toString()+"\t | Koebt:\n"
-                + "Billettype\t Zone \t Antal \t Subtotal\n"
-                + kurv + "\n");
-        returpenge();
-    }
 
     // INDSAET PENGE ------------------------------------------------------------
     public void indsaetPenge(int beloeb) {                                      // Public void-function, set (redigering)
         balance = balance + beloeb;                                             // Indsatte beloeb laegges oveni nuvaerende balance
         Date date = new Date();                                                 // Foroegelse af balance overfoerer til automatlog
-        automatLog.add(date.toString()+"\t | Indsat: " + beloeb + " DKK, ny balance: " + balance + "DKK\n");
+        //automatLog.add(date.toString()+"\t | Indsat: " + beloeb + " DKK, ny balance: " + balance + "DKK\n");
     }
 
     // BALANCE -----------------------------------------------------------------
     public double getBalance() {                                                // Public int-function, get (aflaesning)
         return balance;                                                         // Returnerer balancen
     } // End of get balance
+
     public void setBalance(double balance) {                                    // Public void-function, set (redigering)
         this.balance = balance;                                                 // Opdateer balance til vaerdi angivet af montoer
     } // End of set balance (kan kun tilgaas som montoer)
@@ -148,14 +99,7 @@ public class Billetautomat                                                      
 
         return returbeloeb;                                                     // Returnerer det returnerede beloeb
     }
-        
-    // UDSKRIV BILLET-VALGMULIGHEDER -------------------------------------------
-    public void udskrivBilletTyper() {
-        for (int i = 0; i < billetType.size(); i++) {
-            System.out.println( billetType.get(i).getBillettype() +" \t\t "+ billetType.get(i).getPris()+ "  DKK");
-        }
-    }
-    
+
     // -------------------------------------------------------------------------
     // -------------------- MONTOER ---------------------------------------------
     // -------------------------------------------------------------------------

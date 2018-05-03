@@ -1,16 +1,15 @@
-
 package automat;
 
 public class Billettype {
-    
+
     private String billetNavn;
     private double pris;
-    
+
     public Billettype(String inTypeBillet, double inPris) {
         billetNavn = inTypeBillet;
         pris = inPris;
-    }
-        
+    } // End of object
+
     // BILLETNAVN --------------------------------------------------------------
     public String getBillettype() {                                             // Public string-funktion, get (aflaesning)
         return billetNavn;                                                      // Returnerer typen af billet, string
@@ -20,8 +19,7 @@ public class Billettype {
     } // End of set billetType
     // Hvis montør skal kunne redigere eller oprette nye billet, kaldes:
     // Billettype.get(i).SetBillettype("----");
-    
-    
+
     // BILLET PRIS -------------------------------------------------------------
     public double getPris() {
         return pris;
@@ -29,6 +27,5 @@ public class Billettype {
     public void setPris(double pris) {
         this.pris = pris;
     } // End of set pris
-    
-    
-}
+
+} // End of public class Billettype

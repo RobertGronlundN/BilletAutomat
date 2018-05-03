@@ -1,14 +1,10 @@
 package automat;
 
-public class Zoneberegner {
-    
+public class Zoneberegner
+{
     public int automatZone = 1;
     private int destinationZone;
-    /*
-    public Zoneberegner(){
-        automatZone = 0;
-        destinationZone = 0;
-    }*/
+
     
     // SLUTZONE ----------------------------------------------------------------
     public void setAutomatZone(int startZone) {
@@ -17,8 +13,8 @@ public class Zoneberegner {
     public int getAutomatZone() {
         return automatZone;
     } // End of getSlutZone
-           
-    
+
+
     // SLUTZONE ----------------------------------------------------------------
     public void setSlutZone(int destZone) {
         this.destinationZone = destZone;
@@ -26,8 +22,8 @@ public class Zoneberegner {
     public int getSlutZone() {
         return destinationZone;
     } // End of getSlutZone
-    
-    
+
+
     // ZONEBEREGNER ------------------------------------------------------------
     public int zoneBeregner() {
         int rejseZoner = 0;
@@ -47,8 +43,4 @@ public class Zoneberegner {
         }
         return rejseZoner;
     }
-    
-    
-    
-    
 }

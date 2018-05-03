@@ -1,8 +1,7 @@
-
 package automat;
 
 public class Kurv {
-    
+
     private int antalBilletter;
     private String billettype;
     private double billetPris;
@@ -24,8 +23,8 @@ public class Kurv {
     public void setBillettype(String billettype) {
         this.billettype = billettype;
     } // End of setBillettype
-    
-    
+
+
     // BILLET PRIS -------------------------------------------------------------
     public double getBilletPris() {
         return billetPris;
@@ -33,7 +32,7 @@ public class Kurv {
     public void setBilletPris(double billetPris) {
         this.billetPris = billetPris;
     } // End of setBilletPris
-    
+
 
     // INDEX -------------------------------------------------------------------
     public int getIndex() {
@@ -42,8 +41,8 @@ public class Kurv {
     public void setIndex(int index) {
         this.index = index;
     } // End of setIndex
-    
-    
+
+
     // ANTAL ZONER -------------------------------------------------------------
     public int getAntalZoner() {                                                // Public int-funktion, get (aflaesning)
         return antalZoner;                                                      // Returnerer valgte antal af zoner
@@ -52,7 +51,7 @@ public class Kurv {
         this.antalZoner = zone;                                                 // Opdatering af varibalen antalZoner
     } // End of set antalZoner
 
-    
+
     // ANTAL BILLETTER ---------------------------------------------------------
     public int getAntalBilletter() {                                            // Public int-funktion, get (aflaesning)
         return antalBilletter;                                                  // Returnerer valgte antal af billetter
@@ -60,4 +59,5 @@ public class Kurv {
     public void setAntalBilletter(int antal) {                                  // Public void-funktion, set (redigering)
         this.antalBilletter = antal;                                            // Opdatering af variablen antalBilletter
     } // End of set antalBilletter
-}
+
+} // End of class Kurv
