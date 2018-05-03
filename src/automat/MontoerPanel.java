@@ -30,6 +30,10 @@ public class MontoerPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         guiMontoer = new javax.swing.JButton();
         guiAfslut = new javax.swing.JButton();
+        guiZoneSæt = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        guiZoneVælger = new javax.swing.JComboBox<>();
+        guiZoneSted = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(640, 480));
         setVerifyInputWhenFocusTarget(false);
@@ -54,13 +58,38 @@ public class MontoerPanel extends javax.swing.JPanel {
             }
         });
 
+        guiZoneSæt.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        guiZoneSæt.setText("Sæt");
+        guiZoneSæt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                guiZoneSætActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabel2.setText("Sæt ny zone for automat:");
+
+        guiZoneVælger.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        guiZoneVælger.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6" }));
+
+        guiZoneSted.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        guiZoneSted.setText("Billetautomat er i zone: " + MenuPanel.automat.getAutomatZone());
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(guiZoneSted)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(guiZoneVælger, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(guiZoneSæt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jLabel2))
+                    .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 425, Short.MAX_VALUE)
                 .addComponent(guiAfslut)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -75,7 +104,15 @@ public class MontoerPanel extends javax.swing.JPanel {
                     .addComponent(jLabel1)
                     .addComponent(guiMontoer)
                     .addComponent(guiAfslut))
-                .addContainerGap(410, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(guiZoneSted, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(guiZoneVælger, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(guiZoneSæt))
+                .addGap(316, 316, 316))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -89,10 +126,23 @@ public class MontoerPanel extends javax.swing.JPanel {
         System.exit(0);
     }//GEN-LAST:event_guiAfslutActionPerformed
 
+    private void guiZoneSætActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiZoneSætActionPerformed
+        ZonePanel.beregner.setAutomatZone(guiZoneVælger.getSelectedIndex()+1);
+        
+        ZonePanel.guiEgenZone.setText("Du er i zone: " + ZonePanel.beregner.getAutomatZone());
+        
+        guiZoneSted.setText("Billetautomat er i zone: " + ZonePanel.beregner.getAutomatZone() + " ");
+        
+    }//GEN-LAST:event_guiZoneSætActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton guiAfslut;
     private javax.swing.JButton guiMontoer;
+    private javax.swing.JLabel guiZoneSted;
+    private javax.swing.JButton guiZoneSæt;
+    private javax.swing.JComboBox<String> guiZoneVælger;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }

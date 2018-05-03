@@ -2,13 +2,22 @@ package automat;
 
 public class Zoneberegner {
     
-    public int automatZone;
+    public int automatZone = 1;
     private int destinationZone;
-    
+    /*
     public Zoneberegner(){
         automatZone = 0;
         destinationZone = 0;
-    }
+    }*/
+    
+    // SLUTZONE ----------------------------------------------------------------
+    public void setAutomatZone(int startZone) {
+        this.automatZone = startZone;
+    } // End of setSlutZone
+    public int getAutomatZone() {
+        return automatZone;
+    } // End of getSlutZone
+           
     
     // SLUTZONE ----------------------------------------------------------------
     public void setSlutZone(int destZone) {
@@ -17,6 +26,7 @@ public class Zoneberegner {
     public int getSlutZone() {
         return destinationZone;
     } // End of getSlutZone
+    
     
     // ZONEBEREGNER ------------------------------------------------------------
     public int zoneBeregner() {

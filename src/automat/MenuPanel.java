@@ -21,7 +21,7 @@ public class MenuPanel extends javax.swing.JPanel implements ActionListener {
     static Billetautomat automat = new Billetautomat();
     
     int type = 0;
-    int zoner = 1;
+    static int zoner = 1;
     int antal = 1;
     
     public void update(){
@@ -522,6 +522,7 @@ public class MenuPanel extends javax.swing.JPanel implements ActionListener {
     }//GEN-LAST:event_guiAfslutActionPerformed
 
     private void guiZoneBeregnerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiZoneBeregnerActionPerformed
+        ZonePanel.guiEgenZone.setText("Du er i zone: " + ZonePanel.beregner.getAutomatZone());
         StartFrame.fane.setSelectedIndex(4);
     }//GEN-LAST:event_guiZoneBeregnerActionPerformed
     
@@ -555,7 +556,7 @@ public class MenuPanel extends javax.swing.JPanel implements ActionListener {
     private javax.swing.JTable jTable1;
     private javax.swing.JLabel totalPris;
     // End of variables declaration//GEN-END:variables
-
+  
     @Override
     public void actionPerformed(ActionEvent ae) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

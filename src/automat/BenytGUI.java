@@ -9,7 +9,7 @@ public class BenytGUI
 	{
 		JFrame vindue = new JFrame( "BILLETAUTOMAT");
                                             
-                vindue.add( new ZonePanel() );
+                vindue.add( new MontoerPanel() );
                                 
 		vindue.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // reagér på luk
 		vindue.setSize(800,480);// sæt vinduets størrelse

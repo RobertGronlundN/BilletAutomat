@@ -11,6 +11,9 @@ package automat;
  */
 public class ZonePanel extends javax.swing.JPanel {
 
+    static Zoneberegner beregner = new Zoneberegner();
+        
+    
     /**
      * Creates new form ZonePanel
      */
@@ -33,6 +36,8 @@ public class ZonePanel extends javax.swing.JPanel {
         guiMontoer = new javax.swing.JButton();
         guiAfslut = new javax.swing.JButton();
         guiEgenZone = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        guiZoneValg = new javax.swing.JComboBox<>();
 
         jLabel1.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
         jLabel1.setText("BEREGN ZONER");
@@ -70,8 +75,13 @@ public class ZonePanel extends javax.swing.JPanel {
         });
 
         guiEgenZone.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        guiEgenZone.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        guiEgenZone.setText("Du er i zone: " + MenuPanel.automat.getAutomatZone());
+        guiEgenZone.setText("Du er i zone: " + ZonePanel.beregner.getAutomatZone());
+
+        jLabel2.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabel2.setText("Billet til zone : ");
+
+        guiZoneValg.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        guiZoneValg.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -91,7 +101,12 @@ public class ZonePanel extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(guiEgenZone, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(guiEgenZone, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(guiZoneValg, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -105,7 +120,11 @@ public class ZonePanel extends javax.swing.JPanel {
                     .addComponent(guiAfslut))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(guiEgenZone, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 369, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(guiZoneValg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 239, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(guiTilbage, javax.swing.GroupLayout.Alignment.TRAILING))
@@ -118,7 +137,13 @@ public class ZonePanel extends javax.swing.JPanel {
     }//GEN-LAST:event_guiTilbageActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-                   
+        
+        beregner.setSlutZone(guiZoneValg.getSelectedIndex()+1);
+        
+        MenuPanel.zoner = beregner.zoneBeregner();
+        
+        MenuPanel.antalZoner.setText(" " + MenuPanel.zoner + " ");
+        
         StartFrame.fane.setSelectedIndex(0);
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -136,10 +161,12 @@ public class ZonePanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton guiAfslut;
-    private javax.swing.JLabel guiEgenZone;
+    public static javax.swing.JLabel guiEgenZone;
     private javax.swing.JButton guiMontoer;
     private javax.swing.JButton guiTilbage;
+    private javax.swing.JComboBox<String> guiZoneValg;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }

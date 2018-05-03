@@ -19,12 +19,12 @@ public class Billetautomat                                                      
     ArrayList<Kurv> kurv = new ArrayList<>();
     
     public Billetautomat(){
-        billetType.add(new Billettype("Voksen", 12));
-        billetType.add(new Billettype("Barn", 6));
+        billetType.add(new Billettype("Voksen    ", 12));
+        billetType.add(new Billettype("Barn      ", 6));
         billetType.add(new Billettype("Pensionist", 9));
         billetType.add(new Billettype("Studerende", 9));
-        billetType.add(new Billettype("Cykel", 6));
-        billetType.add(new Billettype("Hund", 6));
+        billetType.add(new Billettype("Cykel     ", 6));
+        billetType.add(new Billettype("Hund      ", 6));
     }
         
     // ARRAYLIST ---------------------------------------------------------------// Oprettelse af ArrayList kaldet indkoebskurv, Indeholder typen class: Billetinfo2
