@@ -22,7 +22,7 @@ public class MenuPanel extends javax.swing.JPanel implements ActionListener {
     
     int type = 0;
     static int zoner = 1;
-    int antal = 1;
+    static int antal = 1;
     
     public void update(){
         guiKurv.removeAll();
@@ -55,7 +55,18 @@ public class MenuPanel extends javax.swing.JPanel implements ActionListener {
         totalPris.setText(" " + automat.getTotal() + " DKK");
     }
     
-    
+    static public void clear(){
+        automat.kurv.clear();
+                
+        zoner = 1;
+        antal = 1;
+        billettype.setSelectedIndex(0);
+        antalZoner.setText(" " + zoner + " ");
+        antalAntal.setText(" " + antal + " ");
+        
+        guiAntalMinus.setEnabled(false);
+        guiZoneMinus.setEnabled(false);
+    }
     
     
     public MenuPanel() {
@@ -502,23 +513,14 @@ public class MenuPanel extends javax.swing.JPanel implements ActionListener {
 
     private void guiSletAlleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiSletAlleActionPerformed
         
-        automat.kurv.clear();
-        
+        clear();        
         update();
-        
-        zoner = 1;
-        antal = 1;
-        billettype.setSelectedIndex(0);
-        antalZoner.setText(" " + zoner + " ");
-        antalAntal.setText(" " + antal + " ");
-        
-        guiAntalMinus.setEnabled(false);
-        guiZoneMinus.setEnabled(false);
     }//GEN-LAST:event_guiSletAlleActionPerformed
 
     private void guiAfslutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiAfslutActionPerformed
         
-        System.exit(0);
+        clear();
+        update();        
     }//GEN-LAST:event_guiAfslutActionPerformed
 
     private void guiZoneBeregnerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiZoneBeregnerActionPerformed
@@ -528,12 +530,12 @@ public class MenuPanel extends javax.swing.JPanel implements ActionListener {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel antalAntal;
+    public static javax.swing.JLabel antalAntal;
     public static javax.swing.JLabel antalZoner;
-    private javax.swing.JComboBox<String> billettype;
+    public static javax.swing.JComboBox<String> billettype;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton guiAfslut;
-    private javax.swing.JButton guiAntalMinus;
+    public static javax.swing.JButton guiAntalMinus;
     private javax.swing.JButton guiAntalPlus;
     private javax.swing.JButton guiBetaling;
     private java.awt.List guiKurv;
@@ -543,7 +545,7 @@ public class MenuPanel extends javax.swing.JPanel implements ActionListener {
     private javax.swing.JButton guiSletEnkelt;
     private javax.swing.JButton guiTilfoej;
     private javax.swing.JButton guiZoneBeregner;
-    private javax.swing.JButton guiZoneMinus;
+    public static javax.swing.JButton guiZoneMinus;
     private javax.swing.JButton guiZonePlus;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

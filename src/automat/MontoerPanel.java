@@ -123,7 +123,8 @@ public class MontoerPanel extends javax.swing.JPanel {
 
     private void guiAfslutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiAfslutActionPerformed
 
-        System.exit(0);
+        MenuPanel.clear();
+        StartFrame.fane.setSelectedIndex(0);
     }//GEN-LAST:event_guiAfslutActionPerformed
 
     private void guiZoneSætActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiZoneSætActionPerformed

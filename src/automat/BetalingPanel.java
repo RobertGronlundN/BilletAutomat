@@ -5,9 +5,6 @@
  */
 package automat;
 
-import java.util.concurrent.TimeUnit;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -171,7 +168,8 @@ public class BetalingPanel extends javax.swing.JPanel {
 
     private void guiAfslutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiAfslutActionPerformed
 
-        System.exit(0);
+        MenuPanel.clear();
+        StartFrame.fane.setSelectedIndex(0);       
     }//GEN-LAST:event_guiAfslutActionPerformed
     
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
