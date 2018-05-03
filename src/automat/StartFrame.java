@@ -33,6 +33,7 @@ public class StartFrame extends javax.swing.JFrame {
         montoerPanel1 = new automat.MontoerPanel();
         printBillet1 = new automat.PrintBillet();
         zonePanel1 = new automat.ZonePanel();
+        loginPanel1 = new automat.LoginPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -41,6 +42,7 @@ public class StartFrame extends javax.swing.JFrame {
         fane.addTab("Montør", montoerPanel1);
         fane.addTab("Udprint", printBillet1);
         fane.addTab("Zoneberegner", zonePanel1);
+        fane.addTab("Login", loginPanel1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -96,6 +98,7 @@ public class StartFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private automat.BetalingPanel betalingPanel1;
     public static javax.swing.JTabbedPane fane;
+    private automat.LoginPanel loginPanel1;
     private automat.MenuPanel menuPanel2;
     private automat.MontoerPanel montoerPanel1;
     private automat.PrintBillet printBillet1;

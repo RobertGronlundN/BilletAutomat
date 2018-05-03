@@ -42,8 +42,7 @@ public class MontoerPanel extends javax.swing.JPanel {
         jLabel1.setText("MONTØRINSTILLINGER");
 
         guiMontoer.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
-        guiMontoer.setText("Montør");
-        guiMontoer.setEnabled(false);
+        guiMontoer.setText("Log ud");
         guiMontoer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 guiMontoerActionPerformed(evt);
@@ -79,7 +78,7 @@ public class MontoerPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(guiZoneSted)
@@ -90,7 +89,7 @@ public class MontoerPanel extends javax.swing.JPanel {
                             .addComponent(guiZoneSæt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addComponent(jLabel2))
                     .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 425, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 268, Short.MAX_VALUE)
                 .addComponent(guiAfslut)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(guiMontoer)
@@ -108,17 +107,17 @@ public class MontoerPanel extends javax.swing.JPanel {
                 .addComponent(guiZoneSted, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(8, 8, 8)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(guiZoneVælger, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(guiZoneSæt))
-                .addGap(316, 316, 316))
+                .addGap(315, 315, 315))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void guiMontoerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiMontoerActionPerformed
-
-        StartFrame.fane.setSelectedIndex(2);
+        MenuPanel.automat.setMontoertilstand(false);
+        StartFrame.fane.setSelectedIndex(0);
     }//GEN-LAST:event_guiMontoerActionPerformed
 
     private void guiAfslutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiAfslutActionPerformed

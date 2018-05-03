@@ -115,10 +115,15 @@ public class Billetautomat                                                      
         } else {
             montoertilstand = false;                                             // aendrer eller bibeholder boolske vaerdi falsk (0)
             System.out.println("Montoertilstand deaktiveret");                   // Montoer er logget ud
-        }
+        }        
     }
-     public boolean erMontoer() {
+    
+     public boolean getMontoertilstand() {
         return montoertilstand;
+    }
+     
+    public void setMontoertilstand(boolean input) {
+        montoertilstand = input;
     }
 
     // AUTOMATZONE -------------------------------------------------------------

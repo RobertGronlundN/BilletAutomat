@@ -161,8 +161,12 @@ public class BetalingPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void guiMontoerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiMontoerActionPerformed
-
-        StartFrame.fane.setSelectedIndex(2);
+        if (MenuPanel.automat.getMontoertilstand() == false){
+            StartFrame.fane.setSelectedIndex(5);
+        } else {
+            StartFrame.fane.setSelectedIndex(2);
+        }
+        
 
     }//GEN-LAST:event_guiMontoerActionPerformed
 

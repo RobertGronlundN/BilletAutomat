@@ -24,7 +24,7 @@ public class MenuPanel extends javax.swing.JPanel implements ActionListener {
     static int zoner = 1;
     static int antal = 1;
     
-    public void update(){
+    static public void update(){
         guiKurv.removeAll();
 
         if (automat.kurv.size() <= 0){
@@ -57,7 +57,8 @@ public class MenuPanel extends javax.swing.JPanel implements ActionListener {
     
     static public void clear(){
         automat.kurv.clear();
-                
+        
+        
         zoner = 1;
         antal = 1;
         billettype.setSelectedIndex(0);
@@ -65,7 +66,9 @@ public class MenuPanel extends javax.swing.JPanel implements ActionListener {
         antalAntal.setText(" " + antal + " ");
         
         guiAntalMinus.setEnabled(false);
-        guiZoneMinus.setEnabled(false);
+        guiZoneMinus.setEnabled(false);        
+        
+        update();
     }
     
     
@@ -507,20 +510,21 @@ public class MenuPanel extends javax.swing.JPanel implements ActionListener {
 
     private void guiMontoerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiMontoerActionPerformed
         
-        StartFrame.fane.setSelectedIndex(2);
-        
+        if (MenuPanel.automat.getMontoertilstand() == false){
+            StartFrame.fane.setSelectedIndex(5);
+        } else {
+            StartFrame.fane.setSelectedIndex(2);
+        }
     }//GEN-LAST:event_guiMontoerActionPerformed
 
     private void guiSletAlleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiSletAlleActionPerformed
         
-        clear();        
-        update();
+        clear();              
     }//GEN-LAST:event_guiSletAlleActionPerformed
 
     private void guiAfslutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiAfslutActionPerformed
         
-        clear();
-        update();        
+        clear();               
     }//GEN-LAST:event_guiAfslutActionPerformed
 
     private void guiZoneBeregnerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiZoneBeregnerActionPerformed
@@ -537,12 +541,12 @@ public class MenuPanel extends javax.swing.JPanel implements ActionListener {
     private javax.swing.JButton guiAfslut;
     public static javax.swing.JButton guiAntalMinus;
     private javax.swing.JButton guiAntalPlus;
-    private javax.swing.JButton guiBetaling;
-    private java.awt.List guiKurv;
+    public static javax.swing.JButton guiBetaling;
+    public static java.awt.List guiKurv;
     private javax.swing.JButton guiMontoer;
     private javax.swing.JButton guiNulstil;
-    private javax.swing.JButton guiSletAlle;
-    private javax.swing.JButton guiSletEnkelt;
+    public static javax.swing.JButton guiSletAlle;
+    public static javax.swing.JButton guiSletEnkelt;
     private javax.swing.JButton guiTilfoej;
     private javax.swing.JButton guiZoneBeregner;
     public static javax.swing.JButton guiZoneMinus;
@@ -556,7 +560,7 @@ public class MenuPanel extends javax.swing.JPanel implements ActionListener {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable jTable1;
-    private javax.swing.JLabel totalPris;
+    public static javax.swing.JLabel totalPris;
     // End of variables declaration//GEN-END:variables
   
     @Override
