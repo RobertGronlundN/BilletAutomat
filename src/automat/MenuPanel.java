@@ -5,9 +5,11 @@
  */
 package automat;
 
-import javax.swing.DefaultListModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 /**
  *
  * @author Robert
@@ -19,7 +21,7 @@ public class MenuPanel extends javax.swing.JPanel implements ActionListener {
      */
     
     static Billetautomat automat = new Billetautomat();
-    
+           
     int type = 0;
     static int zoner = 1;
     static int antal = 1;
@@ -57,8 +59,7 @@ public class MenuPanel extends javax.swing.JPanel implements ActionListener {
     
     static public void clear(){
         automat.kurv.clear();
-        
-        
+                
         zoner = 1;
         antal = 1;
         billettype.setSelectedIndex(0);
@@ -77,7 +78,6 @@ public class MenuPanel extends javax.swing.JPanel implements ActionListener {
         initComponents();
         
         update();
-        
     }
 
     /**

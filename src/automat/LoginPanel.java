@@ -1,4 +1,10 @@
-package automat;                                                                // Tilhører pakken automat
+package automat;                            
+
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+                                    // Tilhører pakken automat
 
 public class LoginPanel extends javax.swing.JPanel                              // Følgende er en udvidelse af javax.swing.JPanel
 {
@@ -293,9 +299,23 @@ public class LoginPanel extends javax.swing.JPanel                              
         if (MenuPanel.automat.getMontoertilstand() == true){                    // Hvis kode accepteres
             MontoerPanel.guiZoneSted.setText("Billetautomat er i zone: " 
                     + MenuPanel.automat.getAutomatZone());                      // Opdaterer MontoerPanelet
+            
+            try {   
+                MontoerPanel.log.LogEvent(4, 0, "Admin", 0);                    // Skriver til log
+            } catch (IOException ex) {
+                Logger.getLogger(LoginPanel.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
             StartFrame.fane.setSelectedIndex(2);                                // Fane aendres til montoerens fane
             updatePassword('¤');                                                // Kalder update funktion med parameter ¤, nulstiller kode indtastning            
         } else {
+            
+            try {
+                MontoerPanel.log.LogEvent(5, 0, "Ukendt", 0);
+            } catch (IOException ex) {
+                Logger.getLogger(LoginPanel.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
             updatePassword('¤');                                                // Kalder update funktion med parameter ¤, nulstil
             jLabel3.setVisible(true);                                           // Viser "fejl i kode" felt     
         }

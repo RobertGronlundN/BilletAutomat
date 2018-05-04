@@ -26,9 +26,7 @@ public class Billetautomat                                                      
         billetType.add(new Billettype("Hund           ", 6));
     }
 
-    // ARRAYLIST ---------------------------------------------------------------// Oprettelse af ArrayList kaldet indkoebskurv, Indeholder typen class: Billetinfo2
-    ArrayList<Billetautomat> indkoebskurv = new ArrayList<>( );
-
+    
     // ADD BILLET MED NUVAERENDE INFO -------------------------------------------
     public void tilfoejBillet(int index, int zoner, int antal){                 // Funktionen kaldes naar en ny billet skal tilfoejes til arraylisen indkoebskurv
         kurv.add(new Kurv(billetType.get(index).getBillettype(), antal, billetType.get(index).getPris(), zoner, index));
@@ -36,9 +34,7 @@ public class Billetautomat                                                      
 
     // REMOVE
     public void fjernBillet(int fjern){                                         // Void-funktione som fjerner en billet fra kurv
-        kurv.remove(fjern);                                                     // Fjerne de ønskede element, ud fra variable 
-        //indkoebskurv.remove(fjern);
-        //indkoebskurv.remove(indkoebskurv.size()-1);
+        kurv.remove(fjern);                                                     // Fjerne de ønskede element, ud fra variable         
     } // End of funktion der fjerner billet
 
     // INDSAET PENGE ------------------------------------------------------------
@@ -141,7 +137,7 @@ public class Billetautomat                                                      
     public void nulstil()  {
         if (montoertilstand) {                                                  // Tjekker om montoer er logget ind 
             antalBilletterSolgt = 0;                                            // Nulstiller antallet af solgte billetter 
-            indkoebskurv.clear();                                               // Nulstiller indkøbskurven
+            kurv.clear();                                                       // Nulstiller indkøbskurven
         }
     } // Endo of nulstil void-funktion
     

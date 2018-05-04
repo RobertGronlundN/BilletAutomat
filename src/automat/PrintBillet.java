@@ -1,7 +1,16 @@
 package automat;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Date;  
+
 public class PrintBillet extends javax.swing.JPanel {
 
+    //File file = new File("C:\\MontoerLog.txt");
+        
     /**
      * Creates new form PrintBillet
      */

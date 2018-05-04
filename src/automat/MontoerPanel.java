@@ -1,10 +1,17 @@
 package automat;
 
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public class MontoerPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form MontoerPanel
      */
+    
+    static LogEvent log = new LogEvent();
+            
     public MontoerPanel() {
         initComponents();
     }
@@ -25,6 +32,7 @@ public class MontoerPanel extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         guiZoneVælger = new javax.swing.JComboBox<>();
         guiZoneSted = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(640, 480));
         setVerifyInputWhenFocusTarget(false);
@@ -65,6 +73,13 @@ public class MontoerPanel extends javax.swing.JPanel {
         guiZoneSted.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         guiZoneSted.setText("Billetautomat er i zone: " + MenuPanel.automat.getAutomatZone());
 
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -85,6 +100,10 @@ public class MontoerPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(guiMontoer)
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(150, 150, 150))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -102,12 +121,20 @@ public class MontoerPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(guiZoneVælger, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(guiZoneSæt))
-                .addGap(315, 315, 315))
+                .addGap(71, 71, 71)
+                .addComponent(jButton1)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void guiMontoerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiMontoerActionPerformed
         MenuPanel.automat.setMontoertilstand(false);                            // Sætter montoertilsantd FALSE
+        try {
+            MontoerPanel.log.LogEvent(6, 0, "Admin", 0);
+        } catch (IOException ex) {
+            Logger.getLogger(MontoerPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
         StartFrame.fane.setSelectedIndex(0);                                    // Omddirigerer tilbage til startfanen
     }//GEN-LAST:event_guiMontoerActionPerformed
 
@@ -122,6 +149,16 @@ public class MontoerPanel extends javax.swing.JPanel {
         guiZoneSted.setText("Billetautomat er i zone: " + ZonePanel.beregner.getAutomatZone() + " ");
     }//GEN-LAST:event_guiZoneSætActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    
+        try {
+            log.LogEvent(3, 7, "Cykel", 2);
+        } catch (IOException ex) {
+            Logger.getLogger(MontoerPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton guiAfslut;
@@ -129,6 +166,7 @@ public class MontoerPanel extends javax.swing.JPanel {
     public static javax.swing.JLabel guiZoneSted;
     private javax.swing.JButton guiZoneSæt;
     private javax.swing.JComboBox<String> guiZoneVælger;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables

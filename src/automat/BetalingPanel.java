@@ -177,6 +177,11 @@ public class BetalingPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_guiAfslutActionPerformed
     
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        /*
+        for (int i = 0 ; i > MenuPanel.automat.kurv.size() ; i++){
+            UDSKRIV BILLET
+        }
+        */
         StartFrame.fane.setSelectedIndex(3);        
     }//GEN-LAST:event_jButton2ActionPerformed
 
