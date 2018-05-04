@@ -2,14 +2,46 @@ package automat;
 
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Date;  
 
 public class PrintBillet extends javax.swing.JPanel {
 
-    //File file = new File("C:\\MontoerLog.txt");
+    File file = new File("BilletUdprint.txt");
+    
+    public void printBilletter() throws IOException{
+        
+        Date Date = new Date();
+        
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(file, true))) {
+            
+                        
+            // BILLET
+            for (int i = 0 ; i < MenuPanel.automat.kurv.size() ; i++){
+                 for (int j = 0 ; j < MenuPanel.automat.kurv.get(i).getAntalBilletter() ; j++){
+                    
+                    writer.append(" ________________________________________\n");
+                    writer.append("|_______________       BT        _______________|\n");
+                    writer.append("|_______________________________________|\n");
+                    writer.append("|                              "+ MenuPanel.automat.kurv.get(i).getBillettype() +"                            |\n");
+                    writer.append("|                                 "+MenuPanel.automat.kurv.get(i).getAntalZoner()+ " Zoner                                  |\n");
+                    writer.append("|________________________________________|\n");
+                    writer.append("|           Billet gyldig i 2 timer fra udstedelse           |\n");
+                    writer.append("|                  "+Date.toString()+"             |\n");
+                    writer.append("|________________________________________|\n");
+                    writer.append("\n\n");          
+
+                    MenuPanel.automat.antalBilletterSolgt++;
+        
+                    } // End of j for loop            
+                } // End of i for loop
+                writer.close();
+            } catch (IOException ex) {
+            System.err.println("File not found");
+        }
+    } // End of printBilletter()
+    
         
     /**
      * Creates new form PrintBillet
@@ -28,9 +60,18 @@ public class PrintBillet extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
+        guiAfslut = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
         jLabel1.setText("BILLETTER PRINTES");
+
+        guiAfslut.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        guiAfslut.setText("Afslut");
+        guiAfslut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                guiAfslutActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -39,19 +80,29 @@ public class PrintBillet extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addContainerGap(447, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 379, Short.MAX_VALUE)
+                .addComponent(guiAfslut)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
-                .addContainerGap(444, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(guiAfslut))
+                .addContainerGap(440, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void guiAfslutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiAfslutActionPerformed
+        MenuPanel.clear();
+        StartFrame.fane.setSelectedIndex(0);
+    }//GEN-LAST:event_guiAfslutActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton guiAfslut;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 } // End of class Print Billet

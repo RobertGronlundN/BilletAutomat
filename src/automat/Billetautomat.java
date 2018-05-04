@@ -9,7 +9,7 @@ public class Billetautomat                                                      
     public int automatZone;
     private double balance;
     private double total;
-    private int antalBilletterSolgt;
+    public int antalBilletterSolgt;
     private boolean montoertilstand = false;
     private boolean validBalance = false;
 

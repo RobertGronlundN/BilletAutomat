@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Date;                                                         // Importering af util til udskrivning af data i loggen.
 
 public class LogEvent 
@@ -15,9 +16,8 @@ public class LogEvent
     private String stringVal;
     private double doubleVal;
 
-    File file = new File("C:\\Users\\Robert\\Desktop\\2. Semester\\OOP\\MontoerLog.txt");
+    File file = new File("MontoerLog.txt");
     
-                
     LogEvent() {
         
     }
