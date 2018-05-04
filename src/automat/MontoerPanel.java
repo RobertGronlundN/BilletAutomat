@@ -1,14 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package automat;
 
-/**
- *
- * @author Robert
- */
 public class MontoerPanel extends javax.swing.JPanel {
 
     /**
@@ -116,23 +107,19 @@ public class MontoerPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void guiMontoerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiMontoerActionPerformed
-        MenuPanel.automat.setMontoertilstand(false);
-        StartFrame.fane.setSelectedIndex(0);
+        MenuPanel.automat.setMontoertilstand(false);                            // Sætter montoertilsantd FALSE
+        StartFrame.fane.setSelectedIndex(0);                                    // Omddirigerer tilbage til startfanen
     }//GEN-LAST:event_guiMontoerActionPerformed
 
     private void guiAfslutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiAfslutActionPerformed
-
-        MenuPanel.clear();
-        StartFrame.fane.setSelectedIndex(0);
+        MenuPanel.clear();                                                      // 
+        StartFrame.fane.setSelectedIndex(0);                                    // Omdirigerer tilbage til startfane
     }//GEN-LAST:event_guiAfslutActionPerformed
 
     private void guiZoneSætActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiZoneSætActionPerformed
-        ZonePanel.beregner.setAutomatZone(guiZoneVælger.getSelectedIndex()+1);
-        
+        ZonePanel.beregner.setAutomatZone(guiZoneVælger.getSelectedIndex()+1);  // Kalder funktionen setAutomatZone, ændrer denne værdi til ønsket lokation
         ZonePanel.guiEgenZone.setText("Du er i zone: " + ZonePanel.beregner.getAutomatZone());
-        
         guiZoneSted.setText("Billetautomat er i zone: " + ZonePanel.beregner.getAutomatZone() + " ");
-        
     }//GEN-LAST:event_guiZoneSætActionPerformed
 
 
@@ -145,4 +132,4 @@ public class MontoerPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
-}
+} // End of class Montoer panel

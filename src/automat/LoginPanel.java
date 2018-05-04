@@ -1,32 +1,18 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package automat;
+package automat;                                                                // Tilhører pakken automat
 
-/**
- *
- * @author Robert
- */
-public class LoginPanel extends javax.swing.JPanel {
-
+public class LoginPanel extends javax.swing.JPanel                              // Følgende er en udvidelse af javax.swing.JPanel
+{
+    String kode = "";                                                           // Opretter panelet med en tom string som kode.
     
-    String kode = "";
-    
-    private void updatePassword(char input){
-        jLabel3.setVisible(false);
-        kode += input;
+    private void updatePassword(char input){                                    // Funktion til updatering af fane
+        jLabel3.setVisible(false);                                              // jLabels synlighed, sættes falsk som standard
+        kode += input;                                                          // input parameter lægges til kode string
         
-        if (input == '¤'){
-            kode = "";
-            
+        if (input == '¤'){                                                      // Vis ¤ overføres som parameter
+            kode = "";                                                          // Kode nulstilles
         }        
-        
-        jPasswordField1.setText(kode);        
-        
-    }
-    
+        jPasswordField1.setText(kode);                                          // Opdaterer password feltets indhold
+    } // End of update password
     
     /**
      * Creates new form LoginPanel
@@ -301,16 +287,16 @@ public class LoginPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-        MenuPanel.automat.montoerLogin(kode);
         
-        if (MenuPanel.automat.getMontoertilstand() == true){
-            StartFrame.fane.setSelectedIndex(2);
-            updatePassword('¤');
+        MenuPanel.automat.montoerLogin(kode);                                   // Tjekker om kode er korrekt
+        
+        if (MenuPanel.automat.getMontoertilstand() == true){                    // Hvis kode accepteres
+            StartFrame.fane.setSelectedIndex(2);                                // Fane aendres til montoerens fane
+            updatePassword('¤');                                                // Kalder update funktion med parameter ¤, nulstiller kode indtastning
         } else {
-            updatePassword('¤');
-            jLabel3.setVisible(true);            
+            updatePassword('¤');                                                // Kalder update funktion med parameter ¤, nulstil
+            jLabel3.setVisible(true);                                           // Viser "fejl i kode" felt     
         }
-        
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed

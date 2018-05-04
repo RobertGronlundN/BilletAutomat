@@ -1,19 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package automat;
 
-/**
- *
- * @author Robert
- */
-public class ZonePanel extends javax.swing.JPanel {
-
-    static Zoneberegner beregner = new Zoneberegner();
-        
-    
+public class ZonePanel extends javax.swing.JPanel 
+{
+    static Zoneberegner beregner = new Zoneberegner();                          // Oprettelse af ny zoneberegner, beregner
+            
     /**
      * Creates new form ZonePanel
      */
@@ -137,32 +127,24 @@ public class ZonePanel extends javax.swing.JPanel {
     }//GEN-LAST:event_guiTilbageActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
         beregner.setSlutZone(guiZoneValg.getSelectedIndex()+1);
-        
         MenuPanel.zoner = beregner.zoneBeregner();
-        
         MenuPanel.antalZoner.setText(" " + MenuPanel.zoner + " ");
-        
         StartFrame.fane.setSelectedIndex(0);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void guiMontoerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiMontoerActionPerformed
-
         if (MenuPanel.automat.getMontoertilstand() == false){
             StartFrame.fane.setSelectedIndex(5);
         } else {
             StartFrame.fane.setSelectedIndex(2);
         }
-
     }//GEN-LAST:event_guiMontoerActionPerformed
 
     private void guiAfslutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiAfslutActionPerformed
-
         MenuPanel.clear();
         StartFrame.fane.setSelectedIndex(0);
     }//GEN-LAST:event_guiAfslutActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton guiAfslut;
@@ -174,4 +156,4 @@ public class ZonePanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
-}
+} // End of class Zoneberegner

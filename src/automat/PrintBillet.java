@@ -1,14 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package automat;
 
-/**
- *
- * @author Robert
- */
 public class PrintBillet extends javax.swing.JPanel {
 
     /**
@@ -54,4 +45,4 @@ public class PrintBillet extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
-}
+} // End of class Print Billet

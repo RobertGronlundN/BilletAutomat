@@ -9,10 +9,10 @@ public class BenytGUI
 	{
 		JFrame vindue = new JFrame( "BILLETAUTOMAT");
                                             
-                vindue.add( new MontoerPanel() );
+                vindue.add( new StartFrame() );
                                 
-		vindue.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // reagér på luk
+		vindue.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);       // reagér på luk
 		vindue.setSize(800,480);// sæt vinduets størrelse
-		vindue.setVisible(true);                      // åbn vinduet
+		vindue.setVisible(true);                                        // åbn vinduet
 	}
 }

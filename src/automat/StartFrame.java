@@ -1,16 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package automat;
 
-/**
- *
- * @author Robert
- */
-public class StartFrame extends javax.swing.JFrame {
-
+public class StartFrame extends javax.swing.JFrame 
+{
     /**
      * Creates new form StartFrame
      */
@@ -90,10 +81,10 @@ public class StartFrame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new StartFrame().setVisible(true);
+            new StartFrame().setVisible(true);
             }
         });
-    }
+    } // End of main
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private automat.BetalingPanel betalingPanel1;
