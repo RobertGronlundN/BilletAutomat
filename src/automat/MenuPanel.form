@@ -145,8 +145,15 @@
                           <Component id="guiSletEnkelt" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="guiTilfoej" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="guiNulstil" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="totalPris" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="guiSletAlle" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="guiBetaling" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="18" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <Component id="billettype" min="-2" max="-2" attributes="0"/>
@@ -168,16 +175,7 @@
                           <Component id="guiAntalPlus" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="antalAntal" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="51" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="totalPris" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="guiBetaling" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="guiSletAlle" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                      <EmptySpace min="10" pref="137" max="32767" attributes="0"/>
                   </Group>
               </Group>
           </Group>

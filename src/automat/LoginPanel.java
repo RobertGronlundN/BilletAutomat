@@ -291,8 +291,10 @@ public class LoginPanel extends javax.swing.JPanel                              
         MenuPanel.automat.montoerLogin(kode);                                   // Tjekker om kode er korrekt
         
         if (MenuPanel.automat.getMontoertilstand() == true){                    // Hvis kode accepteres
+            MontoerPanel.guiZoneSted.setText("Billetautomat er i zone: " 
+                    + MenuPanel.automat.getAutomatZone());                      // Opdaterer MontoerPanelet
             StartFrame.fane.setSelectedIndex(2);                                // Fane aendres til montoerens fane
-            updatePassword('¤');                                                // Kalder update funktion med parameter ¤, nulstiller kode indtastning
+            updatePassword('¤');                                                // Kalder update funktion med parameter ¤, nulstiller kode indtastning            
         } else {
             updatePassword('¤');                                                // Kalder update funktion med parameter ¤, nulstil
             jLabel3.setVisible(true);                                           // Viser "fejl i kode" felt     

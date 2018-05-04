@@ -126,7 +126,7 @@ public class MontoerPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton guiAfslut;
     private javax.swing.JButton guiMontoer;
-    private javax.swing.JLabel guiZoneSted;
+    public static javax.swing.JLabel guiZoneSted;
     private javax.swing.JButton guiZoneSæt;
     private javax.swing.JComboBox<String> guiZoneVælger;
     private javax.swing.JLabel jLabel1;
