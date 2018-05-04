@@ -182,6 +182,7 @@ public class BetalingPanel extends javax.swing.JPanel {
     
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         try {
+            udprint.nyBillet();
             udprint.printBilletter();
         } catch (IOException ex) {
             Logger.getLogger(BetalingPanel.class.getName()).log(Level.SEVERE, null, ex);
