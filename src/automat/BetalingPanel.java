@@ -1,28 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package automat;
 
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
-/**
- *
- * @author Robert
- */
-public class BetalingPanel extends javax.swing.JPanel {
-
+public class BetalingPanel extends javax.swing.JPanel 
+{
     PrintBillet udprint = new PrintBillet();    
     /**
      * Creates new form BetalingPanel
      */
     public BetalingPanel() {
         initComponents();
-        
     }
 
     /**
