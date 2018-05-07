@@ -122,14 +122,7 @@ public class Billetautomat                                                      
     // MONTOER LOGIN -----------------------------------------------------------
     void montoerLogin(String adgangskode)
     {
-        if ("1234".equals(adgangskode)) {
-            montoertilstand = true;                                             // aendrer den boolske vaerdi til true (1)
-            System.out.println("Montoertilstand aktiveret");                    // Montoeren kan nu foretage aendringer i systemet
-            System.out.println("Du kan nu angive en fast billetpris, aendre zone for automatens placering mm.");
-        } else {
-            montoertilstand = false;                                            // aendrer eller bibeholder boolske vaerdi falsk (0)
-            System.out.println("Montoertilstand deaktiveret");                  // Montoer er logget ud
-        }        
+        montoertilstand = "1234".equals(adgangskode); 
     } // End of montoer login
     
     
