@@ -5,7 +5,9 @@ import static org.junit.Assert.*;
 
 public class ZoneberegnerTest
 {
-  // Test of setSlutZone method, of class Zoneberegner.
+  /**
+   * Test of setSlutZone method, of class Zoneberegner.
+   */
   @Test
   public void testSetSlutZone() {
       System.out.println("setSlutZone");
@@ -15,8 +17,10 @@ public class ZoneberegnerTest
       int zoneResult = instance.getSlutZone();
       assertEquals(destZone, zoneResult);
   }
-
-  // Test of getSlutZone method, of class Zoneberegner.
+  
+  /**
+   * Test of getSlutZone method, of class Zoneberegner.
+   */
   @Test
   public void testGetSlutZone() {
       System.out.println("getSlutZone");
@@ -26,8 +30,10 @@ public class ZoneberegnerTest
       int result = instance.getSlutZone();
       assertEquals(expResult, result);
   }
-
-  // Test of zoneBeregner method, of class Zoneberegner.
+  
+  /**
+   * Test of zoneBeregner method, of class Zoneberegner.
+   */
   @Test
   public void testZoneBeregner() {
       System.out.println("zoneBeregner");
@@ -37,4 +43,30 @@ public class ZoneberegnerTest
       int result = instance.zoneBeregner();
       assertEquals(expResult, result);
   }    
+
+    /**
+     * Test of setAutomatZone method, of class Zoneberegner.
+     */
+    @Test
+    public void testSetAutomatZone() {
+        System.out.println("setAutomatZone");
+        int startZone = 0;
+        Zoneberegner instance = new Zoneberegner();
+        instance.setAutomatZone(startZone);
+        int result = instance.getAutomatZone();
+        assertEquals(startZone, result);
+    }
+
+    /**
+     * Test of getAutomatZone method, of class Zoneberegner.
+     */
+    @Test
+    public void testGetAutomatZone() {
+        System.out.println("getAutomatZone");
+        Zoneberegner instance = new Zoneberegner();
+        int expResult = 5;
+        instance.setAutomatZone(5);
+        int result = instance.getAutomatZone();
+        assertEquals(expResult, result);
+    }
 }
