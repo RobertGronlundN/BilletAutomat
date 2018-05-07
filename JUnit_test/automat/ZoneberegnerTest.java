@@ -1,14 +1,16 @@
 package automat;
 
 import junit.framework.TestCase;
-import org.junit.Test;
 
-public class ZoneberegnerTest
-{
+public class ZoneberegnerTest extends TestCase {
+    
+    public ZoneberegnerTest(String testName) {
+        super(testName);
+    }
+
   /**
    * Test of setSlutZone method, of class Zoneberegner.
    */
-  @Test
   public void testSetSlutZone() {
       System.out.println("setSlutZone");
       int destZone = 10;
@@ -21,7 +23,6 @@ public class ZoneberegnerTest
   /**
    * Test of getSlutZone method, of class Zoneberegner.
    */
-  @Test
   public void testGetSlutZone() {
       System.out.println("getSlutZone");
       Zoneberegner instance = new Zoneberegner();
@@ -34,7 +35,6 @@ public class ZoneberegnerTest
   /**
    * Test of zoneBeregner method, of class Zoneberegner.
    */
-  @Test
   public void testZoneBeregner() {
       System.out.println("zoneBeregner");
       Zoneberegner instance = new Zoneberegner();
@@ -47,7 +47,6 @@ public class ZoneberegnerTest
     /**
      * Test of setAutomatZone method, of class Zoneberegner.
      */
-    @Test
     public void testSetAutomatZone() {
         System.out.println("setAutomatZone");
         int startZone = 0;
@@ -60,7 +59,6 @@ public class ZoneberegnerTest
     /**
      * Test of getAutomatZone method, of class Zoneberegner.
      */
-    @Test
     public void testGetAutomatZone() {
         System.out.println("getAutomatZone");
         Zoneberegner instance = new Zoneberegner();
