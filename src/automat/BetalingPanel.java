@@ -191,6 +191,12 @@ public class BetalingPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        try {
+            udprint.nyBillet();
+            udprint.printBilletter();
+        } catch (IOException ex) {
+            Logger.getLogger(BetalingPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
         StartFrame.fane.setSelectedIndex(3);
     }//GEN-LAST:event_jButton3ActionPerformed
 

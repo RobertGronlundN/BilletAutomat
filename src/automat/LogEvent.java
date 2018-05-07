@@ -53,6 +53,10 @@ public class LogEvent
               udskrift = Date.toString() + ": Total på køb " + doubleVal + ".\n";
               break;
           } // End of case 5
+          case 6 : {    // Event 6: 
+              udskrift = Date.toString() + ": Total på køb " + doubleVal + ".\n";
+              break;
+          } // End of case 6
           default: {      // Default event, fejlmeddelelse udskrives
               udskrift = Date.toString() + " ERROR MESSAGE: " + event + ".\n";
               break;

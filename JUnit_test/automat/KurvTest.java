@@ -22,8 +22,9 @@ public class KurvTest extends TestCase {
         assertEquals(expResult, result);
     }
 
-     * Test of setBillettype method, of class Kurv.
-     */
+     /** 
+      * Test of setBillettype method, of class Kurv.
+      */
     @Test
     public void testSetBillettype() {
         System.out.println("setBillettype");
