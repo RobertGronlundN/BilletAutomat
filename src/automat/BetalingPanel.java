@@ -22,6 +22,7 @@ public class BetalingPanel extends javax.swing.JPanel {
      */
     public BetalingPanel() {
         initComponents();
+        
     }
 
     /**

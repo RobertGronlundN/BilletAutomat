@@ -1,5 +1,7 @@
 package automat;
 
+import javax.swing.JTabbedPane;
+
 public class StartFrame extends javax.swing.JFrame 
 {
     /**
@@ -7,6 +9,13 @@ public class StartFrame extends javax.swing.JFrame
      */
     public StartFrame() {
         initComponents();
+        
+        // Denne kode er givet af Jacob Nordfalk
+        fane.setUI(new javax.swing.plaf.basic.BasicTabbedPaneUI(){
+            protected int calculateTabAreaHeight(int t, int h, int m){
+                return 0;
+            }
+        });  
     }
 
     /**

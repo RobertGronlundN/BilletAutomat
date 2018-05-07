@@ -75,9 +75,11 @@ public class MenuPanel extends javax.swing.JPanel implements ActionListener {
     
     public MenuPanel() {
         
-        initComponents();
-        
+        initComponents();        
         update();
+        
+        
+        
     }
 
     /**
