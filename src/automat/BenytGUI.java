@@ -2,7 +2,7 @@ package automat;
 
 import javax.swing.JFrame;
 
-public class BenytFrame
+public class BenytGUI
 {
 	public static void main(String[] arg)
 	{

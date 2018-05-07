@@ -29,3 +29,8 @@ Mon May 07 16:10:56 CEST 2018: Købt: 2.0 ; Pensionist    ; 2 zoner.
 Mon May 07 16:10:56 CEST 2018: Købt: 2.0 ; Hund            ; 2 zoner.
 Mon May 07 16:10:56 CEST 2018: Total på køb 460.0.
 Total billetter solgt: 6.
+Mon May 07 22:51:07 CEST 2018: Købt: 1.0 ; Voksen         ; 1 zoner.
+Mon May 07 22:51:07 CEST 2018: Total på køb 12.0.
+Total billetter solgt: 1.
+Mon May 07 22:51:36 CEST 2018: Montoeren Admin har udført succefuld login.
+Mon May 07 22:52:00 CEST 2018: Montoeren Admin har logget ud.
