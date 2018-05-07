@@ -6,7 +6,7 @@ import java.util.List;                  // BRUGES DENNE?
 
 public class Billetautomat                                                      // Overordnet public class, initialisering af variable
 {
-    public int automatZone;
+    public int automatZone = 1;
     private double balance;
     private double total;
     public int antalBilletterSolgt;

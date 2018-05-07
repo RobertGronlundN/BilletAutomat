@@ -43,7 +43,7 @@ public class PrintBillet extends javax.swing.JPanel {
                 MontoerPanel.log.LogEvent(4, MenuPanel.automat.kurv.get(i).getAntalBilletter() , MenuPanel.automat.kurv.get(i).getBillettype(), MenuPanel.automat.kurv.get(i).getAntalZoner());
                  
                 } // End of i for loop
-                MontoerPanel.log.LogEvent(5, MenuPanel.automat.getTotal(), " ", 0);
+                MontoerPanel.log.LogEvent(5, MenuPanel.automat.getTotal(), " ", MenuPanel.automat.antalBilletterSolgt);
                 
                 writer.close();
             } catch (IOException ex) {
