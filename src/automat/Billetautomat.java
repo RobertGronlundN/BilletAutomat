@@ -104,7 +104,7 @@ public class Billetautomat                                                      
     
     
     // MONTOERTILSTAND ---------------------------------------------------------
-     public boolean getMontoertilstand() {
+    public boolean getMontoertilstand() {
         return montoertilstand;                                                 // Returnerer nuvaerende montoertilstand
     } // End of get montoertilstand
     public void setMontoertilstand(boolean input) {

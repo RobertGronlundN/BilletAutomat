@@ -7,9 +7,6 @@ package automat;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
 /**
  *
  * @author Robert
@@ -141,7 +138,7 @@ public class MenuPanel extends javax.swing.JPanel implements ActionListener {
         jLabel2.setText("Vælg Billettype");
 
         billettype.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        billettype.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Voksen", "Børn", "Pensionist", "Studerende", "Cykel", "Hund" }));
+        billettype.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Voksen", "Barn", "Pensionist", "Studerende", "Cykel", "Hund" }));
         billettype.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 billettypeActionPerformed(evt);
@@ -362,8 +359,7 @@ public class MenuPanel extends javax.swing.JPanel implements ActionListener {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(guiSletAlle)
-                            .addComponent(guiBetaling))
-                        .addContainerGap(18, Short.MAX_VALUE))
+                            .addComponent(guiBetaling)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(billettype, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -381,8 +377,8 @@ public class MenuPanel extends javax.swing.JPanel implements ActionListener {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(guiAntalMinus)
                             .addComponent(guiAntalPlus)
-                            .addComponent(antalAntal))
-                        .addGap(10, 137, Short.MAX_VALUE))))
+                            .addComponent(antalAntal))))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
