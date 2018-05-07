@@ -1,3 +1,26 @@
-Mon May 07 11:32:33 CEST 2018: Købt: 1.0 ; Voksen         ; 1 zoner.
-Mon May 07 11:32:33 CEST 2018: Total på køb 12.0.
+Mon May 07 11:45:26 CEST 2018: Købt: 2.0 ; Voksen         ; 3 zoner.
+Mon May 07 11:45:26 CEST 2018: Købt: 3.0 ; Barn             ; 3 zoner.
+Mon May 07 11:45:26 CEST 2018: Købt: 2.0 ; Pensionist    ; 3 zoner.
+Mon May 07 11:45:26 CEST 2018: Købt: 1.0 ; Hund            ; 3 zoner.
+Mon May 07 11:45:26 CEST 2018: Købt: 2.0 ; Cykel            ; 3 zoner.
+Mon May 07 11:45:26 CEST 2018: Total på køb 234.0.
+Total billetter solgt: 10.
+Mon May 07 11:45:43 CEST 2018: Købt: 6.0 ; Studerende  ; 5 zoner.
+Mon May 07 11:45:43 CEST 2018: Total på køb 270.0.
+Total billetter solgt: 16.
+Mon May 07 11:56:20 CEST 2018: Købt: 2.0 ; Voksen         ; 4 zoner.
+Mon May 07 11:56:20 CEST 2018: Købt: 2.0 ; Barn             ; 4 zoner.
+Mon May 07 11:56:20 CEST 2018: Købt: 4.0 ; Pensionist    ; 4 zoner.
+Mon May 07 11:56:20 CEST 2018: Købt: 1.0 ; Hund            ; 4 zoner.
+Mon May 07 11:56:20 CEST 2018: Købt: 2.0 ; Cykel            ; 4 zoner.
+Mon May 07 11:56:20 CEST 2018: Total på køb 360.0.
+Total billetter solgt: 27.
+Mon May 07 11:56:59 CEST 2018: Montoeren Ukendt har forsøgt at logge ind.
+Mon May 07 11:57:30 CEST 2018: Montoeren Admin har udført succefuld login.
+Mon May 07 11:58:14 CEST 2018: Montoeren Admin har logget ud.
+Mon May 07 13:51:04 CEST 2018: Købt: 1.0 ; Voksen         ; 6 zoner.
+Mon May 07 13:51:04 CEST 2018: Total på køb 72.0.
 Total billetter solgt: 1.
+Mon May 07 13:53:22 CEST 2018: Købt: 25.0 ; Voksen         ; 6 zoner.
+Mon May 07 13:53:22 CEST 2018: Total på køb 1800.0.
+Total billetter solgt: 25.

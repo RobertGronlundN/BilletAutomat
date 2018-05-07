@@ -8,7 +8,7 @@ public class BenytFrame
 	public static void main(String[] arg)
 	{
 		JFrame vindue = new StartFrame();                               // Oprettelse af nyt start vindue
-                                            
+                                             
                 //vindue.add( new StartFrame() );
                 
 		vindue.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);       // Vindue reagerer på luk

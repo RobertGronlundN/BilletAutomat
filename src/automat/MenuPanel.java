@@ -63,6 +63,8 @@ public class MenuPanel extends javax.swing.JPanel implements ActionListener {
         antalZoner.setText(" " + zoner + " ");
         antalAntal.setText(" " + antal + " ");
         
+        guiAntalPlus.setEnabled(true);
+        guiZonePlus.setEnabled(true); 
         guiAntalMinus.setEnabled(false);
         guiZoneMinus.setEnabled(false);        
         
@@ -537,7 +539,7 @@ public class MenuPanel extends javax.swing.JPanel implements ActionListener {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton guiAfslut;
     public static javax.swing.JButton guiAntalMinus;
-    private javax.swing.JButton guiAntalPlus;
+    public static javax.swing.JButton guiAntalPlus;
     public static javax.swing.JButton guiBetaling;
     public static java.awt.List guiKurv;
     private javax.swing.JButton guiMontoer;
@@ -547,7 +549,7 @@ public class MenuPanel extends javax.swing.JPanel implements ActionListener {
     private javax.swing.JButton guiTilfoej;
     private javax.swing.JButton guiZoneBeregner;
     public static javax.swing.JButton guiZoneMinus;
-    private javax.swing.JButton guiZonePlus;
+    public static javax.swing.JButton guiZonePlus;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
