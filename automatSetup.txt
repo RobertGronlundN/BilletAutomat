@@ -1,0 +1,14 @@
+Voksen        
+12
+Barn            
+6
+Pensionist   
+9
+Studerende 
+9
+Cykel           
+6
+Hund           
+6
+Benjamin     
+100

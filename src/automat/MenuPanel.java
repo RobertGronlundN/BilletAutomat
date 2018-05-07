@@ -76,8 +76,10 @@ public class MenuPanel extends javax.swing.JPanel implements ActionListener {
         
         initComponents();        
         update();
-        
-        
+       
+        for (int i = 0 ; i < automat.billetType.size() ; i++ ){
+            billettype.addItem(automat.billetType.get(i).getBillettype());
+        }
         
     }
 
@@ -140,7 +142,6 @@ public class MenuPanel extends javax.swing.JPanel implements ActionListener {
         jLabel2.setText("Vælg Billettype");
 
         billettype.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        billettype.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Voksen", "Barn", "Pensionist", "Studerende", "Cykel", "Hund" }));
         billettype.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 billettypeActionPerformed(evt);
@@ -402,7 +403,6 @@ public class MenuPanel extends javax.swing.JPanel implements ActionListener {
     }//GEN-LAST:event_guiZoneMinusActionPerformed
 
     private void guiZonePlusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiZonePlusActionPerformed
-        // TODO add your handling code here:
         if (zoner < 6){
             zoner++;
         }
