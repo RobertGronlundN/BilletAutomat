@@ -33,34 +33,26 @@ public class LogEvent
                 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(file, true))) {
                 switch (event) {
-          case 1 : {    // Event 1: Kunde har indsat penge
-              udskrift = Date.toString() + "Der er af kunde indsat " +doubleVal+ " kr. \n";
-              break;
-          } // End of Case 1
-          case 2 : {    // Event 2: Kunde har fået udbetalt returpenge
-              udskrift = Date.toString() + "Der er retuneret " +doubleVal+ " kr.\n";
-              break;
-          } // End of Case 2
-          case 3 : {    // Event 3: Der er udskrevet billet
-              udskrift = Date.toString() + ": Der er udskrevet en " +stringVal+ " billet til " +doubleVal+ " kr. \n";
-              break;
-          } // End of Case 3
-          case 4 : {    // Event 4: Montør har udført succesfuldt login
+          case 1 : {    // Event 4: Montør har udført succesfuldt login
               udskrift = Date.toString() + ": Montoeren " + stringVal + " har udført succefuld login.\n";
               break;
-          } // End of Case 4
-          case 5 : {    // Event 5: Montør har indtastet forkert kode
+          } // End of Case 1
+          case 2 : {    // Event 6: Montør er logget ud
+              udskrift = Date.toString() + ": Montoeren " +stringVal+ " har logget ud.\n";
+              break;          
+          } // End of Case 2
+          case 3 : {    // Event 3: Forkert kode er indtastet
               udskrift = Date.toString() + ": Montoeren " +stringVal+ " har forsøgt at logge ind.\n";
               break;
-          } // End of Case 5
-          case 6 : {    // Event 6: Montør er logget ud
-              udskrift = Date.toString() + ": Montoeren " +stringVal+ " har logget ud.\n";
+          } // End of Case 3          
+          case 4 : {    // Event 4: 
+              udskrift = Date.toString() + ": Købt: " + doubleVal + " ; " + stringVal + " ; " + zoner + " zoner.\n";
               break;
-          } // End of case 6
-          case 7 : {    // Event 7: ???
-              udskrift = Date.toString() + ": Montoeren " +stringVal+ " har logget ud.\n";
+          } // End of Case 4          
+          case 5 : {    // Event 5: 
+              udskrift = Date.toString() + ": Total på køb " + doubleVal + ".\n";
               break;
-          } // End of case 7
+          } // End of case 5
           default: {      // Default event, fejlmeddelelse udskrives
               udskrift = Date.toString() + " ERROR MESSAGE: " + event + ".\n";
               break;

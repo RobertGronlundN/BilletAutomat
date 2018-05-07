@@ -116,7 +116,7 @@ public class MontoerPanel extends javax.swing.JPanel {
     private void guiMontoerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiMontoerActionPerformed
         MenuPanel.automat.setMontoertilstand(false);                            // Sætter montoertilsantd FALSE
         try {
-            MontoerPanel.log.LogEvent(6, 0, "Admin", 0);
+            MontoerPanel.log.LogEvent(2, 0, "Admin", 0);
         } catch (IOException ex) {
             Logger.getLogger(MontoerPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
