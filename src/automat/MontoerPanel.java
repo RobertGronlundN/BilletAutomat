@@ -4,17 +4,11 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class MontoerPanel extends javax.swing.JPanel {
-
-    /**
-     * Creates new form MontoerPanel
-     */
-    
+public class MontoerPanel extends javax.swing.JPanel 
+{
     static LogEvent log = new LogEvent();
     
     //File file = new File("")
-    
-    
     
     public MontoerPanel() {
         initComponents();
@@ -32,12 +26,12 @@ public class MontoerPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         guiMontoer = new javax.swing.JButton();
         guiAfslut = new javax.swing.JButton();
-        guiZoneSæt = new javax.swing.JButton();
+        guiZoneSaet = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        guiZoneVælger = new javax.swing.JComboBox<>();
+        guiZoneVaelger = new javax.swing.JComboBox<>();
         guiZoneSted = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        guiIndlæs = new javax.swing.JButton();
+        guiIndlaes = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         guiLog = new javax.swing.JTextArea();
 
@@ -63,19 +57,19 @@ public class MontoerPanel extends javax.swing.JPanel {
             }
         });
 
-        guiZoneSæt.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        guiZoneSæt.setText("Sæt");
-        guiZoneSæt.addActionListener(new java.awt.event.ActionListener() {
+        guiZoneSaet.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        guiZoneSaet.setText("Sæt");
+        guiZoneSaet.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                guiZoneSætActionPerformed(evt);
+                guiZoneSaetActionPerformed(evt);
             }
         });
 
         jLabel2.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jLabel2.setText("Indlæs Montør log");
 
-        guiZoneVælger.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        guiZoneVælger.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6" }));
+        guiZoneVaelger.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        guiZoneVaelger.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6" }));
 
         guiZoneSted.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         guiZoneSted.setText("Billetautomat er i zone: " + MenuPanel.automat.getAutomatZone());
@@ -83,11 +77,11 @@ public class MontoerPanel extends javax.swing.JPanel {
         jLabel3.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jLabel3.setText("Sæt ny zone for automat:");
 
-        guiIndlæs.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        guiIndlæs.setText("Indlæs");
-        guiIndlæs.addActionListener(new java.awt.event.ActionListener() {
+        guiIndlaes.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        guiIndlaes.setText("Indlæs");
+        guiIndlaes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                guiIndlæsActionPerformed(evt);
+                guiIndlaesActionPerformed(evt);
             }
         });
 
@@ -104,17 +98,17 @@ public class MontoerPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(guiZoneVælger, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(guiZoneVaelger, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(guiZoneSæt, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(guiZoneSaet, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel1)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(guiIndlæs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(guiIndlaes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(guiZoneSted))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 428, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 268, Short.MAX_VALUE)
                         .addComponent(guiAfslut)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(guiMontoer))
@@ -126,7 +120,7 @@ public class MontoerPanel extends javax.swing.JPanel {
                 .addGroup(layout.createSequentialGroup()
                     .addGap(16, 16, 16)
                     .addComponent(jLabel3)
-                    .addContainerGap(598, Short.MAX_VALUE)))
+                    .addContainerGap(438, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -142,12 +136,12 @@ public class MontoerPanel extends javax.swing.JPanel {
                         .addComponent(guiZoneSted, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(52, 52, 52)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(guiZoneVælger, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(guiZoneSæt))
+                            .addComponent(guiZoneVaelger, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(guiZoneSaet))
                         .addGap(18, 18, 18)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(guiIndlæs)
+                        .addComponent(guiIndlaes)
                         .addGap(0, 182, Short.MAX_VALUE))
                     .addComponent(jScrollPane1))
                 .addContainerGap())
@@ -175,29 +169,29 @@ public class MontoerPanel extends javax.swing.JPanel {
         StartFrame.fane.setSelectedIndex(0);                                    // Omdirigerer tilbage til startfane
     }//GEN-LAST:event_guiAfslutActionPerformed
 
-    private void guiZoneSætActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiZoneSætActionPerformed
-        ZonePanel.beregner.setAutomatZone(guiZoneVælger.getSelectedIndex()+1);  // Kalder funktionen setAutomatZone, ændrer denne værdi til ønsket lokation
+    private void guiZoneSaetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiZoneSaetActionPerformed
+        ZonePanel.beregner.setAutomatZone(guiZoneVaelger.getSelectedIndex()+1);  // Kalder funktionen setAutomatZone, ændrer denne værdi til ønsket lokation
         ZonePanel.guiEgenZone.setText("Du er i zone: " + ZonePanel.beregner.getAutomatZone());
         guiZoneSted.setText("Billetautomat er i zone: " + ZonePanel.beregner.getAutomatZone() + " ");
-    }//GEN-LAST:event_guiZoneSætActionPerformed
+    }//GEN-LAST:event_guiZoneSaetActionPerformed
 
-    private void guiIndlæsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiIndlæsActionPerformed
+    private void guiIndlaesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiIndlaesActionPerformed
         try {
             log.printLog();
         } catch (IOException ex) {
             Logger.getLogger(MontoerPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_guiIndlæsActionPerformed
+    }//GEN-LAST:event_guiIndlaesActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton guiAfslut;
-    private javax.swing.JButton guiIndlæs;
+    private javax.swing.JButton guiIndlaes;
     public static javax.swing.JTextArea guiLog;
     private javax.swing.JButton guiMontoer;
+    private javax.swing.JButton guiZoneSaet;
     public static javax.swing.JLabel guiZoneSted;
-    private javax.swing.JButton guiZoneSæt;
-    private javax.swing.JComboBox<String> guiZoneVælger;
+    private javax.swing.JComboBox<String> guiZoneVaelger;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

@@ -26,20 +26,20 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="guiZoneVælger" min="-2" pref="79" max="-2" attributes="0"/>
+                      <Component id="guiZoneVaelger" min="-2" pref="79" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="guiZoneSæt" min="-2" pref="101" max="-2" attributes="0"/>
+                      <Component id="guiZoneSaet" min="-2" pref="101" max="-2" attributes="0"/>
                   </Group>
                   <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="jLabel2" max="32767" attributes="0"/>
-                      <Component id="guiIndlæs" max="32767" attributes="0"/>
+                      <Component id="guiIndlaes" max="32767" attributes="0"/>
                   </Group>
                   <Component id="guiZoneSted" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace pref="428" max="32767" attributes="0"/>
+                      <EmptySpace pref="268" max="32767" attributes="0"/>
                       <Component id="guiAfslut" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="guiMontoer" min="-2" max="-2" attributes="0"/>
@@ -55,7 +55,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                   <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="598" max="32767" attributes="0"/>
+                  <EmptySpace pref="438" max="32767" attributes="0"/>
               </Group>
           </Group>
       </Group>
@@ -75,13 +75,13 @@
                       <Component id="guiZoneSted" min="-2" pref="37" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="guiZoneVælger" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="guiZoneSæt" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="guiZoneVaelger" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="guiZoneSaet" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jLabel2" min="-2" pref="37" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="guiIndlæs" min="-2" max="-2" attributes="0"/>
+                      <Component id="guiIndlaes" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="182" max="32767" attributes="0"/>
                   </Group>
                   <Component id="jScrollPane1" max="32767" attributes="0"/>
@@ -129,7 +129,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="guiAfslutActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="guiZoneS&#xe6;t">
+    <Component class="javax.swing.JButton" name="guiZoneSaet">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Calibri" size="14" style="0"/>
@@ -137,7 +137,7 @@
         <Property name="text" type="java.lang.String" value="S&#xe6;t"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="guiZoneS&#xe6;tActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="guiZoneSaetActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
@@ -148,7 +148,7 @@
         <Property name="text" type="java.lang.String" value="Indl&#xe6;s Mont&#xf8;r log"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JComboBox" name="guiZoneV&#xe6;lger">
+    <Component class="javax.swing.JComboBox" name="guiZoneVaelger">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Calibri" size="14" style="0"/>
@@ -189,7 +189,7 @@
         <Property name="text" type="java.lang.String" value="S&#xe6;t ny zone for automat:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="guiIndl&#xe6;s">
+    <Component class="javax.swing.JButton" name="guiIndlaes">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Calibri" size="14" style="0"/>
@@ -197,7 +197,7 @@
         <Property name="text" type="java.lang.String" value="Indl&#xe6;s"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="guiIndl&#xe6;sActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="guiIndlaesActionPerformed"/>
       </Events>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">

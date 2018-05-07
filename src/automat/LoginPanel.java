@@ -4,8 +4,6 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-                                    // Tilhører pakken automat
-
 public class LoginPanel extends javax.swing.JPanel                              // Følgende er en udvidelse af javax.swing.JPanel
 {
     String kode = "";                                                           // Opretter panelet med en tom string som kode.
@@ -14,7 +12,7 @@ public class LoginPanel extends javax.swing.JPanel                              
         jLabel3.setVisible(false);                                              // jLabels synlighed, sættes falsk som standard
         kode += input;                                                          // input parameter lægges til kode string
         
-        if (input == '¤'){                                                      // Vis ¤ overføres som parameter
+        if (input == 'Q'){                                                      // Vis ¤ overføres som parameter
             kode = "";                                                          // Kode nulstilles
         }        
         jPasswordField1.setText(kode);                                          // Opdaterer password feltets indhold
@@ -137,7 +135,7 @@ public class LoginPanel extends javax.swing.JPanel                              
             }
         });
 
-        jButton12.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jButton12.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jButton12.setText("ENTER");
         jButton12.setPreferredSize(new java.awt.Dimension(80, 80));
         jButton12.addActionListener(new java.awt.event.ActionListener() {
@@ -146,7 +144,7 @@ public class LoginPanel extends javax.swing.JPanel                              
             }
         });
 
-        jButton13.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jButton13.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jButton13.setText("CLEAR");
         jButton13.setPreferredSize(new java.awt.Dimension(80, 80));
         jButton13.addActionListener(new java.awt.event.ActionListener() {
@@ -172,7 +170,7 @@ public class LoginPanel extends javax.swing.JPanel                              
         jLabel3.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 0, 51));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Forkert kode, prøv igen");
+        jLabel3.setText("Forkert kode, proev igen");
         jLabel3.setVisible(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -307,7 +305,7 @@ public class LoginPanel extends javax.swing.JPanel                              
             }
             
             StartFrame.fane.setSelectedIndex(2);                                // Fane aendres til montoerens fane
-            updatePassword('¤');                                                // Kalder update funktion med parameter ¤, nulstiller kode indtastning            
+            updatePassword('Q');                                                // Kalder update funktion med parameter ¤, nulstiller kode indtastning            
         } else {
             
             try {
@@ -316,14 +314,14 @@ public class LoginPanel extends javax.swing.JPanel                              
                 Logger.getLogger(LoginPanel.class.getName()).log(Level.SEVERE, null, ex);
             }
             
-            updatePassword('¤');                                                // Kalder update funktion med parameter ¤, nulstil
+            updatePassword('Q');                                                // Kalder update funktion med parameter ¤, nulstil
             jLabel3.setVisible(true);                                           // Viser "fejl i kode" felt     
         }
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
         
-        updatePassword('¤');
+        updatePassword('Q');
     }//GEN-LAST:event_jButton13ActionPerformed
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
