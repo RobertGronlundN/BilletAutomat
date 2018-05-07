@@ -46,3 +46,13 @@ Total billetter solgt: 12.
 Mon May 07 10:03:08 CEST 2018: Købt: 4.0 ; Barn             ; 4 zoner.
 Mon May 07 10:03:08 CEST 2018: Total på køb 96.0.
 Total billetter solgt: 16.
+Mon May 07 10:08:23 CEST 2018: Købt: 1.0 ; Voksen         ; 1 zoner.
+Mon May 07 10:08:23 CEST 2018: Købt: 2.0 ; Pensionist    ; 2 zoner.
+Mon May 07 10:08:23 CEST 2018: Total på køb 48.0.
+Total billetter solgt: 3.
+Mon May 07 10:08:29 CEST 2018: Købt: 1.0 ; Voksen         ; 1 zoner.
+Mon May 07 10:08:29 CEST 2018: Total på køb 12.0.
+Total billetter solgt: 4.
+Mon May 07 10:08:59 CEST 2018: Købt: 3.0 ; Studerende  ; 3 zoner.
+Mon May 07 10:08:59 CEST 2018: Total på køb 81.0.
+Total billetter solgt: 7.

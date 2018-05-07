@@ -187,7 +187,8 @@ public class BetalingPanel extends javax.swing.JPanel {
         } catch (IOException ex) {
             Logger.getLogger(BetalingPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
-        StartFrame.fane.setSelectedIndex(3);        
+        StartFrame.fane.setSelectedIndex(3);
+        guiTextKurv.setText("");
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -198,6 +199,7 @@ public class BetalingPanel extends javax.swing.JPanel {
             Logger.getLogger(BetalingPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
         StartFrame.fane.setSelectedIndex(3);
+        guiTextKurv.setText("");
     }//GEN-LAST:event_jButton3ActionPerformed
 
 
