@@ -23,7 +23,7 @@ public class PrintBillet extends javax.swing.JPanel {
                         
             // BILLET
             for (int i = 0 ; i < MenuPanel.automat.kurv.size() ; i++){
-                 for (int j = 0 ; j < MenuPanel.automat.kurv.get(i).getAntalBilletter() ; j++){
+                for (int j = 0 ; j < MenuPanel.automat.kurv.get(i).getAntalBilletter() ; j++){
                     
                     writer.append(" ________________________________________\n");
                     writer.append("|_______________       BT        _______________|\n");
@@ -38,8 +38,13 @@ public class PrintBillet extends javax.swing.JPanel {
 
                     MenuPanel.automat.antalBilletterSolgt++;
         
-                    } // End of j for loop            
+                    } // End of j for loop
+                 
+                MontoerPanel.log.LogEvent(4, MenuPanel.automat.kurv.get(i).getAntalBilletter() , MenuPanel.automat.kurv.get(i).getBillettype(), MenuPanel.automat.kurv.get(i).getAntalZoner());
+                 
                 } // End of i for loop
+                MontoerPanel.log.LogEvent(5, MenuPanel.automat.getTotal(), " ", 0);
+                
                 writer.close();
             } catch (IOException ex) {
             System.err.println("File not found");
@@ -70,7 +75,7 @@ public class PrintBillet extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
 
         jLabel1.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
-        jLabel1.setText("BlueJay");
+        jLabel1.setText("BlueJ Trafikselskab");
 
         guiAfslut.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         guiAfslut.setText("Hovedmenu");
@@ -94,26 +99,25 @@ public class PrintBillet extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addGap(314, 314, 314))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(281, 281, 281))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 286, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(344, 344, 344))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(guiAfslut, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(301, 301, 301))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addGap(231, 231, 231))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(jLabel4)
+                            .addGap(314, 314, 314))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(jLabel3)
+                            .addGap(281, 281, 281)))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

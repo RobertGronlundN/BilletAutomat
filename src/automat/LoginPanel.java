@@ -301,7 +301,7 @@ public class LoginPanel extends javax.swing.JPanel                              
                     + MenuPanel.automat.getAutomatZone());                      // Opdaterer MontoerPanelet
             
             try {   
-                MontoerPanel.log.LogEvent(4, 0, "Admin", 0);                    // Skriver til log
+                MontoerPanel.log.LogEvent(1, 0, "Admin", 0);                    // Skriver til log
             } catch (IOException ex) {
                 Logger.getLogger(LoginPanel.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -311,7 +311,7 @@ public class LoginPanel extends javax.swing.JPanel                              
         } else {
             
             try {
-                MontoerPanel.log.LogEvent(5, 0, "Ukendt", 0);
+                MontoerPanel.log.LogEvent(3, 0, "Ukendt", 0);
             } catch (IOException ex) {
                 Logger.getLogger(LoginPanel.class.getName()).log(Level.SEVERE, null, ex);
             }

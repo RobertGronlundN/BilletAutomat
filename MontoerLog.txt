@@ -1,14 +1,4 @@
-Fri May 04 15:58:19 CEST 2018: Der er udskrevet en Cykel billet til 7.0 kr. 
-Fri May 04 15:58:23 CEST 2018: Der er udskrevet en Cykel billet til 7.0 kr. 
-Fri May 04 15:58:24 CEST 2018: Der er udskrevet en Cykel billet til 7.0 kr. 
-Fri May 04 15:58:25 CEST 2018: Der er udskrevet en Cykel billet til 7.0 kr. 
-Fri May 04 15:58:26 CEST 2018: Der er udskrevet en Cykel billet til 7.0 kr. 
-Fri May 04 15:58:26 CEST 2018: Der er udskrevet en Cykel billet til 7.0 kr. 
-Fri May 04 15:58:27 CEST 2018: Der er udskrevet en Cykel billet til 7.0 kr. 
-Fri May 04 15:58:27 CEST 2018: Der er udskrevet en Cykel billet til 7.0 kr. 
-Fri May 04 15:58:27 CEST 2018: Der er udskrevet en Cykel billet til 7.0 kr. 
-Fri May 04 15:58:27 CEST 2018: Der er udskrevet en Cykel billet til 7.0 kr. 
-Fri May 04 15:58:27 CEST 2018: Der er udskrevet en Cykel billet til 7.0 kr. 
-Sat May 05 10:21:42 CEST 2018: Montoeren Ukendt har forsøgt at logge ind.
-Sat May 05 10:21:46 CEST 2018: Montoeren Admin har udført succefuld login.
-Sat May 05 10:22:34 CEST 2018: Montoeren Admin har logget ud.
+Mon May 07 09:04:44 CEST 2018: Købt: 1.0 ; Voksen         ; 1 zoner.
+Mon May 07 09:04:44 CEST 2018: Købt: 1.0 ; Pensionist    ; 1 zoner.
+Mon May 07 09:04:44 CEST 2018: Købt: 3.0 ; Cykel            ; 3 zoner.
+Mon May 07 09:04:44 CEST 2018: Total på køb 75.0.
