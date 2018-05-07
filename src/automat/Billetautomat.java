@@ -25,7 +25,6 @@ public class Billetautomat                                                      
     ArrayList<Kurv> kurv = new ArrayList<>();                                   // Oprettelse af ArrayList til kurv af billetter
 
     public Billetautomat(){
-        
         billetType.add(new Billettype("Voksen        ", 12));
         billetType.add(new Billettype("Barn            ", 6));
         billetType.add(new Billettype("Pensionist   ", 9));
