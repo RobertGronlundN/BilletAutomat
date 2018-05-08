@@ -453,7 +453,18 @@ public class MenuPanel extends javax.swing.JPanel implements ActionListener
     }//GEN-LAST:event_billettypeActionPerformed
 
     private void guiNulstilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiNulstilActionPerformed
-        clear();
+        mg.automat.beregner.setRejseZoner(1);
+        mg.automat.setAntal(1);
+        billettype.setSelectedIndex(0);
+        antalZoner.setText(" " + mg.automat.beregner.getRejseZoner() + " ");
+        antalAntal.setText(" " + mg.automat.getAntal() + " ");
+        
+        guiAntalPlus.setEnabled(true);
+        guiZonePlus.setEnabled(true); 
+        guiAntalMinus.setEnabled(false);
+        guiZoneMinus.setEnabled(false);        
+                
+        update();
     }//GEN-LAST:event_guiNulstilActionPerformed
 
     private void guiTilfoejActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiTilfoejActionPerformed

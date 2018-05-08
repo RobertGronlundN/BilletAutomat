@@ -17,6 +17,7 @@ public class BetalingPanel extends javax.swing.JPanel
     }
     
     public void updateIndkoebskurv(){
+        guiTextKurv.setText("");
         for (int i = 0 ; i < mg.automat.kurv.size() ; i++){
         guiTextKurv.append(mg.automat.kurv.get(i).getBillettype()
                       + "\t"
@@ -189,7 +190,6 @@ public class BetalingPanel extends javax.swing.JPanel
             Logger.getLogger(BetalingPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
         mg.setTab(3);
-        guiTextKurv.setText("");
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -198,8 +198,7 @@ public class BetalingPanel extends javax.swing.JPanel
         } catch (IOException ex) {
             Logger.getLogger(BetalingPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
-        mg.setTab(3);
-        guiTextKurv.setText("");
+        mg.setTab(3);        
     }//GEN-LAST:event_jButton3ActionPerformed
 
 

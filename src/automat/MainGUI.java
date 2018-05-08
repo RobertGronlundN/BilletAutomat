@@ -37,6 +37,7 @@ public class MainGUI extends javax.swing.JFrame
         fane.setSelectedIndex(tab);
         betalingPanel1.updateIndkoebskurv();
         menuPanel2.update();
+        zonePanel1.update();
     }
     
     public void afslut(){

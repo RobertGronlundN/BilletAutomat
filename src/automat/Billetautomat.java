@@ -9,8 +9,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;                                                     // Import, brugt til oprettelse af ArrayList
 import java.util.Date;
-import java.util.stream.Collectors;     // BRUGES DENNE?
-import java.util.List;                  // BRUGES DENNE?
 
 public class Billetautomat                                                      // Overordnet public class, initialisering af variable
 {
@@ -21,7 +19,7 @@ public class Billetautomat                                                      
     private boolean montoertilstand = false;
     private boolean validBalance = false;
     public int antal = 1;
-    private String udskrift;
+    public String udskrift;
 
     Zoneberegner beregner = new Zoneberegner();                                 // Oprettelse af ny zoneberegner, beregner
     //LogEvent log = new LogEvent();
@@ -164,43 +162,64 @@ public class Billetautomat                                                      
          
         automatLog.add( new LogEvent(event, doubleVal, stringVal, zoner));
         
-        
-        
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(logFil, true))) {
-        
-            int size = automatLog.size();
+        Date Date = new Date();
+                        
+            switch (event) {
+              case 1 : {    // Event 4: Montør har udført succesfuldt login
+                  udskrift = Date.toString() + ": Montoeren " + stringVal + " har udført succefuld login.\n";
+                  break;
+              } // End of Case 1
+              case 2 : {    // Event 6: Montør er logget ud
+                  udskrift = Date.toString() + ": Montoeren " +stringVal+ " har logget ud.\n";
+                  break;          
+              } // End of Case 2
+              case 3 : {    // Event 3: Forkert kode er indtastet
+                  udskrift = Date.toString() + ": Montoeren " +stringVal+ " har forsøgt at logge ind.\n";
+                  break;
+              } // End of Case 3          
+              case 4 : {    // Event 4: Billetter købt
+                  udskrift = Date.toString() + ": Købt: " + doubleVal + "\t ; " + stringVal + "\t ; " + zoner + " zoner.\n";
+                  break;
+              } // End of Case 4          
+              case 5 : {    // Event 5: Total for billetterne
+                  udskrift = Date.toString() + ": Total på køb " + doubleVal + ".\nTotal billetter solgt: " + zoner + ".\n";
+                  break;
+              } // End of case 5
+              default: {      // Default event, fejlmeddelelse udskrives
+                  udskrift = Date.toString() + " ERROR MESSAGE: " + event + ".\n";
+                  break;
+                 } // End of default
+            } // End of switch
             
-            writer.append(automatLog.get(size).toString());
+            writer.append(udskrift);
             writer.close();
             System.out.println("Print succesful");
 	  } catch (FileNotFoundException e) {
               System.out.println("File not found.");
-	  } // End of catch    
-     
+	  } // End of catch     
     } // End of Event
 
     
     public String printLog() throws FileNotFoundException, IOException{
         
-        String line = null;
-        
         try(BufferedReader br = new BufferedReader(new FileReader(logFil))) 
         {
             StringBuilder sb = new StringBuilder();
-            line = br.readLine();
-
-            while (line != null) { 
-             line += br.readLine() + "\n";            
+            String line = br.readLine();
+            
+            while (line != null) {
+                sb.append(line);
+                sb.append("\n");
+                line = br.readLine();
             }
-        
+            
             System.out.println("Indlæsning af log fuldført");
-                
+            return sb.toString();    
         } catch (FileNotFoundException e) {
               System.out.println("File not found.");
+              return(" ");
 	} // End of catch 
-        
-        return line;
-    } 
-    
+    } // End of printLog()
     
 } // End of public class Billetinformation

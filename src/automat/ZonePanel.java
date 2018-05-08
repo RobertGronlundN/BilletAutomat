@@ -155,7 +155,7 @@ public class ZonePanel extends javax.swing.JPanel
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton guiAfslut;
-    public static javax.swing.JLabel guiEgenZone;
+    private javax.swing.JLabel guiEgenZone;
     private javax.swing.JButton guiMontoer;
     private javax.swing.JButton guiTilbage;
     private javax.swing.JComboBox<String> guiZoneValg;

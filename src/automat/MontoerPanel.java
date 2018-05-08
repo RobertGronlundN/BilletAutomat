@@ -178,6 +178,7 @@ public class MontoerPanel extends javax.swing.JPanel
     private void guiIndlaesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiIndlaesActionPerformed
         try {
             String udskrift = mg.automat.printLog();
+            guiLog.setText(udskrift);
         } catch (IOException ex) {
             Logger.getLogger(MontoerPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
