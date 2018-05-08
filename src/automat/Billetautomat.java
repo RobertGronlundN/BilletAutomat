@@ -1,7 +1,14 @@
 package automat;                                                                // Skal tilhoere den overordnede package, automat for at kunne arbejde sammen med de resterende filer
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;                                                     // Import, brugt til oprettelse af ArrayList
+import java.util.Date;
 import java.util.stream.Collectors;     // BRUGES DENNE?
 import java.util.List;                  // BRUGES DENNE?
 
@@ -14,13 +21,15 @@ public class Billetautomat                                                      
     private boolean montoertilstand = false;
     private boolean validBalance = false;
     public int antal = 1;
+    private String udskrift;
 
     Zoneberegner beregner = new Zoneberegner();                                 // Oprettelse af ny zoneberegner, beregner
-    LogEvent log = new LogEvent();
+    //LogEvent log = new LogEvent();
     
-    File setup = new File("automatSetup.txt");
+    File printBilletFil = new File("BilletUdprint.txt");
+    File logFil = new File("MontoerLog.txt");
     
-    ArrayList<String> automatLog = new ArrayList<>();                           // Oprettelse af ArrayList til automatlog
+    ArrayList<LogEvent> automatLog = new ArrayList<>();                           // Oprettelse af ArrayList til automatlog
     ArrayList<Billettype> billetType = new ArrayList<>();                       // Oprettelse af ArrayList til Billettype
     ArrayList<Kurv> kurv = new ArrayList<>();                                   // Oprettelse af ArrayList til kurv af billetter
 
@@ -149,14 +158,49 @@ public class Billetautomat                                                      
         }
     } // Endo of nulstil void-funktion
     
+        
+    // LOGSKRIV -----------------------------------------------------
+    public void nyLogEvent(int event, double doubleVal, String stringVal, int zoner) throws IOException {
+         
+        automatLog.add( new LogEvent(event, doubleVal, stringVal, zoner));
+        
+        
+        
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(logFil, true))) {
+        
+            int size = automatLog.size();
+            
+            writer.append(automatLog.get(size).toString());
+            writer.close();
+            System.out.println("Print succesful");
+	  } catch (FileNotFoundException e) {
+              System.out.println("File not found.");
+	  } // End of catch    
+     
+    } // End of Event
+
     
-    // LOGSOEGNING --------------------------------------------------------------
-    public void logSoegning(String soeg){
-      if (montoertilstand) {                                                    // Tjekker om montoer er logget ind
-            String soegning = soeg;                                             // Gemmer parameter soeg i en streng
-            List<String> matches = automatLog.stream().filter(it->it.toLowerCase().contains(soegning.toLowerCase())).collect(Collectors.toList());
-            matches.forEach(System.out::println);                               // Printer de fundne matches
-        }
-    } // End of logsoegnings funktion
+    public String printLog() throws FileNotFoundException, IOException{
+        
+        String line = null;
+        
+        try(BufferedReader br = new BufferedReader(new FileReader(logFil))) 
+        {
+            StringBuilder sb = new StringBuilder();
+            line = br.readLine();
+
+            while (line != null) { 
+             line += br.readLine() + "\n";            
+            }
+        
+            System.out.println("Indlæsning af log fuldført");
+                
+        } catch (FileNotFoundException e) {
+              System.out.println("File not found.");
+	} // End of catch 
+        
+        return line;
+    } 
+    
     
 } // End of public class Billetinformation

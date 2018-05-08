@@ -16,24 +16,17 @@ public class LogEvent
     private String udskrift;
     private String stringVal;
     private double doubleVal;
-
-    File file = new File("MontoerLog.txt");
     
-    LogEvent() {
-        
-    }
-     
-        
-    public void LogEvent(int event, double doubleVal, String stringVal, int zoner) throws IOException {
+            
+    public LogEvent(int event, double doubleVal, String stringVal, int zoner) {
         this.event = event;
         this.doubleVal = doubleVal;
         this.stringVal = stringVal;
         this.zoner = zoner;
         
         Date Date = new Date();
-                
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(file, true))) {
-                switch (event) {
+                        
+        switch (event) {
           case 1 : {    // Event 4: Montør har udført succesfuldt login
               udskrift = Date.toString() + ": Montoeren " + stringVal + " har udført succefuld login.\n";
               break;
@@ -60,17 +53,10 @@ public class LogEvent
           } // End of default
 
       } // End of switch
-      
-      writer.append(udskrift);
-      writer.close();
-      System.out.println("Print succesful");
-	  } catch (FileNotFoundException e) {
-              System.out.println("File not found.");
-	  } // End of catch    
-     
+           
     } // End of Event
 
-    
+    /*
     public void printLog() throws FileNotFoundException, IOException{
         try(BufferedReader br = new BufferedReader(new FileReader(file))) {
         StringBuilder sb = new StringBuilder();
@@ -87,6 +73,6 @@ public class LogEvent
               System.out.println("File not found.");
 	} // End of catch 
     }
-    
+    */
 
 } // End of public class

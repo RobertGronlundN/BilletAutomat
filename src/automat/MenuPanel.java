@@ -41,6 +41,9 @@ public class MenuPanel extends javax.swing.JPanel implements ActionListener
         }
         
         totalPris.setText(" " + mg.automat.getTotal() + " DKK");
+        
+        
+        
     }
     
     public void clear(){
@@ -490,7 +493,7 @@ public class MenuPanel extends javax.swing.JPanel implements ActionListener
     }//GEN-LAST:event_guiAfslutActionPerformed
 
     private void guiZoneBeregnerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiZoneBeregnerActionPerformed
-        mg.setTab(1);
+        mg.setTab(4);
     }//GEN-LAST:event_guiZoneBeregnerActionPerformed
     
 

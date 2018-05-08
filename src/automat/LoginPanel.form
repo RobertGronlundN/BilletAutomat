@@ -36,7 +36,7 @@
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="jLabel2" max="32767" attributes="0"/>
                           <Component id="jPasswordField1" max="32767" attributes="0"/>
-                          <Component id="jLabel3" max="32767" attributes="0"/>
+                          <Component id="fejlMeddelse" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -92,7 +92,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jPasswordField1" min="-2" pref="35" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                      <Component id="fejlMeddelse" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -302,7 +302,7 @@
         <Property name="horizontalAlignment" type="int" value="0"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel3">
+    <Component class="javax.swing.JLabel" name="fejlMeddelse">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Calibri" size="18" style="0"/>
@@ -316,7 +316,7 @@
         </Property>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="jLabel3.setVisible(false);"/>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="fejlMeddelse.setVisible(false);"/>
       </AuxValues>
     </Component>
   </SubComponents>

@@ -158,7 +158,7 @@ public class MontoerPanel extends javax.swing.JPanel
     private void guiMontoerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiMontoerActionPerformed
         mg.automat.setMontoertilstand(false);                            // Sætter montoertilsantd FALSE
         try {
-            mg.automat.log.LogEvent(2, 0, "Admin", 0);
+            mg.automat.nyLogEvent(2, 0, "Admin", 0);
         } catch (IOException ex) {
             Logger.getLogger(MontoerPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -177,7 +177,7 @@ public class MontoerPanel extends javax.swing.JPanel
 
     private void guiIndlaesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiIndlaesActionPerformed
         try {
-            mg.automat.log.printLog();
+            String udskrift = mg.automat.printLog();
         } catch (IOException ex) {
             Logger.getLogger(MontoerPanel.class.getName()).log(Level.SEVERE, null, ex);
         }

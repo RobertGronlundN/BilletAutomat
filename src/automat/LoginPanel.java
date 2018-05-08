@@ -6,17 +6,17 @@ import java.util.logging.Logger;
 
 public class LoginPanel extends javax.swing.JPanel                              // Følgende er en udvidelse af javax.swing.JPanel
 {
-    MainGUI start;
+    MainGUI mg;
     
-    public void setup(MainGUI start){
-       this.start = start;
+    public void setup(MainGUI mg){
+       this.mg = mg;
     }
     
     
     String kode = "";                                                           // Opretter panelet med en tom string som kode.
     
     private void updatePassword(char input){                                    // Funktion til updatering af fane
-        jLabel3.setVisible(false);                                              // jLabels synlighed, sættes falsk som standard
+        fejlMeddelse.setVisible(false);                                              // jLabels synlighed, sættes falsk som standard
         kode += input;                                                          // input parameter lægges til kode string
         
         if (input == 'Q'){                                                      // Vis ¤ overføres som parameter
@@ -56,7 +56,7 @@ public class LoginPanel extends javax.swing.JPanel                              
         jButton14 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jPasswordField1 = new javax.swing.JPasswordField();
-        jLabel3 = new javax.swing.JLabel();
+        fejlMeddelse = new javax.swing.JLabel();
 
         jLabel1.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
         jLabel1.setText("LOGIN");
@@ -174,11 +174,11 @@ public class LoginPanel extends javax.swing.JPanel                              
 
         jPasswordField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
-        jLabel3.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 0, 51));
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Forkert kode, proev igen");
-        jLabel3.setVisible(false);
+        fejlMeddelse.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        fejlMeddelse.setForeground(new java.awt.Color(255, 0, 51));
+        fejlMeddelse.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        fejlMeddelse.setText("Forkert kode, proev igen");
+        fejlMeddelse.setVisible(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -202,7 +202,7 @@ public class LoginPanel extends javax.swing.JPanel                              
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jPasswordField1)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(fejlMeddelse, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -246,7 +246,7 @@ public class LoginPanel extends javax.swing.JPanel                              
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel3)))
+                        .addComponent(fejlMeddelse)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -299,30 +299,28 @@ public class LoginPanel extends javax.swing.JPanel                              
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
         
-        MainGUI.automat.montoerLogin(kode);                                   // Tjekker om kode er korrekt
+        mg.automat.montoerLogin(kode);                                   // Tjekker om kode er korrekt
         
-        if (MainGUI.automat.getMontoertilstand() == true){                    // Hvis kode accepteres
-            MontoerPanel.guiZoneSted.setText("Billetautomat er i zone: " 
-                    + MainGUI.automat.getAutomatZone());                      // Opdaterer MontoerPanelet
+        if (mg.automat.getMontoertilstand() == true){                    // Hvis kode accepteres
             
             try {   
-                MontoerPanel.log.LogEvent(1, 0, "Admin", 0);                    // Skriver til log
+                mg.automat.nyLogEvent(1, 0, "Admin", 0);                    // Skriver til log
             } catch (IOException ex) {
                 Logger.getLogger(LoginPanel.class.getName()).log(Level.SEVERE, null, ex);
             }
             
-            MainGUI.fane.setSelectedIndex(2);                                // Fane aendres til montoerens fane
+            mg.setTab(2);                                // Fane aendres til montoerens fane
             updatePassword('Q');                                                // Kalder update funktion med parameter ¤, nulstiller kode indtastning            
         } else {
             
             try {
-                MontoerPanel.log.LogEvent(3, 0, "Ukendt", 0);
+                mg.automat.nyLogEvent(3, 0, "Ukendt", 0);
             } catch (IOException ex) {
                 Logger.getLogger(LoginPanel.class.getName()).log(Level.SEVERE, null, ex);
             }
             
             updatePassword('Q');                                                // Kalder update funktion med parameter ¤, nulstil
-            jLabel3.setVisible(true);                                           // Viser "fejl i kode" felt     
+            fejlMeddelse.setVisible(true);                                           // Viser "fejl i kode" felt     
         }
     }//GEN-LAST:event_jButton12ActionPerformed
 
@@ -337,6 +335,7 @@ public class LoginPanel extends javax.swing.JPanel                              
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel fejlMeddelse;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
@@ -351,7 +350,6 @@ public class LoginPanel extends javax.swing.JPanel                              
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JPasswordField jPasswordField1;
     // End of variables declaration//GEN-END:variables
 }
