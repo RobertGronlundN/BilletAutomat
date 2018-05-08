@@ -22,12 +22,10 @@ public class Billetautomat                                                      
     public String udskrift;
 
     Zoneberegner beregner = new Zoneberegner();                                 // Oprettelse af ny zoneberegner, beregner
-    //LogEvent log = new LogEvent();
     
     File printBilletFil = new File("BilletUdprint.txt");
     File logFil = new File("MontoerLog.txt");
     
-    ArrayList<LogEvent> automatLog = new ArrayList<>();                         // Oprettelse af ArrayList til automatlog
     ArrayList<Billettype> billetType = new ArrayList<>();                       // Oprettelse af ArrayList til Billettype
     ArrayList<Kurv> kurv = new ArrayList<>();                                   // Oprettelse af ArrayList til kurv af billetter
 
@@ -147,20 +145,9 @@ public class Billetautomat                                                      
         }
     } // End of get antal billetter solgt
 
-    
-     // NULSTIL ----------------------------------------------------------------
-    public void nulstil()  {
-        if (montoertilstand) {                                                  // Tjekker om montoer er logget ind 
-            antalBilletterSolgt = 0;                                            // Nulstiller antallet af solgte billetter 
-            kurv.clear();                                                       // Nulstiller indkøbskurven
-        }
-    } // Endo of nulstil void-funktion
-    
         
     // LOGSKRIV -----------------------------------------------------
     public void nyLogEvent(int event, double doubleVal, String stringVal, int zoner) throws IOException {
-         
-        automatLog.add( new LogEvent(event, doubleVal, stringVal, zoner));
         
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(logFil, true))) {
         Date Date = new Date();

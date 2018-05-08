@@ -12,7 +12,6 @@ public class LoginPanel extends javax.swing.JPanel                              
        this.mg = mg;
     }
     
-    
     String kode = "";                                                           // Opretter panelet med en tom string som kode.
     
     private void updatePassword(char input){                                    // Funktion til updatering af fane
@@ -325,7 +324,6 @@ public class LoginPanel extends javax.swing.JPanel                              
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
-        
         updatePassword('Q');
     }//GEN-LAST:event_jButton13ActionPerformed
 

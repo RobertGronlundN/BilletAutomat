@@ -29,7 +29,6 @@ public class BetalingPanel extends javax.swing.JPanel
                       + " kr.\n");            
         }
         guiTotalLabel.setText(" " + mg.automat.getTotal() + " DKK");
-        
     }
 
     /**
@@ -176,7 +175,6 @@ public class BetalingPanel extends javax.swing.JPanel
         } else {
             mg.setTab(2);
         }
-        
     }//GEN-LAST:event_guiMontoerActionPerformed
 
     private void guiAfslutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiAfslutActionPerformed

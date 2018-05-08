@@ -6,10 +6,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Date;  
 
-public class PrintBillet extends javax.swing.JPanel {
-
-    
-    
+public class PrintBillet extends javax.swing.JPanel 
+{
     MainGUI mg;
     
     public void setup(MainGUI mg){
@@ -25,8 +23,7 @@ public class PrintBillet extends javax.swing.JPanel {
         Date Date = new Date();
         
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(mg.automat.printBilletFil, true))) {
-            
-                        
+                      
             // BILLET
             for (int i = 0 ; i < mg.automat.kurv.size() ; i++){
                 for (int j = 0 ; j < mg.automat.kurv.get(i).getAntalBilletter() ; j++){
@@ -57,7 +54,6 @@ public class PrintBillet extends javax.swing.JPanel {
         }
     } // End of printBilletter()
     
-        
     /**
      * Creates new form PrintBillet
      */
@@ -145,7 +141,6 @@ public class PrintBillet extends javax.swing.JPanel {
     private void guiAfslutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiAfslutActionPerformed
         mg.afslut();
     }//GEN-LAST:event_guiAfslutActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton guiAfslut;

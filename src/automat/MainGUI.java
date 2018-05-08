@@ -5,7 +5,6 @@ import javax.swing.JTabbedPane;
 
 public class MainGUI extends javax.swing.JFrame 
 {
-    //Billetautomat ba;
     static Billetautomat automat = new Billetautomat();    
     MainGUI mg = this;
     /**
@@ -50,7 +49,6 @@ public class MainGUI extends javax.swing.JFrame
         printBillet1.printBilletter();
     }
     
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

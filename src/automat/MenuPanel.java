@@ -3,14 +3,13 @@ package automat;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class MenuPanel extends javax.swing.JPanel implements ActionListener 
+public class MenuPanel extends javax.swing.JPanel
 {    
     MainGUI mg;
     
     public void setup(MainGUI mg){
         this.mg = mg;
     }
-    
     
     public void update(){
         guiKurv.removeAll();
@@ -41,10 +40,7 @@ public class MenuPanel extends javax.swing.JPanel implements ActionListener
         }
         
         totalPris.setText(" " + mg.automat.getTotal() + " DKK");
-        antalZoner.setText(" " + mg.automat.beregner.getRejseZoner() + " ");
-
-        
-        
+        antalZoner.setText(" " + mg.automat.beregner.getRejseZoner() + " ");  
     }
     
     public void clear(){
@@ -64,16 +60,13 @@ public class MenuPanel extends javax.swing.JPanel implements ActionListener
         update();
     }
     
-    
     public MenuPanel() {
-        
         initComponents();        
         update();
        
         for (int i = 0 ; i < mg.automat.billetType.size() ; i++ ){
             billettype.addItem(mg.automat.billetType.get(i).getBillettype());
         }
-        
     }
 
     /**
@@ -112,20 +105,7 @@ public class MenuPanel extends javax.swing.JPanel implements ActionListener
         guiSletAlle = new javax.swing.JButton();
         guiAfslut = new javax.swing.JButton();
         guiZoneBeregner = new javax.swing.JButton();
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane3.setViewportView(jTable1);
-
+        
         jLabel6.setText("jLabel6");
 
         jLabel1.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
@@ -135,11 +115,6 @@ public class MenuPanel extends javax.swing.JPanel implements ActionListener
         jLabel2.setText("Vælg Billettype");
 
         billettype.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        billettype.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                billettypeActionPerformed(evt);
-            }
-        });
 
         jLabel3.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jLabel3.setText("Zone");
@@ -448,10 +423,6 @@ public class MenuPanel extends javax.swing.JPanel implements ActionListener
         } 
     }//GEN-LAST:event_guiAntalPlusActionPerformed
 
-    private void billettypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_billettypeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_billettypeActionPerformed
-
     private void guiNulstilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiNulstilActionPerformed
         mg.automat.beregner.setRejseZoner(1);
         mg.automat.setAntal(1);
@@ -468,23 +439,17 @@ public class MenuPanel extends javax.swing.JPanel implements ActionListener
     }//GEN-LAST:event_guiNulstilActionPerformed
 
     private void guiTilfoejActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiTilfoejActionPerformed
-          
         mg.automat.tilfoejBillet(billettype.getSelectedIndex(),mg.automat.beregner.getRejseZoner(),mg.automat.getAntal());
-        
-                
-        update();
-        
-        
+           
+        update();  
     }//GEN-LAST:event_guiTilfoejActionPerformed
 
     private void guiBetalingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiBetalingActionPerformed
-        mg.setTab(1);        
-        
+        mg.setTab(1);       
     }//GEN-LAST:event_guiBetalingActionPerformed
 
     private void guiSletEnkeltActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiSletEnkeltActionPerformed
         mg.automat.kurv.remove(guiKurv.getSelectedIndex());
-        
         update();
     }//GEN-LAST:event_guiSletEnkeltActionPerformed
 
@@ -538,11 +503,6 @@ public class MenuPanel extends javax.swing.JPanel implements ActionListener
     private javax.swing.JTable jTable1;
     private javax.swing.JLabel totalPris;
     // End of variables declaration//GEN-END:variables
-  
-    @Override
-    public void actionPerformed(ActionEvent ae) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }
 
 
