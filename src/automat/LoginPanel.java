@@ -6,6 +6,13 @@ import java.util.logging.Logger;
 
 public class LoginPanel extends javax.swing.JPanel                              // Følgende er en udvidelse af javax.swing.JPanel
 {
+    MainGUI start;
+    
+    public void setup(MainGUI start){
+       this.start = start;
+    }
+    
+    
     String kode = "";                                                           // Opretter panelet med en tom string som kode.
     
     private void updatePassword(char input){                                    // Funktion til updatering af fane
@@ -292,11 +299,11 @@ public class LoginPanel extends javax.swing.JPanel                              
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
         
-        MenuPanel.automat.montoerLogin(kode);                                   // Tjekker om kode er korrekt
+        MainGUI.automat.montoerLogin(kode);                                   // Tjekker om kode er korrekt
         
-        if (MenuPanel.automat.getMontoertilstand() == true){                    // Hvis kode accepteres
+        if (MainGUI.automat.getMontoertilstand() == true){                    // Hvis kode accepteres
             MontoerPanel.guiZoneSted.setText("Billetautomat er i zone: " 
-                    + MenuPanel.automat.getAutomatZone());                      // Opdaterer MontoerPanelet
+                    + MainGUI.automat.getAutomatZone());                      // Opdaterer MontoerPanelet
             
             try {   
                 MontoerPanel.log.LogEvent(1, 0, "Admin", 0);                    // Skriver til log
@@ -304,7 +311,7 @@ public class LoginPanel extends javax.swing.JPanel                              
                 Logger.getLogger(LoginPanel.class.getName()).log(Level.SEVERE, null, ex);
             }
             
-            StartFrame.fane.setSelectedIndex(2);                                // Fane aendres til montoerens fane
+            MainGUI.fane.setSelectedIndex(2);                                // Fane aendres til montoerens fane
             updatePassword('Q');                                                // Kalder update funktion med parameter ¤, nulstiller kode indtastning            
         } else {
             

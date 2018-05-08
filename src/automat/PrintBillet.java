@@ -10,6 +10,12 @@ public class PrintBillet extends javax.swing.JPanel {
 
     File file = new File("BilletUdprint.txt");
     
+    MainGUI start;
+    
+    public void setup(MainGUI start){
+       this.start = start;
+    }
+    
     public void nyBillet(){
         file.delete();
     }
@@ -22,28 +28,28 @@ public class PrintBillet extends javax.swing.JPanel {
             
                         
             // BILLET
-            for (int i = 0 ; i < MenuPanel.automat.kurv.size() ; i++){
-                for (int j = 0 ; j < MenuPanel.automat.kurv.get(i).getAntalBilletter() ; j++){
+            for (int i = 0 ; i < MainGUI.automat.kurv.size() ; i++){
+                for (int j = 0 ; j < MainGUI.automat.kurv.get(i).getAntalBilletter() ; j++){
                     
                     writer.append(" ________________________________________\n");
                     writer.append("|_______________       BT        _______________|\n");
                     writer.append("|_______________________________________|\n");
-                    writer.append("|                              "+ MenuPanel.automat.kurv.get(i).getBillettype() +"                            |\n");
-                    writer.append("|                                 "+MenuPanel.automat.kurv.get(i).getAntalZoner()+ " Zoner                                  |\n");
+                    writer.append("|                              "+ MainGUI.automat.kurv.get(i).getBillettype() +"                            |\n");
+                    writer.append("|                                 "+MainGUI.automat.kurv.get(i).getAntalZoner()+ " Zoner                                  |\n");
                     writer.append("|________________________________________|\n");
                     writer.append("|           Billet gyldig i 2 timer fra udstedelse           |\n");
                     writer.append("|                  "+Date.toString()+"             |\n");
                     writer.append("|________________________________________|\n");
                     writer.append("\n\n");          
 
-                    MenuPanel.automat.antalBilletterSolgt++;
+                    MainGUI.automat.antalBilletterSolgt++;
         
                     } // End of j for loop
                  
-                MontoerPanel.log.LogEvent(4, MenuPanel.automat.kurv.get(i).getAntalBilletter() , MenuPanel.automat.kurv.get(i).getBillettype(), MenuPanel.automat.kurv.get(i).getAntalZoner());
+                MontoerPanel.log.LogEvent(4, MainGUI.automat.kurv.get(i).getAntalBilletter() , MainGUI.automat.kurv.get(i).getBillettype(), MainGUI.automat.kurv.get(i).getAntalZoner());
                  
                 } // End of i for loop
-                MontoerPanel.log.LogEvent(5, MenuPanel.automat.getTotal(), " ", MenuPanel.automat.antalBilletterSolgt);
+                MontoerPanel.log.LogEvent(5, MainGUI.automat.getTotal(), " ", MainGUI.automat.antalBilletterSolgt);
                 
                 writer.close();
             } catch (IOException ex) {
@@ -138,7 +144,7 @@ public class PrintBillet extends javax.swing.JPanel {
 
     private void guiAfslutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiAfslutActionPerformed
         MenuPanel.clear();
-        StartFrame.fane.setSelectedIndex(0);
+        MainGUI.fane.setSelectedIndex(0);
     }//GEN-LAST:event_guiAfslutActionPerformed
 
 

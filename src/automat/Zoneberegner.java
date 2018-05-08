@@ -4,9 +4,10 @@ public class Zoneberegner
 {
     public int automatZone = 1;
     private int destinationZone;
+    private int rejsezoner;
 
     
-    // SLUTZONE ----------------------------------------------------------------
+    // AUTOMATZONE ----------------------------------------------------------------
     public void setAutomatZone(int startZone) {
         this.automatZone = startZone;
     } // End of setSlutZone
@@ -23,24 +24,32 @@ public class Zoneberegner
         return destinationZone;
     } // End of getSlutZone
 
+    
+    // REJSEZONER ----------------------------------------------------------------
+    public void setRejseZoner(int i) {
+        this.rejsezoner = i;
+    } // End of setSlutZone
+    public int getRejseZoner() {
+        return rejsezoner;
+    } // End of getSlutZone
 
     // ZONEBEREGNER ------------------------------------------------------------
     public int zoneBeregner() {
-        int rejseZoner = 0;
+        int rejsezoner = 0;
         int slutZone = getSlutZone();
 
         if (slutZone < automatZone) {
-            rejseZoner = (automatZone - slutZone);
+            rejsezoner = (automatZone - slutZone);
         }
         else if (slutZone > automatZone) {
-            rejseZoner = (slutZone - automatZone);
+            rejsezoner = (slutZone - automatZone);
         }
         else if (slutZone == automatZone) {
-            rejseZoner = 1;
+            rejsezoner = 1;
         }
         if (slutZone > 6){
-            rejseZoner = 6;
+            rejsezoner = 6;
         }
-        return rejseZoner;
+        return rejsezoner;
     }
 }

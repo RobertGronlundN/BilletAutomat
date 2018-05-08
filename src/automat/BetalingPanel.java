@@ -10,8 +10,31 @@ public class BetalingPanel extends javax.swing.JPanel
     /**
      * Creates new form BetalingPanel
      */
+    
+    //Billetautomat ba;
+    MainGUI start;
+    
+    
+    public void setup(MainGUI start){
+       this.start = start;
+    }
+    
+    
     public BetalingPanel() {
         initComponents();
+    }
+    
+    public void updateIndkoebskurv(){
+        for (int i = 0 ; i < MainGUI.automat.kurv.size() ; i++){
+        guiTextKurv.append(MainGUI.automat.kurv.get(i).getBillettype()
+                      + "\t"
+                      + MainGUI.automat.kurv.get(i).getAntalZoner()
+                      + " zoner \t"
+                      + MainGUI.automat.kurv.get(i).getAntalBilletter()
+                      + " billet(ter) \t"
+                      + MainGUI.automat.kurv.get(i).getBilletPris()
+                      + " kr.\n");            
+        }
     }
 
     /**
@@ -82,7 +105,7 @@ public class BetalingPanel extends javax.swing.JPanel
         jLabel3.setText("TOTAL: ");
 
         guiTotalLabel.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
-        guiTotalLabel.setText(" " + MenuPanel.automat.getTotal() + " DKK");
+        guiTotalLabel.setText(" " + MainGUI.automat.getTotal() + " DKK");
 
         guiTextKurv.setColumns(20);
         guiTextKurv.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
@@ -150,15 +173,15 @@ public class BetalingPanel extends javax.swing.JPanel
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         
-        StartFrame.fane.setSelectedIndex(0);
+        MainGUI.fane.setSelectedIndex(0);
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void guiMontoerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiMontoerActionPerformed
-        if (MenuPanel.automat.getMontoertilstand() == false){
-            StartFrame.fane.setSelectedIndex(5);
+        if (MainGUI.automat.getMontoertilstand() == false){
+            MainGUI.fane.setSelectedIndex(5);
         } else {
-            StartFrame.fane.setSelectedIndex(2);
+            MainGUI.fane.setSelectedIndex(2);
         }
         
 
@@ -167,7 +190,7 @@ public class BetalingPanel extends javax.swing.JPanel
     private void guiAfslutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiAfslutActionPerformed
 
         MenuPanel.clear();
-        StartFrame.fane.setSelectedIndex(0);       
+        MainGUI.fane.setSelectedIndex(0);       
     }//GEN-LAST:event_guiAfslutActionPerformed
     
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -177,7 +200,7 @@ public class BetalingPanel extends javax.swing.JPanel
         } catch (IOException ex) {
             Logger.getLogger(BetalingPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
-        StartFrame.fane.setSelectedIndex(3);
+        MainGUI.fane.setSelectedIndex(3);
         guiTextKurv.setText("");
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -188,7 +211,7 @@ public class BetalingPanel extends javax.swing.JPanel
         } catch (IOException ex) {
             Logger.getLogger(BetalingPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
-        StartFrame.fane.setSelectedIndex(3);
+        MainGUI.fane.setSelectedIndex(3);
         guiTextKurv.setText("");
     }//GEN-LAST:event_jButton3ActionPerformed
 

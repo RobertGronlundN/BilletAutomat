@@ -2,13 +2,18 @@ package automat;
 
 import javax.swing.JTabbedPane;
 
-public class StartFrame extends javax.swing.JFrame 
+public class MainGUI extends javax.swing.JFrame 
 {
+    //Billetautomat ba;
+    static Billetautomat automat = new Billetautomat();    
+    MainGUI mg = this;
     /**
      * Creates new form StartFrame
      */
-    public StartFrame() {
+    public MainGUI() {
         initComponents();
+        
+        setup();
         
         // Denne kode er givet af Jacob Nordfalk
         fane.setUI(new javax.swing.plaf.basic.BasicTabbedPaneUI(){
@@ -17,6 +22,21 @@ public class StartFrame extends javax.swing.JFrame
             }
         });  
     }
+    
+    public void setup(){
+        menuPanel2.setup(mg);
+        betalingPanel1.setup(mg);
+        printBillet1.setup(mg);
+        montoerPanel1.setup(mg);
+        zonePanel1.setup(mg);
+        loginPanel1.setup(mg);
+    }
+    
+    public void setTab(int tab) {
+        fane.setSelectedIndex(tab);
+        betalingPanel1.updateIndkoebskurv();
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -77,27 +97,28 @@ public class StartFrame extends javax.swing.JFrame
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(StartFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(StartFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(StartFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(StartFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-            new StartFrame().setVisible(true);
+            new MainGUI().setVisible(true);
             }
         });
     } // End of main
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private automat.BetalingPanel betalingPanel1;
-    public static javax.swing.JTabbedPane fane;
+    private javax.swing.JTabbedPane fane;
     private automat.LoginPanel loginPanel1;
     private automat.MenuPanel menuPanel2;
     private automat.MontoerPanel montoerPanel1;

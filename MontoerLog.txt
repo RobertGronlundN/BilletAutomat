@@ -45,3 +45,12 @@ Total billetter solgt: 1.
 Mon May 07 22:51:36 CEST 2018: Montoeren Admin har udført succefuld login.
 Mon May 07 22:52:00 CEST 2018: Montoeren Admin har logget ud.
 >>>>>>> aa6e186cef9a1025674da5c37ff25628e0f42f72
+Tue May 08 10:44:03 CEST 2018: Købt: 1.0 ; Voksen         ; 1 zoner.
+Tue May 08 10:44:03 CEST 2018: Total på køb 12.0.
+Total billetter solgt: 1.
+Tue May 08 11:24:55 CEST 2018: Købt: 1.0 ; Voksen         ; 1 zoner.
+Tue May 08 11:24:55 CEST 2018: Total på køb 12.0.
+Total billetter solgt: 1.
+Tue May 08 11:35:51 CEST 2018: Købt: 1.0 ; Voksen         ; 1 zoner.
+Tue May 08 11:35:51 CEST 2018: Total på køb 12.0.
+Total billetter solgt: 1.

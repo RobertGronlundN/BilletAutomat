@@ -4,17 +4,21 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class MenuPanel extends javax.swing.JPanel implements ActionListener 
-{
-    static Billetautomat automat = new Billetautomat();
-           
-    int type = 0;
-    static int zoner = 1;
-    static int antal = 1;
+{    
+    MainGUI mg;
     
-    static public void update(){
+    int type = 0;    
+    int antal = 1;
+    
+    public void setup(MainGUI mg){
+        this.mg = mg;
+    }
+    
+    
+    public void update(){
         guiKurv.removeAll();
 
-        if (automat.kurv.size() <= 0){
+        if (mg.automat.kurv.size() <= 0){
             guiKurv.add(" ");
             guiKurv.add(" ");
             guiKurv.add("                                          Kurven er tom");
@@ -28,27 +32,27 @@ public class MenuPanel extends javax.swing.JPanel implements ActionListener
             guiSletAlle.setEnabled(true);
         }
         
-        for (int i = 0 ; i < automat.kurv.size() ; i++){
-            guiKurv.add(automat.kurv.get(i).getBillettype()
+        for (int i = 0 ; i < mg.automat.kurv.size() ; i++){
+            guiKurv.add(mg.automat.kurv.get(i).getBillettype()
                       + "      "
-                      + automat.kurv.get(i).getAntalZoner()
+                      + mg.automat.kurv.get(i).getAntalZoner()
                       + " zoner     "
-                      + automat.kurv.get(i).getAntalBilletter()
+                      + mg.automat.kurv.get(i).getAntalBilletter()
                       + " billet(ter)    "
-                      + automat.kurv.get(i).getBilletPris()
+                      + mg.automat.kurv.get(i).getBilletPris()
                       + " kr.   ");
         }
         
-        totalPris.setText(" " + automat.getTotal() + " DKK");
+        totalPris.setText(" " + mg.automat.getTotal() + " DKK");
     }
     
-    static public void clear(){
-        automat.kurv.clear();
+    public void clear(){
+        mg.automat.kurv.clear();
                 
-        zoner = 1;
+        mg.automat.beregner.setSlutZone(1);
         antal = 1;
         billettype.setSelectedIndex(0);
-        antalZoner.setText(" " + zoner + " ");
+        antalZoner.setText(" " + mg.automat.beregner.getSlutZone() + " ");
         antalAntal.setText(" " + antal + " ");
         
         guiAntalPlus.setEnabled(true);
@@ -65,8 +69,8 @@ public class MenuPanel extends javax.swing.JPanel implements ActionListener
         initComponents();        
         update();
        
-        for (int i = 0 ; i < automat.billetType.size() ; i++ ){
-            billettype.addItem(automat.billetType.get(i).getBillettype());
+        for (int i = 0 ; i < mg.automat.billetType.size() ; i++ ){
+            billettype.addItem(mg.automat.billetType.get(i).getBillettype());
         }
         
     }
@@ -141,7 +145,7 @@ public class MenuPanel extends javax.swing.JPanel implements ActionListener
 
         guiZoneMinus.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         guiZoneMinus.setText("-");
-        if (zoner == 1) {
+        if (mg.automat.beregner.getSlutZone() == 1) {
             guiZoneMinus.setEnabled(false);
         }
         guiZoneMinus.addActionListener(new java.awt.event.ActionListener() {
@@ -215,7 +219,7 @@ public class MenuPanel extends javax.swing.JPanel implements ActionListener
 
         totalPris.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
         totalPris.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        totalPris.setText(" "+automat.getTotal() + " DKK");
+        totalPris.setText(" "+mg.automat.getTotal() + " DKK");
 
         jLabel5.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
         jLabel5.setText("TOTAL:");
@@ -375,14 +379,15 @@ public class MenuPanel extends javax.swing.JPanel implements ActionListener
 
     private void guiZoneMinusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiZoneMinusActionPerformed
         // TODO add your handling code here:
-        if (zoner > 1){
-            zoner--;
+        if (mg.automat.beregner.getSlutZone() > 1){
+            int x = mg.automat.beregner.getSlutZone();
+            mg.automat.beregner.setSlutZone(x-1);
         }
-        antalZoner.setText(" "+ zoner + " ");
+        antalZoner.setText(" "+ mg.automat.beregner.getSlutZone() + " ");
         
-        if (zoner == 1) {
+        if (mg.automat.beregner.getSlutZone() == 1) {
              guiZoneMinus.setEnabled(false);
-        } else if (zoner == 6) {
+        } else if (mg.automat.beregner.getSlutZone() == 6) {
              guiZonePlus.setEnabled(false);
         } else {
             guiZoneMinus.setEnabled(true);
@@ -391,15 +396,15 @@ public class MenuPanel extends javax.swing.JPanel implements ActionListener
     }//GEN-LAST:event_guiZoneMinusActionPerformed
 
     private void guiZonePlusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiZonePlusActionPerformed
-        if (zoner < 6){
-            zoner++;
+        if (mg.automat.beregner.getSlutZone() < 6){
+            int x = mg.automat.beregner.getSlutZone();
+            mg.automat.beregner.setSlutZone(x+1);
         }
-        antalZoner.setText(" "+ zoner + " ");
+        antalZoner.setText(" "+ mg.automat.beregner.getSlutZone() + " ");
         
-        
-        if (zoner == 1) {
+        if (mg.automat.beregner.getSlutZone() == 1) {
              guiZoneMinus.setEnabled(false);
-        } else if (zoner == 6) {
+        } else if (mg.automat.beregner.getSlutZone() == 6) {
              guiZonePlus.setEnabled(false);
         } else {
             guiZoneMinus.setEnabled(true);
@@ -447,10 +452,10 @@ public class MenuPanel extends javax.swing.JPanel implements ActionListener
 
     private void guiNulstilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiNulstilActionPerformed
         // TODO add your handling code here:
-        zoner = 1;
+        mg.automat.beregner.setRejseZoner(1);
         antal = 1;
         billettype.setSelectedIndex(0);
-        antalZoner.setText(" " + zoner + " ");
+        antalZoner.setText(" " + mg.automat.beregner.getRejseZoner() + " ");
         antalAntal.setText(" " + antal + " ");
         
         guiAntalMinus.setEnabled(false);
@@ -458,11 +463,8 @@ public class MenuPanel extends javax.swing.JPanel implements ActionListener
     }//GEN-LAST:event_guiNulstilActionPerformed
 
     private void guiTilfoejActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiTilfoejActionPerformed
-        // TODO add your handling code here:
-        
-        type = billettype.getSelectedIndex();
-              
-        automat.tilfoejBillet(type,zoner,antal);
+          
+        mg.automat.tilfoejBillet(billettype.getSelectedIndex(),mg.automat.beregner.getRejseZoner(),antal);
         
                 
         update();
@@ -471,73 +473,55 @@ public class MenuPanel extends javax.swing.JPanel implements ActionListener
     }//GEN-LAST:event_guiTilfoejActionPerformed
 
     private void guiBetalingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiBetalingActionPerformed
-                
-        StartFrame.fane.setSelectedIndex(1);
+        mg.setTab(1);        
         
-        BetalingPanel.guiTotalLabel.setText(" " + automat.getTotal() + " DKK");
-        
-        for (int i = 0 ; i < automat.kurv.size() ; i++){
-        BetalingPanel.guiTextKurv.append(automat.kurv.get(i).getBillettype()
-                      + "\t"
-                      + automat.kurv.get(i).getAntalZoner()
-                      + " zoner \t"
-                      + automat.kurv.get(i).getAntalBilletter()
-                      + " billet(ter) \t"
-                      + automat.kurv.get(i).getBilletPris()
-                      + " kr.\n");            
-        }
     }//GEN-LAST:event_guiBetalingActionPerformed
 
     private void guiSletEnkeltActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiSletEnkeltActionPerformed
-        
-        automat.kurv.remove(guiKurv.getSelectedIndex());
+        mg.automat.kurv.remove(guiKurv.getSelectedIndex());
         
         update();
     }//GEN-LAST:event_guiSletEnkeltActionPerformed
 
     private void guiMontoerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiMontoerActionPerformed
-        
-        if (MenuPanel.automat.getMontoertilstand() == false){
-            StartFrame.fane.setSelectedIndex(5);
+        if (mg.automat.getMontoertilstand() == false){
+            mg.setTab(5);
         } else {
-            StartFrame.fane.setSelectedIndex(2);
+            mg.setTab(2);
         }
     }//GEN-LAST:event_guiMontoerActionPerformed
 
     private void guiSletAlleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiSletAlleActionPerformed
-        
         clear();              
     }//GEN-LAST:event_guiSletAlleActionPerformed
 
     private void guiAfslutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiAfslutActionPerformed
-        
         clear();               
     }//GEN-LAST:event_guiAfslutActionPerformed
 
     private void guiZoneBeregnerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiZoneBeregnerActionPerformed
-        ZonePanel.guiEgenZone.setText("Du er i zone: " + ZonePanel.beregner.getAutomatZone());
-        StartFrame.fane.setSelectedIndex(4);
+        mg.setTab(1);
     }//GEN-LAST:event_guiZoneBeregnerActionPerformed
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public static javax.swing.JLabel antalAntal;
-    public static javax.swing.JLabel antalZoner;
-    public static javax.swing.JComboBox<String> billettype;
+    private javax.swing.JLabel antalAntal;
+    private javax.swing.JLabel antalZoner;
+    private javax.swing.JComboBox<String> billettype;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton guiAfslut;
-    public static javax.swing.JButton guiAntalMinus;
-    public static javax.swing.JButton guiAntalPlus;
-    public static javax.swing.JButton guiBetaling;
-    public static java.awt.List guiKurv;
+    private javax.swing.JButton guiAntalMinus;
+    private javax.swing.JButton guiAntalPlus;
+    private javax.swing.JButton guiBetaling;
+    private java.awt.List guiKurv;
     private javax.swing.JButton guiMontoer;
     private javax.swing.JButton guiNulstil;
-    public static javax.swing.JButton guiSletAlle;
-    public static javax.swing.JButton guiSletEnkelt;
+    private javax.swing.JButton guiSletAlle;
+    private javax.swing.JButton guiSletEnkelt;
     private javax.swing.JButton guiTilfoej;
     private javax.swing.JButton guiZoneBeregner;
-    public static javax.swing.JButton guiZoneMinus;
-    public static javax.swing.JButton guiZonePlus;
+    private javax.swing.JButton guiZoneMinus;
+    private javax.swing.JButton guiZonePlus;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -547,7 +531,7 @@ public class MenuPanel extends javax.swing.JPanel implements ActionListener
     private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable jTable1;
-    public static javax.swing.JLabel totalPris;
+    private javax.swing.JLabel totalPris;
     // End of variables declaration//GEN-END:variables
   
     @Override

@@ -18,6 +18,8 @@ public class Billetautomat                                                      
     private boolean montoertilstand = false;
     private boolean validBalance = false;
 
+    Zoneberegner beregner = new Zoneberegner();                                 // Oprettelse af ny zoneberegner, beregner
+    
     File setup = new File("automatSetup.txt");
     
     ArrayList<String> automatLog = new ArrayList<>();                           // Oprettelse af ArrayList til automatlog

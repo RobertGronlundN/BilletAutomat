@@ -9,6 +9,12 @@ public class MontoerPanel extends javax.swing.JPanel
     static LogEvent log = new LogEvent();
     
     //File file = new File("")
+    MainGUI start;
+    
+    public void setup(MainGUI start){
+       this.start = start;
+    }
+    
     
     public MontoerPanel() {
         initComponents();
@@ -72,7 +78,7 @@ public class MontoerPanel extends javax.swing.JPanel
         guiZoneVaelger.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6" }));
 
         guiZoneSted.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        guiZoneSted.setText("Billetautomat er i zone: " + MenuPanel.automat.getAutomatZone());
+        guiZoneSted.setText("Billetautomat er i zone: " + MainGUI.automat.getAutomatZone());
 
         jLabel3.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jLabel3.setText("Sæt ny zone for automat:");
@@ -154,19 +160,19 @@ public class MontoerPanel extends javax.swing.JPanel
     }// </editor-fold>//GEN-END:initComponents
 
     private void guiMontoerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiMontoerActionPerformed
-        MenuPanel.automat.setMontoertilstand(false);                            // Sætter montoertilsantd FALSE
+        MainGUI.automat.setMontoertilstand(false);                            // Sætter montoertilsantd FALSE
         try {
             MontoerPanel.log.LogEvent(2, 0, "Admin", 0);
         } catch (IOException ex) {
             Logger.getLogger(MontoerPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        StartFrame.fane.setSelectedIndex(0);                                    // Omddirigerer tilbage til startfanen
+        MainGUI.fane.setSelectedIndex(0);                                    // Omddirigerer tilbage til startfanen
     }//GEN-LAST:event_guiMontoerActionPerformed
 
     private void guiAfslutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiAfslutActionPerformed
         MenuPanel.clear();                                                      // 
-        StartFrame.fane.setSelectedIndex(0);                                    // Omdirigerer tilbage til startfane
+        MainGUI.fane.setSelectedIndex(0);                                    // Omdirigerer tilbage til startfane
     }//GEN-LAST:event_guiAfslutActionPerformed
 
     private void guiZoneSaetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiZoneSaetActionPerformed

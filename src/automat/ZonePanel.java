@@ -2,8 +2,15 @@ package automat;
 
 public class ZonePanel extends javax.swing.JPanel 
 {
-    static Zoneberegner beregner = new Zoneberegner();                          // Oprettelse af ny zoneberegner, beregner
+    //Zoneberegner beregner = new Zoneberegner();                          // Oprettelse af ny zoneberegner, beregner
             
+    
+    MainGUI start;
+    
+    public void setup(MainGUI start){
+       this.start = start;
+    }
+    
     /**
      * Creates new form ZonePanel
      */
@@ -11,6 +18,11 @@ public class ZonePanel extends javax.swing.JPanel
         initComponents();
     }
 
+    public void update(){
+        guiEgenZone.setText("Du er i zone: " + MainGUI.automat.beregner.getAutomatZone());
+    }
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -123,27 +135,29 @@ public class ZonePanel extends javax.swing.JPanel
     }// </editor-fold>//GEN-END:initComponents
 
     private void guiTilbageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiTilbageActionPerformed
-        StartFrame.fane.setSelectedIndex(0);
+        MainGUI.fane.setSelectedIndex(0);
     }//GEN-LAST:event_guiTilbageActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
+        
         beregner.setSlutZone(guiZoneValg.getSelectedIndex()+1);
         MenuPanel.zoner = beregner.zoneBeregner();
         MenuPanel.antalZoner.setText(" " + MenuPanel.zoner + " ");
-        StartFrame.fane.setSelectedIndex(0);
+        MainGUI.fane.setSelectedIndex(0);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void guiMontoerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiMontoerActionPerformed
-        if (MenuPanel.automat.getMontoertilstand() == false){
-            StartFrame.fane.setSelectedIndex(5);
+        if (MainGUI.automat.getMontoertilstand() == false){
+            MainGUI.fane.setSelectedIndex(5);
         } else {
-            StartFrame.fane.setSelectedIndex(2);
+            MainGUI.fane.setSelectedIndex(2);
         }
     }//GEN-LAST:event_guiMontoerActionPerformed
 
     private void guiAfslutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiAfslutActionPerformed
         MenuPanel.clear();
-        StartFrame.fane.setSelectedIndex(0);
+        MainGUI.fane.setSelectedIndex(0);
     }//GEN-LAST:event_guiAfslutActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
