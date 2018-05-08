@@ -33,6 +33,30 @@ public class ZoneberegnerTest extends TestCase {
   }
   
   /**
+   * Test of setSlutZone method, of class Zoneberegner.
+   */
+  public void testSetRejseZoner() {
+      System.out.println("setSlutZone");
+      int destZone = 10;
+      Zoneberegner instance = new Zoneberegner();
+      instance.setRejseZoner(destZone);
+      int zoneResult = instance.getRejseZoner();
+      assertEquals(destZone, zoneResult);
+  }
+  
+  /**
+   * Test of getRejseZoner method, of class Zoneberegner.
+   */
+  public void testGetRejseZoner() {
+      System.out.println("getRejseZoner");
+      Zoneberegner instance = new Zoneberegner();
+      int expResult = 150;
+      instance.setRejseZoner(expResult);
+      int result = instance.getRejseZoner();
+      assertEquals(expResult, result);
+  }
+  
+  /**
    * Test of zoneBeregner method, of class Zoneberegner.
    */
   public void testZoneBeregner() {
@@ -40,7 +64,8 @@ public class ZoneberegnerTest extends TestCase {
       Zoneberegner instance = new Zoneberegner();
       instance.setSlutZone(10);
       int expResult = 6;
-      int result = instance.zoneBeregner();
+      instance.zoneBeregner();
+      int result = instance.getRejseZoner();
       assertEquals(expResult, result);
   }    
 
