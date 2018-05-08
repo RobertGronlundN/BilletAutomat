@@ -1,22 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package automat;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-/**
- *
- * @author Robert
- */
-public class MenuPanel extends javax.swing.JPanel implements ActionListener {
 
-    /**
-     * Creates new form MenuPanel
-     */
-    
+public class MenuPanel extends javax.swing.JPanel implements ActionListener 
+{
     static Billetautomat automat = new Billetautomat();
            
     int type = 0;

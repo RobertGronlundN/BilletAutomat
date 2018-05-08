@@ -33,11 +33,13 @@ public class BilletautomatTest extends TestCase {
         Billetautomat instance = new Billetautomat();
         instance.tilfoejBillet(index, zoner, antal);
         instance.tilfoejBillet(index, zoner, antal);
-        instance.tilfoejBillet(index, zoner, antal);        
+        instance.tilfoejBillet(index, zoner, antal);  
+        int result1 = instance.kurv.size();
+        assertEquals(result1, 3);
         int fjern = 2;
         instance.fjernBillet(fjern);
-        int result = instance.kurv.size();
-        assertEquals(result, fjern);
+        int result2 = instance.kurv.size();
+        assertEquals(result2, fjern);
     }
 
     /**

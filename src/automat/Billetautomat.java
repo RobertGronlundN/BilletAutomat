@@ -25,7 +25,6 @@ public class Billetautomat                                                      
     ArrayList<Kurv> kurv = new ArrayList<>();                                   // Oprettelse af ArrayList til kurv af billetter
 
     public Billetautomat(){
-        
         billetType.add(new Billettype("Voksen        ", 12));
         billetType.add(new Billettype("Barn            ", 6));
         billetType.add(new Billettype("Pensionist   ", 9));
@@ -122,14 +121,7 @@ public class Billetautomat                                                      
     // MONTOER LOGIN -----------------------------------------------------------
     void montoerLogin(String adgangskode)
     {
-        if ("1234".equals(adgangskode)) {
-            montoertilstand = true;                                             // aendrer den boolske vaerdi til true (1)
-            System.out.println("Montoertilstand aktiveret");                    // Montoeren kan nu foretage aendringer i systemet
-            System.out.println("Du kan nu angive en fast billetpris, aendre zone for automatens placering mm.");
-        } else {
-            montoertilstand = false;                                            // aendrer eller bibeholder boolske vaerdi falsk (0)
-            System.out.println("Montoertilstand deaktiveret");                  // Montoer er logget ud
-        }        
+        montoertilstand = "1234".equals(adgangskode); 
     } // End of montoer login
     
     
