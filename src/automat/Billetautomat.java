@@ -1,10 +1,6 @@
 package automat;                                                                // Skal tilhoere den overordnede package, automat for at kunne arbejde sammen med de resterende filer
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.ArrayList;                                                     // Import, brugt til oprettelse af ArrayList
 import java.util.stream.Collectors;     // BRUGES DENNE?
 import java.util.List;                  // BRUGES DENNE?
@@ -17,6 +13,7 @@ public class Billetautomat                                                      
     public int antalBilletterSolgt;
     private boolean montoertilstand = false;
     private boolean validBalance = false;
+    public int antal = 1;
 
     Zoneberegner beregner = new Zoneberegner();                                 // Oprettelse af ny zoneberegner, beregner
     
@@ -35,29 +32,7 @@ public class Billetautomat                                                      
         billetType.add(new Billettype("Hund           ", 6));
     }
 
-    /*// SETUP -------------------------------------------------------------------
-    public void automatSetup() throws IOException{
-        try(BufferedReader br = new BufferedReader(new FileReader(setup))) {
-        StringBuilder sb = new StringBuilder();
         
-        String type = null;
-        String pris = null;
-        
-        while (br.readLine() != "end") { 
-            type = br.readLine();
-            pris = br.readLine();
-            billetType.add( new Billettype(type, Integer.parseInt (pris)));
-            System.out.println(type + pris);
-        }
-        
-        System.out.println("Setup fuldført");
-                
-        } catch (FileNotFoundException e) {
-              System.out.println("File not found.");
-	} // End of catch 
-    } */
-       
-    
     // ADD BILLET MED NUVAERENDE INFO -------------------------------------------
     public void tilfoejBillet(int index, int zoner, int antal){                 // Funktionen kaldes naar en ny billet skal tilfoejes til arraylisen indkoebskurv
         kurv.add(new Kurv(billetType.get(index).getBillettype(), antal, billetType.get(index).getPris(), zoner, index));
@@ -146,6 +121,14 @@ public class Billetautomat                                                      
         return automatZone;                                                     // Returnerer zone for automats placering
     } // End of set automatzone
 
+    // ANTAL -------------------------------------------------------------
+    public void setAntal(int x) {
+        antal = x;
+    } // End of set automatzone
+    public int getAntal() {
+        return antal;                                                     // Returnerer zone for automats placering
+    } // End of set automatzone    
+    
     
      // ANTAL BILLETTER SOLGT --------------------------------------------------
     public int getAntalBilletterSolgt()    {

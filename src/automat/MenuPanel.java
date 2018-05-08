@@ -7,9 +7,6 @@ public class MenuPanel extends javax.swing.JPanel implements ActionListener
 {    
     MainGUI mg;
     
-    int type = 0;    
-    int antal = 1;
-    
     public void setup(MainGUI mg){
         this.mg = mg;
     }
@@ -49,17 +46,17 @@ public class MenuPanel extends javax.swing.JPanel implements ActionListener
     public void clear(){
         mg.automat.kurv.clear();
                 
-        mg.automat.beregner.setSlutZone(1);
-        antal = 1;
+        mg.automat.beregner.setRejseZoner(1);
+        mg.automat.setAntal(1);
         billettype.setSelectedIndex(0);
-        antalZoner.setText(" " + mg.automat.beregner.getSlutZone() + " ");
-        antalAntal.setText(" " + antal + " ");
+        antalZoner.setText(" " + mg.automat.beregner.getRejseZoner() + " ");
+        antalAntal.setText(" " + mg.automat.getAntal() + " ");
         
         guiAntalPlus.setEnabled(true);
         guiZonePlus.setEnabled(true); 
         guiAntalMinus.setEnabled(false);
         guiZoneMinus.setEnabled(false);        
-        
+                
         update();
     }
     
@@ -167,7 +164,7 @@ public class MenuPanel extends javax.swing.JPanel implements ActionListener
 
         guiAntalMinus.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         guiAntalMinus.setText("-");
-        if (antal == 1){
+        if (mg.automat.getAntal() == 1){
             guiAntalMinus.setEnabled(false);
         }
         guiAntalMinus.addActionListener(new java.awt.event.ActionListener() {
@@ -414,14 +411,15 @@ public class MenuPanel extends javax.swing.JPanel implements ActionListener
 
     private void guiAntalMinusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiAntalMinusActionPerformed
         // TODO add your handling code here:
-        if (antal > 1){
-            antal--;
+        if (mg.automat.getAntal() > 1){
+            int x = mg.automat.getAntal();
+            mg.automat.setAntal(x-1);
         }        
-        antalAntal.setText(" "+ antal + " ");
+        antalAntal.setText(" "+ mg.automat.getAntal() + " ");
         
-        if (antal == 1) {
+        if (mg.automat.getAntal() == 1) {
              guiAntalMinus.setEnabled(false);
-        } else if (antal == 25) {
+        } else if (mg.automat.getAntal() == 25) {
              guiAntalPlus.setEnabled(false);
         } else {
             guiAntalMinus.setEnabled(true);
@@ -431,14 +429,14 @@ public class MenuPanel extends javax.swing.JPanel implements ActionListener
 
     private void guiAntalPlusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiAntalPlusActionPerformed
         // TODO add your handling code here:
-       
-        antal++;
+        int x = mg.automat.getAntal();
+        mg.automat.setAntal(x+1);
                
-        antalAntal.setText(" "+ antal + " ");
+        antalAntal.setText(" "+ mg.automat.getAntal() + " ");
         
-        if (antal == 1) {
+        if (mg.automat.getAntal() == 1) {
              guiAntalMinus.setEnabled(false);
-        } else if (antal == 25) {
+        } else if (mg.automat.getAntal() == 25) {
              guiAntalPlus.setEnabled(false);
         } else {
             guiAntalMinus.setEnabled(true);
@@ -451,20 +449,12 @@ public class MenuPanel extends javax.swing.JPanel implements ActionListener
     }//GEN-LAST:event_billettypeActionPerformed
 
     private void guiNulstilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiNulstilActionPerformed
-        // TODO add your handling code here:
-        mg.automat.beregner.setRejseZoner(1);
-        antal = 1;
-        billettype.setSelectedIndex(0);
-        antalZoner.setText(" " + mg.automat.beregner.getRejseZoner() + " ");
-        antalAntal.setText(" " + antal + " ");
-        
-        guiAntalMinus.setEnabled(false);
-        guiZoneMinus.setEnabled(false);
+        clear();
     }//GEN-LAST:event_guiNulstilActionPerformed
 
     private void guiTilfoejActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiTilfoejActionPerformed
           
-        mg.automat.tilfoejBillet(billettype.getSelectedIndex(),mg.automat.beregner.getRejseZoner(),antal);
+        mg.automat.tilfoejBillet(billettype.getSelectedIndex(),mg.automat.beregner.getRejseZoner(),mg.automat.getAntal());
         
                 
         update();
