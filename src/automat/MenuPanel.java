@@ -41,7 +41,8 @@ public class MenuPanel extends javax.swing.JPanel implements ActionListener
         }
         
         totalPris.setText(" " + mg.automat.getTotal() + " DKK");
-        
+        antalZoner.setText(" " + mg.automat.beregner.getRejseZoner() + " ");
+
         
         
     }

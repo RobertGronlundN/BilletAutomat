@@ -35,7 +35,7 @@ public class Zoneberegner
 
     // ZONEBEREGNER ------------------------------------------------------------
     public void zoneBeregner() {
-        int rejsezoner = 0;
+        rejsezoner = 0;
         int slutZone = getSlutZone();
 
         if (slutZone < automatZone) {
@@ -50,5 +50,6 @@ public class Zoneberegner
         if (slutZone > 6){
             rejsezoner = 6;
         }
+        
     }
 }
