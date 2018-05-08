@@ -16,6 +16,7 @@ public class Billetautomat                                                      
     public int antal = 1;
 
     Zoneberegner beregner = new Zoneberegner();                                 // Oprettelse af ny zoneberegner, beregner
+    LogEvent log = new LogEvent();
     
     File setup = new File("automatSetup.txt");
     

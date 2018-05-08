@@ -5,16 +5,12 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class MontoerPanel extends javax.swing.JPanel 
-{
-    static LogEvent log = new LogEvent();
+{   
+    MainGUI mg;
     
-    //File file = new File("")
-    MainGUI start;
-    
-    public void setup(MainGUI start){
-       this.start = start;
-    }
-    
+    public void setup(MainGUI mg){
+       this.mg = mg;
+    }    
     
     public MontoerPanel() {
         initComponents();
@@ -78,7 +74,7 @@ public class MontoerPanel extends javax.swing.JPanel
         guiZoneVaelger.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6" }));
 
         guiZoneSted.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        guiZoneSted.setText("Billetautomat er i zone: " + MainGUI.automat.getAutomatZone());
+        guiZoneSted.setText("Billetautomat er i zone: " + mg.automat.getAutomatZone());
 
         jLabel3.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jLabel3.setText("Sæt ny zone for automat:");
@@ -160,30 +156,28 @@ public class MontoerPanel extends javax.swing.JPanel
     }// </editor-fold>//GEN-END:initComponents
 
     private void guiMontoerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiMontoerActionPerformed
-        MainGUI.automat.setMontoertilstand(false);                            // Sætter montoertilsantd FALSE
+        mg.automat.setMontoertilstand(false);                            // Sætter montoertilsantd FALSE
         try {
-            MontoerPanel.log.LogEvent(2, 0, "Admin", 0);
+            mg.automat.log.LogEvent(2, 0, "Admin", 0);
         } catch (IOException ex) {
             Logger.getLogger(MontoerPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        MainGUI.fane.setSelectedIndex(0);                                    // Omddirigerer tilbage til startfanen
+        mg.setTab(0);                                    // Omddirigerer tilbage til startfanen
     }//GEN-LAST:event_guiMontoerActionPerformed
 
     private void guiAfslutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiAfslutActionPerformed
-        MenuPanel.clear();                                                      // 
-        MainGUI.fane.setSelectedIndex(0);                                    // Omdirigerer tilbage til startfane
+        mg.afslut();                                   // Omdirigerer tilbage til startfane
     }//GEN-LAST:event_guiAfslutActionPerformed
 
     private void guiZoneSaetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiZoneSaetActionPerformed
-        ZonePanel.beregner.setAutomatZone(guiZoneVaelger.getSelectedIndex()+1);  // Kalder funktionen setAutomatZone, ændrer denne værdi til ønsket lokation
-        ZonePanel.guiEgenZone.setText("Du er i zone: " + ZonePanel.beregner.getAutomatZone());
-        guiZoneSted.setText("Billetautomat er i zone: " + ZonePanel.beregner.getAutomatZone() + " ");
+        mg.automat.beregner.setAutomatZone(guiZoneVaelger.getSelectedIndex()+1);  // Kalder funktionen setAutomatZone, ændrer denne værdi til ønsket lokation
+        guiZoneSted.setText("Billetautomat er i zone: " + mg.automat.beregner.getAutomatZone() + " ");
     }//GEN-LAST:event_guiZoneSaetActionPerformed
 
     private void guiIndlaesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiIndlaesActionPerformed
         try {
-            log.printLog();
+            mg.automat.log.printLog();
         } catch (IOException ex) {
             Logger.getLogger(MontoerPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -193,10 +187,10 @@ public class MontoerPanel extends javax.swing.JPanel
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton guiAfslut;
     private javax.swing.JButton guiIndlaes;
-    public static javax.swing.JTextArea guiLog;
+    private javax.swing.JTextArea guiLog;
     private javax.swing.JButton guiMontoer;
     private javax.swing.JButton guiZoneSaet;
-    public static javax.swing.JLabel guiZoneSted;
+    private javax.swing.JLabel guiZoneSted;
     private javax.swing.JComboBox<String> guiZoneVaelger;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

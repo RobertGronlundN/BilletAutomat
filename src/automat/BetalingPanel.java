@@ -5,36 +5,30 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class BetalingPanel extends javax.swing.JPanel 
-{
-    PrintBillet udprint = new PrintBillet();    
-    /**
-     * Creates new form BetalingPanel
-     */
+{    
+    MainGUI mg;    
     
-    //Billetautomat ba;
-    MainGUI start;
-    
-    
-    public void setup(MainGUI start){
-       this.start = start;
-    }
-    
+    public void setup(MainGUI mg){
+       this.mg = mg;
+    }    
     
     public BetalingPanel() {
         initComponents();
     }
     
     public void updateIndkoebskurv(){
-        for (int i = 0 ; i < MainGUI.automat.kurv.size() ; i++){
-        guiTextKurv.append(MainGUI.automat.kurv.get(i).getBillettype()
+        for (int i = 0 ; i < mg.automat.kurv.size() ; i++){
+        guiTextKurv.append(mg.automat.kurv.get(i).getBillettype()
                       + "\t"
-                      + MainGUI.automat.kurv.get(i).getAntalZoner()
+                      + mg.automat.kurv.get(i).getAntalZoner()
                       + " zoner \t"
-                      + MainGUI.automat.kurv.get(i).getAntalBilletter()
+                      + mg.automat.kurv.get(i).getAntalBilletter()
                       + " billet(ter) \t"
-                      + MainGUI.automat.kurv.get(i).getBilletPris()
+                      + mg.automat.kurv.get(i).getBilletPris()
                       + " kr.\n");            
         }
+        guiTotalLabel.setText(" " + mg.automat.getTotal() + " DKK");
+        
     }
 
     /**
@@ -105,7 +99,7 @@ public class BetalingPanel extends javax.swing.JPanel
         jLabel3.setText("TOTAL: ");
 
         guiTotalLabel.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
-        guiTotalLabel.setText(" " + MainGUI.automat.getTotal() + " DKK");
+        guiTotalLabel.setText(" " + mg.automat.getTotal() + " DKK");
 
         guiTextKurv.setColumns(20);
         guiTextKurv.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
@@ -171,47 +165,40 @@ public class BetalingPanel extends javax.swing.JPanel
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        
-        MainGUI.fane.setSelectedIndex(0);
+        mg.setTab(0);
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void guiMontoerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiMontoerActionPerformed
-        if (MainGUI.automat.getMontoertilstand() == false){
-            MainGUI.fane.setSelectedIndex(5);
+        if (mg.automat.getMontoertilstand() == false){
+            mg.setTab(5);
         } else {
-            MainGUI.fane.setSelectedIndex(2);
+            mg.setTab(2);
         }
         
-
     }//GEN-LAST:event_guiMontoerActionPerformed
 
     private void guiAfslutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiAfslutActionPerformed
-
-        MenuPanel.clear();
-        MainGUI.fane.setSelectedIndex(0);       
+        mg.afslut();         
     }//GEN-LAST:event_guiAfslutActionPerformed
     
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         try {
-            udprint.nyBillet();
-            udprint.printBilletter();
+            mg.print();
         } catch (IOException ex) {
             Logger.getLogger(BetalingPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
-        MainGUI.fane.setSelectedIndex(3);
+        mg.setTab(3);
         guiTextKurv.setText("");
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         try {
-            udprint.nyBillet();
-            udprint.printBilletter();
+            mg.print();
         } catch (IOException ex) {
             Logger.getLogger(BetalingPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
-        MainGUI.fane.setSelectedIndex(3);
+        mg.setTab(3);
         guiTextKurv.setText("");
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -219,8 +206,8 @@ public class BetalingPanel extends javax.swing.JPanel
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton guiAfslut;
     private javax.swing.JButton guiMontoer;
-    public static javax.swing.JTextArea guiTextKurv;
-    public static javax.swing.JLabel guiTotalLabel;
+    private javax.swing.JTextArea guiTextKurv;
+    private javax.swing.JLabel guiTotalLabel;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;

@@ -10,10 +10,10 @@ public class PrintBillet extends javax.swing.JPanel {
 
     File file = new File("BilletUdprint.txt");
     
-    MainGUI start;
+    MainGUI mg;
     
     public void setup(MainGUI start){
-       this.start = start;
+       this.mg = start;
     }
     
     public void nyBillet(){
@@ -63,6 +63,8 @@ public class PrintBillet extends javax.swing.JPanel {
      */
     public PrintBillet() {
         initComponents();
+        nyBillet();
+        //printBilletter();
     }
 
     /**
@@ -143,8 +145,7 @@ public class PrintBillet extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void guiAfslutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiAfslutActionPerformed
-        MenuPanel.clear();
-        MainGUI.fane.setSelectedIndex(0);
+        mg.afslut();
     }//GEN-LAST:event_guiAfslutActionPerformed
 
 

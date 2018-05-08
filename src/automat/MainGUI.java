@@ -1,5 +1,6 @@
 package automat;
 
+import java.io.IOException;
 import javax.swing.JTabbedPane;
 
 public class MainGUI extends javax.swing.JFrame 
@@ -35,6 +36,17 @@ public class MainGUI extends javax.swing.JFrame
     public void setTab(int tab) {
         fane.setSelectedIndex(tab);
         betalingPanel1.updateIndkoebskurv();
+        menuPanel2.update();
+    }
+    
+    public void afslut(){
+        fane.setSelectedIndex(0);
+        menuPanel2.clear();
+    }
+    
+    public void print() throws IOException{
+        printBillet1.nyBillet();
+        printBillet1.printBilletter();
     }
     
 

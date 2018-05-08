@@ -142,7 +142,7 @@ public class MenuPanel extends javax.swing.JPanel implements ActionListener
 
         guiZoneMinus.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         guiZoneMinus.setText("-");
-        if (mg.automat.beregner.getSlutZone() == 1) {
+        if (mg.automat.beregner.getRejseZoner() <= 1) {
             guiZoneMinus.setEnabled(false);
         }
         guiZoneMinus.addActionListener(new java.awt.event.ActionListener() {
@@ -376,15 +376,15 @@ public class MenuPanel extends javax.swing.JPanel implements ActionListener
 
     private void guiZoneMinusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiZoneMinusActionPerformed
         // TODO add your handling code here:
-        if (mg.automat.beregner.getSlutZone() > 1){
-            int x = mg.automat.beregner.getSlutZone();
-            mg.automat.beregner.setSlutZone(x-1);
+        if (mg.automat.beregner.getRejseZoner() > 1){
+            int x = mg.automat.beregner.getRejseZoner();
+            mg.automat.beregner.setRejseZoner(x-1);
         }
-        antalZoner.setText(" "+ mg.automat.beregner.getSlutZone() + " ");
+        antalZoner.setText(" "+ mg.automat.beregner.getRejseZoner() + " ");
         
-        if (mg.automat.beregner.getSlutZone() == 1) {
+        if (mg.automat.beregner.getRejseZoner() <= 1) {
              guiZoneMinus.setEnabled(false);
-        } else if (mg.automat.beregner.getSlutZone() == 6) {
+        } else if (mg.automat.beregner.getRejseZoner() == 6) {
              guiZonePlus.setEnabled(false);
         } else {
             guiZoneMinus.setEnabled(true);
@@ -393,15 +393,15 @@ public class MenuPanel extends javax.swing.JPanel implements ActionListener
     }//GEN-LAST:event_guiZoneMinusActionPerformed
 
     private void guiZonePlusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiZonePlusActionPerformed
-        if (mg.automat.beregner.getSlutZone() < 6){
-            int x = mg.automat.beregner.getSlutZone();
-            mg.automat.beregner.setSlutZone(x+1);
+        if (mg.automat.beregner.getRejseZoner() < 6){
+            int x = mg.automat.beregner.getRejseZoner();
+            mg.automat.beregner.setRejseZoner(x+1);
         }
-        antalZoner.setText(" "+ mg.automat.beregner.getSlutZone() + " ");
+        antalZoner.setText(" "+ mg.automat.beregner.getRejseZoner() + " ");
         
-        if (mg.automat.beregner.getSlutZone() == 1) {
+        if (mg.automat.beregner.getRejseZoner() == 1) {
              guiZoneMinus.setEnabled(false);
-        } else if (mg.automat.beregner.getSlutZone() == 6) {
+        } else if (mg.automat.beregner.getRejseZoner() == 6) {
              guiZonePlus.setEnabled(false);
         } else {
             guiZoneMinus.setEnabled(true);

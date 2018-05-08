@@ -4,7 +4,7 @@ public class Zoneberegner
 {
     public int automatZone = 1;
     private int destinationZone;
-    private int rejsezoner;
+    private int rejsezoner = 1;
 
     
     // AUTOMATZONE ----------------------------------------------------------------
@@ -34,7 +34,7 @@ public class Zoneberegner
     } // End of getSlutZone
 
     // ZONEBEREGNER ------------------------------------------------------------
-    public int zoneBeregner() {
+    public void zoneBeregner() {
         int rejsezoner = 0;
         int slutZone = getSlutZone();
 
@@ -50,6 +50,5 @@ public class Zoneberegner
         if (slutZone > 6){
             rejsezoner = 6;
         }
-        return rejsezoner;
     }
 }

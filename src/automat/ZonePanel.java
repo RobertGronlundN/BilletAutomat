@@ -2,13 +2,10 @@ package automat;
 
 public class ZonePanel extends javax.swing.JPanel 
 {
-    //Zoneberegner beregner = new Zoneberegner();                          // Oprettelse af ny zoneberegner, beregner
-            
+    MainGUI mg;
     
-    MainGUI start;
-    
-    public void setup(MainGUI start){
-       this.start = start;
+    public void setup(MainGUI mg){
+       this.mg = mg;
     }
     
     /**
@@ -19,7 +16,7 @@ public class ZonePanel extends javax.swing.JPanel
     }
 
     public void update(){
-        guiEgenZone.setText("Du er i zone: " + MainGUI.automat.beregner.getAutomatZone());
+        guiEgenZone.setText("Du er i zone: " + mg.automat.beregner.getAutomatZone());
     }
     
     
@@ -77,7 +74,7 @@ public class ZonePanel extends javax.swing.JPanel
         });
 
         guiEgenZone.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        guiEgenZone.setText("Du er i zone: " + ZonePanel.beregner.getAutomatZone());
+        guiEgenZone.setText("Du er i zone: " + mg.automat.beregner.getAutomatZone());
 
         jLabel2.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jLabel2.setText("Billet til zone : ");
@@ -135,29 +132,25 @@ public class ZonePanel extends javax.swing.JPanel
     }// </editor-fold>//GEN-END:initComponents
 
     private void guiTilbageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiTilbageActionPerformed
-        MainGUI.fane.setSelectedIndex(0);
+        mg.setTab(0);
     }//GEN-LAST:event_guiTilbageActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
-        
-        beregner.setSlutZone(guiZoneValg.getSelectedIndex()+1);
-        MenuPanel.zoner = beregner.zoneBeregner();
-        MenuPanel.antalZoner.setText(" " + MenuPanel.zoner + " ");
-        MainGUI.fane.setSelectedIndex(0);
+        mg.automat.beregner.setSlutZone(guiZoneValg.getSelectedIndex()+1);
+        mg.automat.beregner.zoneBeregner();
+        mg.setTab(0);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void guiMontoerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiMontoerActionPerformed
-        if (MainGUI.automat.getMontoertilstand() == false){
-            MainGUI.fane.setSelectedIndex(5);
+        if (mg.automat.getMontoertilstand() == false){
+            mg.setTab(5);
         } else {
-            MainGUI.fane.setSelectedIndex(2);
+            mg.setTab(2);
         }
     }//GEN-LAST:event_guiMontoerActionPerformed
 
     private void guiAfslutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiAfslutActionPerformed
-        MenuPanel.clear();
-        MainGUI.fane.setSelectedIndex(0);
+        mg.afslut();
     }//GEN-LAST:event_guiAfslutActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
