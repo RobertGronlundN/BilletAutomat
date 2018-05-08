@@ -156,22 +156,22 @@ public class MontoerPanel extends javax.swing.JPanel
     }// </editor-fold>//GEN-END:initComponents
 
     private void guiMontoerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiMontoerActionPerformed
-        mg.automat.setMontoertilstand(false);                            // Sætter montoertilsantd FALSE
+        mg.automat.setMontoertilstand(false);                                   // Sætter montoertilsantd FALSE
         try {
             mg.automat.nyLogEvent(2, 0, "Admin", 0);
         } catch (IOException ex) {
             Logger.getLogger(MontoerPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        mg.setTab(0);                                    // Omddirigerer tilbage til startfanen
+        mg.setTab(0);                                                           // Omddirigerer tilbage til startfanen
     }//GEN-LAST:event_guiMontoerActionPerformed
 
     private void guiAfslutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiAfslutActionPerformed
-        mg.afslut();                                   // Omdirigerer tilbage til startfane
+        mg.afslut();                                                            // Omdirigerer tilbage til startfane
     }//GEN-LAST:event_guiAfslutActionPerformed
 
     private void guiZoneSaetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guiZoneSaetActionPerformed
-        mg.automat.beregner.setAutomatZone(guiZoneVaelger.getSelectedIndex()+1);  // Kalder funktionen setAutomatZone, ændrer denne værdi til ønsket lokation
+        mg.automat.beregner.setAutomatZone(guiZoneVaelger.getSelectedIndex()+1);// Kalder funktionen setAutomatZone, ændrer denne værdi til ønsket lokation
         guiZoneSted.setText("Billetautomat er i zone: " + mg.automat.beregner.getAutomatZone() + " ");
     }//GEN-LAST:event_guiZoneSaetActionPerformed
 

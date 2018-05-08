@@ -16,7 +16,7 @@ public class LoginPanel extends javax.swing.JPanel                              
     String kode = "";                                                           // Opretter panelet med en tom string som kode.
     
     private void updatePassword(char input){                                    // Funktion til updatering af fane
-        fejlMeddelse.setVisible(false);                                              // jLabels synlighed, sættes falsk som standard
+        fejlMeddelse.setVisible(false);                                         // jLabels synlighed, sættes falsk som standard
         kode += input;                                                          // input parameter lægges til kode string
         
         if (input == 'Q'){                                                      // Vis ¤ overføres som parameter
@@ -299,17 +299,17 @@ public class LoginPanel extends javax.swing.JPanel                              
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
         
-        mg.automat.montoerLogin(kode);                                   // Tjekker om kode er korrekt
+        mg.automat.montoerLogin(kode);                                          // Tjekker om kode er korrekt
         
-        if (mg.automat.getMontoertilstand() == true){                    // Hvis kode accepteres
+        if (mg.automat.getMontoertilstand() == true){                           // Hvis kode accepteres
             
             try {   
-                mg.automat.nyLogEvent(1, 0, "Admin", 0);                    // Skriver til log
+                mg.automat.nyLogEvent(1, 0, "Admin", 0);                        // Skriver til log
             } catch (IOException ex) {
                 Logger.getLogger(LoginPanel.class.getName()).log(Level.SEVERE, null, ex);
             }
             
-            mg.setTab(2);                                // Fane aendres til montoerens fane
+            mg.setTab(2);                                                       // Fane aendres til montoerens fane
             updatePassword('Q');                                                // Kalder update funktion med parameter ¤, nulstiller kode indtastning            
         } else {
             
@@ -320,7 +320,7 @@ public class LoginPanel extends javax.swing.JPanel                              
             }
             
             updatePassword('Q');                                                // Kalder update funktion med parameter ¤, nulstil
-            fejlMeddelse.setVisible(true);                                           // Viser "fejl i kode" felt     
+            fejlMeddelse.setVisible(true);                                      // Viser "fejl i kode" felt     
         }
     }//GEN-LAST:event_jButton12ActionPerformed
 

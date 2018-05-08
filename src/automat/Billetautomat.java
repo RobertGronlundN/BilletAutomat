@@ -27,7 +27,7 @@ public class Billetautomat                                                      
     File printBilletFil = new File("BilletUdprint.txt");
     File logFil = new File("MontoerLog.txt");
     
-    ArrayList<LogEvent> automatLog = new ArrayList<>();                           // Oprettelse af ArrayList til automatlog
+    ArrayList<LogEvent> automatLog = new ArrayList<>();                         // Oprettelse af ArrayList til automatlog
     ArrayList<Billettype> billetType = new ArrayList<>();                       // Oprettelse af ArrayList til Billettype
     ArrayList<Kurv> kurv = new ArrayList<>();                                   // Oprettelse af ArrayList til kurv af billetter
 
@@ -134,7 +134,7 @@ public class Billetautomat                                                      
         antal = x;
     } // End of set automatzone
     public int getAntal() {
-        return antal;                                                     // Returnerer zone for automats placering
+        return antal;                                                           // Returnerer zone for automats placering
     } // End of set automatzone    
     
     
