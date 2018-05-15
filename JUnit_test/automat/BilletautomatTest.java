@@ -178,20 +178,4 @@ public class BilletautomatTest extends TestCase {
         int result = instance.getAutomatZone();
         assertEquals(expResult, result);
     }
-
-    /**
-     * Test of nulstil method, of class Billetautomat.
-     */
-    public void testNulstil() {
-        System.out.println("nulstil");
-        Billetautomat instance = new Billetautomat();
-        instance.tilfoejBillet(1, 2, 3);
-        instance.tilfoejBillet(4, 3, 3);
-        int result1 = instance.kurv.size();
-        assertEquals(result1, 2);
-        instance.setMontoertilstand(true);
-        instance.nulstil();
-        int result2 = instance.kurv.size();
-        assertEquals(result2, 0);
-    }
 }

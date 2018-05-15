@@ -1,0 +1,13 @@
+Tue May 15 14:59:53 CEST 2018: Købt: 3.0	 ; Barn            	 ; 3 zoner.
+Tue May 15 14:59:53 CEST 2018: Købt: 4.0	 ; Barn            	 ; 3 zoner.
+Tue May 15 14:59:53 CEST 2018: Total på køb 126.0.
+Total billetter solgt: 7.
+Tue May 15 14:59:59 CEST 2018: Montoeren Admin har udført succefuld login.
+Tue May 15 15:00:22 CEST 2018: Montoeren Admin har logget ud.
+Tue May 15 15:02:50 CEST 2018: Købt: 2.0	 ; Voksen        	 ; 3 zoner.
+Tue May 15 15:02:50 CEST 2018: Købt: 2.0	 ; Barn            	 ; 3 zoner.
+Tue May 15 15:02:50 CEST 2018: Total på køb 108.0.
+Total billetter solgt: 11.
+Tue May 15 15:03:23 CEST 2018: Montoeren Ukendt har forsøgt at logge ind.
+Tue May 15 15:03:30 CEST 2018: Montoeren Admin har udført succefuld login.
+Tue May 15 15:04:37 CEST 2018: Montoeren Admin har logget ud.

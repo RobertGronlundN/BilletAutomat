@@ -45,7 +45,7 @@ public class MainGUI extends javax.swing.JFrame
     }
     
     public void print() throws IOException{
-        //printBillet1.sletFil();
+        printBillet1.sletFil();
         printBillet1.printBilletter();
     }
     
